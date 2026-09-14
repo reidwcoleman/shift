@@ -332,6 +332,195 @@ DESIGNS = {
     "06_hazard_back_white": (lambda: hazard_back(WHITE, SIGNAL), BACK),
 }
 
+# ================================================================ V2 — illustration-led lineup
+import random
+import art as ART
+
+
+def logotype(x, y, height, fill=INK):
+    """SHIFT with the I replaced by the ⇧ mark. Centred at x, baseline y."""
+    f = Font.get("Anton")
+    size = height / f.cap_height(1.0)
+    w1 = f.width("SH", size, -0.01); w2 = f.width("FT", size, -0.01)
+    aw = height * 0.62; gap = height * 0.06
+    total = w1 + gap + aw + gap + w2
+    left = x - total / 2
+    out = [text("Anton", "SH", size, left, y, fill, anchor="start", tracking=-0.01),
+           shift_mark(left + w1 + gap, y - height, aw, fill),
+           text("Anton", "FT", size, left + w1 + gap + aw + gap, y, fill, anchor="start", tracking=-0.01)]
+    return "".join(out)
+
+
+def art_centered(name, cx, top, width, fill):
+    snip, w, h = ART.place(name, cx - width / 2, top, width, fill)
+    return snip, h
+
+
+def splatter(w, h, fill, seed=3, n=140, avoid=None):
+    rnd = random.Random(seed)
+    out = []
+    for _ in range(n):
+        x, y = rnd.uniform(0, w), rnd.uniform(0, h)
+        r = rnd.choice([4, 5, 6, 8, 10, 12, 16, 22, 30, 40]) * rnd.uniform(0.6, 1.3)
+        if rnd.random() < 0.25:
+            out.append(f'<ellipse cx="{x:.0f}" cy="{y:.0f}" rx="{r:.0f}" ry="{r*rnd.uniform(1.6,3):.0f}" transform="rotate({rnd.uniform(0,180):.0f} {x:.0f} {y:.0f})" fill="{fill}"/>')
+        else:
+            out.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.0f}" fill="{fill}"/>')
+        if rnd.random() < 0.3:  # trailing drips
+            for k in range(rnd.randint(2, 6)):
+                out.append(f'<circle cx="{x + rnd.uniform(-60,60):.0f}" cy="{y + rnd.uniform(-60,60):.0f}" r="{rnd.uniform(2,6):.0f}" fill="{fill}"/>')
+    return "".join(out)
+
+
+# 1. INNER PEACE TEE (Hellstar sun tee) — black tee, white ink
+def v2_sun_front(ink, accent):
+    w, h = FRONT
+    b = [text("Bebas Neue", "REACH YOUR NEXT SHIFT", 150, w / 2, 330, ink, tracking=0.45)]
+    snip, ah = art_centered("sunclock", w / 2, 430, 2750, ink)
+    b.append(snip)
+    y = 430 + ah + 520
+    b.append(logotype(w / 2, y, 640, ink))
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION", 130, w / 2, y + 230, ink, tracking=0.5))
+    return svg_doc(w, h, "".join(b))
+
+
+def v2_neck_back(ink):
+    """Small upper-back hit: 3in logotype + line."""
+    w, h = (4 * IN, 2 * IN)
+    return svg_doc(w, h, logotype(w / 2, 330, 220, ink) + text("Bebas Neue", "EST. 2026  •  11:59 PM", 80, w / 2, 470, ink, tracking=0.3))
+
+
+def sleeve_mark(ink):
+    w, h = (2 * IN, 2 * IN)
+    return svg_doc(w, h, shift_mark(80, 80, 440, ink))
+
+
+# 2. CHERUB TEE (Hellstar angels) — bone tee, black ink
+def v2_cherub_front(ink, accent):
+    w, h = FRONT
+    b = []
+    snip, ah = art_centered("cherubs", w / 2, 150, 2500, ink)
+    b.append(snip)
+    y = 150 + ah + 420
+    b.append(text("UnifrakturCook", "Shift", 620, w / 2, y, ink))
+    b.append(text("Bebas Neue", "HEAVEN CAN WAIT  —  CLOCK IN", 120, w / 2, y + 200, ink, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+# 3. WINGS TEE — black tee, white ink, full back
+def v2_wings_back(ink, accent):
+    w, h = BACK
+    b = [arc_text("Pirata One", "SHIFT WORLDWIDE", 500, w / 2, 3000, 2450, ink, tracking=0.04)]
+    snip, ah = art_centered("wings", w / 2, 1300, 3300, ink)
+    b.append(snip)
+    y = 1300 + ah + 340
+    b.append(text("Bebas Neue", "GUARDIANS OF THE NIGHT SHIFT", 190, w / 2, y, ink, tracking=0.35))
+    b.append(text("Bebas Neue", "11:59 PM  —  FOREVER", 120, w / 2, y + 220, accent, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+# 4. PRAYING HANDS HOODIE — black hoodie, white ink + signal
+def v2_hands_front(ink, accent):
+    w, h = HOOD_FRONT
+    b = []
+    snip, ah = art_centered("hands", w / 2, 120, 2200, ink)
+    b.append(snip)
+    y = 120 + ah + 120
+    b.append(arc_text("Bebas Neue", "PRAY FOR OVERTIME", 300, w / 2, y - 1900, 2250, ink, tracking=0.25, bottom=True))
+    b.append(logotype(w / 2, y + 560, 260, accent))
+    return svg_doc(w, h, "".join(b))
+
+
+def v2_factory_back(ink, accent):
+    w, h = BACK
+    b = []
+    snip, ah = art_centered("factory", w / 2, 500, 2600, ink)
+    b.append(snip)
+    y = 500 + ah + 480
+    s = fit_size("Anton", "NIGHT SHIFT", w - 700, 0.0)
+    b.append(text("Anton", "NIGHT SHIFT", s, w / 2, y, ink))
+    b.append(text("Bebas Neue", "DIVISION  •  SHIFT WORLDWIDE  •  EST. 2026", 135, w / 2, y + 240, accent, tracking=0.22))
+    return svg_doc(w, h, "".join(b))
+
+
+# 5. WEB HOODIE (Sp5der) — forest green hoodie, white puff + signal splatter
+def v2_web_front(ink, accent):
+    w, h = HOOD_FRONT
+    b = [splatter(w, h, accent, seed=7, n=110), splatter(w, h, ink, seed=11, n=70)]
+    puff = f'stroke="{ink}" stroke-width="26" stroke-linejoin="round" paint-order="stroke"'
+    b.append(arc_text("Rubik Mono One", "SHIFT", 720, w / 2, 3350, 2600, ink, tracking=0.05, extra=puff))
+    b.append(text("Rubik Mono One", "WORLDWIDE", 240, w / 2, 2300, ink, tracking=0.2, extra=f'stroke="{ink}" stroke-width="12" stroke-linejoin="round" paint-order="stroke"'))
+    b.append(shift_mark(w / 2 - 170, 2500, 340, accent))
+    return svg_doc(w, h, "".join(b))
+
+
+def v2_web_back(ink, accent):
+    w, h = BACK
+    b = [splatter(w, h, accent, seed=21, n=90), splatter(w, h, ink, seed=22, n=60)]
+    snip, ah = art_centered("clockweb", w / 2, 350, 3300, ink)
+    b.append(snip)
+    y = 350 + ah + 480
+    b.append(text("Rubik Mono One", "CAUGHT UP", fit_size("Rubik Mono One", "CAUGHT UP", w - 500), w / 2, y, ink, extra=f'stroke="{ink}" stroke-width="20" stroke-linejoin="round" paint-order="stroke"'))
+    b.append(text("Bebas Neue", "IN THE NIGHT SHIFT", 190, w / 2, y + 250, accent, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+def hood_star(ink):
+    w, h = (2.5 * IN, 2.5 * IN)
+    pts = []
+    for i in range(10):
+        r = 340 if i % 2 == 0 else 140
+        a = math.radians(i * 36 - 90)
+        pts.append(f"{w/2 + r*math.cos(a):.1f},{h/2 + r*math.sin(a):.1f}")
+    return svg_doc(w, h, f'<polygon points="{" ".join(pts)}" fill="{ink}" stroke="{ink}" stroke-width="30" stroke-linejoin="round"/>')
+
+
+# 6. SKELETON GEAR TEE (Manual Only v2) — white tee, black ink + signal
+def v2_skeleton_front(ink, accent):
+    w, h = FRONT
+    s = fit_size("Anton", "MANUAL ONLY", w - 500, 0.02)
+    b = [text("Anton", "MANUAL ONLY", s, w / 2, 560, ink, tracking=0.02)]
+    snip, ah = art_centered("skeleton", w / 2, 700, 2300, ink)
+    b.append(snip)
+    y = 700 + ah + 460
+    b.append(text("Anton", "NO REVERSE.", fit_size("Anton", "NO REVERSE.", w - 1100), w / 2, y, accent))
+    b.append(text("Bebas Neue", "SHIFT WORLDWIDE  —  NIGHT SHIFT DIVISION", 130, w / 2, y + 220, ink, tracking=0.35))
+    return svg_doc(w, h, "".join(b))
+
+
+# 7. MOTH LONGSLEEVE / TEE back — black, white ink
+def v2_moth_back(ink, accent):
+    w, h = BACK
+    b = [text("Bebas Neue", "DRAWN TO THE LIGHT", 260, w / 2, 700, ink, tracking=0.4)]
+    snip, ah = art_centered("moth", w / 2, 850, 3300, ink)
+    b.append(snip)
+    y = 850 + ah + 520
+    b.append(logotype(w / 2, y, 700, ink))
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  11:59 PM", 140, w / 2, y + 240, accent, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+DESIGNS_V2 = {
+    "10_sun_front_white": (lambda: v2_sun_front(WHITE, SIGNAL), FRONT),
+    "10_neck_back_white": (lambda: v2_neck_back(WHITE), (4 * IN, 2 * IN)),
+    "11_cherub_front_ink": (lambda: v2_cherub_front(INK, SIGNAL), FRONT),
+    "11_neck_back_ink": (lambda: v2_neck_back(INK), (4 * IN, 2 * IN)),
+    "12_wings_back_white": (lambda: v2_wings_back(WHITE, SIGNAL), BACK),
+    "12_core_chest_white": (lambda: core_chest(WHITE), CHEST),
+    "13_hands_front_white": (lambda: v2_hands_front(WHITE, SIGNAL), HOOD_FRONT),
+    "13_factory_back_white": (lambda: v2_factory_back(WHITE, SIGNAL), BACK),
+    "14_web_front_white": (lambda: v2_web_front(WHITE, SIGNAL), HOOD_FRONT),
+    "14_web_back_white": (lambda: v2_web_back(WHITE, SIGNAL), BACK),
+    "14_hood_star_white": (lambda: hood_star(WHITE), (2.5 * IN, 2.5 * IN)),
+    "15_skeleton_front_ink": (lambda: v2_skeleton_front(INK, SIGNAL), FRONT),
+    "16_moth_back_white": (lambda: v2_moth_back(WHITE, SIGNAL), BACK),
+    "16_core_chest_white": (lambda: core_chest(WHITE), CHEST),
+    "sleeve_mark_white": (lambda: sleeve_mark(WHITE), (2 * IN, 2 * IN)),
+    "sleeve_mark_ink": (lambda: sleeve_mark(INK), (2 * IN, 2 * IN)),
+}
+DESIGNS.update(DESIGNS_V2)
+
+
 if __name__ == "__main__":
     only = sys.argv[1:]
     print("Building SHIFT print files…")

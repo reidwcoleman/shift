@@ -23,6 +23,7 @@ GARMENT_COLORS = {
     "washed": ("#2f2f33", "#45454a", "#1f1f22"),
     "bone": ("#E9E2CF", "#F4EFE1", "#D3CBB5"),
     "white": ("#F1F1F1", "#FFFFFF", "#D9D9D9"),
+    "forest": ("#1E3628", "#2C4A38", "#12241A"),
 }
 
 TEE_FRONT = ("M 720,330 C 740,470 1260,470 1280,330 L 1560,380 L 1800,790 L 1530,900 L 1480,760 "
@@ -120,18 +121,24 @@ def print_image(name, cx, top, width_in, height_in):
 
 PRODUCTS = [
     # key, title, garment, color, price, [(view, print name, cx, top, w_in, h_in)]
-    ("core_tee", "Core Logo Tee", "tee", "black", 42,
-     [("front", "01_core_chest_white", 1000 + 3.6 * PPI, 600, 4, 4), ("back", "01_core_back_white", 1000, 480, 13, 16)]),
-    ("nightshift_tee", "Night Shift Tee", "tee", "washed", 45,
-     [("front", "02_nightshift_chest_white", 1000 + 3.6 * PPI, 600, 4, 4), ("back", "02_nightshift_back_white", 1000, 480, 13, 16)]),
-    ("happens_hoodie", "Shift Happens Hoodie", "hoodie", "bone", 85,
-     [("front", "03_happens_front_ink", 1000, 600, 11, 12), ("back", "03_happens_back_ink", 1000, 500, 13, 16)]),
-    ("gearshift_tee", "Manual Only Tee", "tee", "white", 42,
-     [("front", "04_gearshift_front_ink", 1000, 540, 12, 14), ("back", None, 0, 0, 0, 0)]),
+    ("sun_tee", "Inner Peace Tee", "tee", "black", 48,
+     [("front", "10_sun_front_white", 1000, 540, 12, 14), ("back", "10_neck_back_white", 1000, 400, 4, 2)]),
+    ("cherub_tee", "Cherub Tee", "tee", "bone", 48,
+     [("front", "11_cherub_front_ink", 1000, 540, 12, 14), ("back", "11_neck_back_ink", 1000, 400, 4, 2)]),
+    ("wings_tee", "Guardian Tee", "tee", "black", 48,
+     [("front", "12_core_chest_white", 1000 + 3.6 * PPI, 600, 4, 4), ("back", "12_wings_back_white", 1000, 480, 13, 16)]),
+    ("hands_hoodie", "Overtime Hoodie", "hoodie", "black", 98,
+     [("front", "13_hands_front_white", 1000, 600, 11, 12), ("back", "13_factory_back_white", 1000, 500, 13, 16)]),
+    ("web_hoodie", "Caught Up Hoodie", "hoodie", "forest", 98,
+     [("front", "14_web_front_white", 1000, 600, 11, 12), ("back", "14_web_back_white", 1000, 500, 13, 16)]),
+    ("skeleton_tee", "Manual Only Tee", "tee", "white", 45,
+     [("front", "15_skeleton_front_ink", 1000, 540, 12, 14), ("back", None, 0, 0, 0, 0)]),
+    ("hazard_hoodie", "Hazard Hoodie", "hoodie", "black", 98,
+     [("front", "06_hazard_badge_white", 1000, 620, 5, 5), ("back", "06_hazard_back_white", 1000, 500, 13, 16)]),
     ("timecard_tee", "Time Card Tee", "tee", "black", 45,
      [("front", "05_timecard_chest_white", 1000 + 3.6 * PPI, 600, 4, 4), ("back", "05_timecard_back_white", 1000, 480, 13, 16)]),
-    ("hazard_hoodie", "Hazard Hoodie", "hoodie", "black", 90,
-     [("front", "06_hazard_badge_white", 1000, 620, 5, 5), ("back", "06_hazard_back_white", 1000, 500, 13, 16)]),
+    ("moth_tee", "Drawn To The Light Tee", "tee", "black", 48,
+     [("front", "16_core_chest_white", 1000 + 3.6 * PPI, 600, 4, 4), ("back", "16_moth_back_white", 1000, 480, 13, 16)]),
 ]
 
 
