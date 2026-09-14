@@ -46,8 +46,8 @@ Start with A. Switch to B for Drop 002 once you know which pieces sell.
 
 ## 2. Storefront
 
-- `site/` is a finished landing + waitlist page. Deploy it on GitHub Pages (already set up) or drop it into Shopify as the "coming soon" page.
-- To collect emails: make a free form at formspree.io, paste the ID into `FORM_ENDPOINT` in `site/index.html`. Set `DROP_AT` to your drop date.
+- `docs/` is a finished landing + waitlist page. Deploy it on GitHub Pages (already set up) or drop it into Shopify as the "coming soon" page.
+- To collect emails: make a free form at formspree.io, paste the ID into `FORM_ENDPOINT` in `docs/index.html`. Set `DROP_AT` to your drop date.
 - When you're ready to take money: **Shopify Starter ($5/mo)** + Printful. Put each product's Shopify URL in the `PRODUCTS` array `url` field and the "NOTIFY ME" buttons become "BUY" buttons.
 - Use the mockups in `mockups/` as product images until you have real photos. **Real photos of real people wearing it beat everything** — see §4.
 
@@ -114,7 +114,7 @@ brand/        logos (svg+png), avatar, palette
 designs/src/  vector print files, text outlined — send these to printers
 designs/print/ 300 DPI transparent PNGs — upload these to Printful/Printify
 mockups/      product mockups + lookbook.png
-site/         landing page + waitlist (GitHub Pages ready)
+docs/         landing page + waitlist (GitHub Pages ready)
 tools/        build_designs.py / build_mockups.py — regenerate everything after edits
 ```
 

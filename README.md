@@ -7,7 +7,7 @@ Bold graphic streetwear brand — *Night Shift Division*. Everything here is gen
 - `designs/src/` — vector print files (all text outlined). Send to screen printers.
 - `designs/print/` — 300 DPI transparent PNGs. Upload to Printful / Printify.
 - `mockups/` — garment mockups + `lookbook.png`.
-- `site/` — landing page + waitlist (static; GitHub Pages).
+- `docs/` — landing page + waitlist (static; GitHub Pages).
 
 ```
 python3 -m venv .venv && .venv/bin/pip install pillow fonttools   # once
