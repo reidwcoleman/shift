@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHIFT — Drop 001: Clock In</title>
+<meta name="description" content="SHIFT Worldwide. Night Shift Division. Drop 001 — six pieces, 48 hours, then it's gone.">
+<meta property="og:title" content="SHIFT — Drop 001: Clock In">
+<meta property="og:description" content="Six pieces. 48 hours. No reverse.">
+<meta property="og:image" content="assets/hazard_hoodie_back.png">
+<link rel="icon" href="assets/mark_white.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0B; --ink2:#141414; --bone:#EDE6D6; --signal:#FF3B1F; --concrete:#9A9A93; --line:#262626;
+    --anton:'Anton', Impact, sans-serif; --bebas:'Bebas Neue', Impact, sans-serif; --inter:'Inter', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--inter);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(11,11,11,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--anton);font-size:28px;letter-spacing:.5px}
+  .logo img{height:26px}
+  .nav-r{display:flex;align-items:center;gap:22px;font-family:var(--bebas);font-size:18px;letter-spacing:.14em}
+  .nav-r .tag{color:var(--signal)}
+  .btn{display:inline-block;background:var(--bone);color:var(--ink);font-family:var(--bebas);font-size:20px;letter-spacing:.14em;padding:14px 26px;border:0;cursor:pointer;transition:transform .12s ease}
+  .btn:hover{transform:translateY(-2px)} .btn.signal{background:var(--signal);color:#fff}
+  .btn.ghost{background:transparent;color:var(--bone);border:1px solid var(--bone)}
+  /* hero */
+  .hero{padding:72px 0 40px;position:relative;overflow:hidden}
+  .hero h1{font-family:var(--anton);font-size:clamp(88px,19vw,260px);line-height:.86;margin:0;letter-spacing:-.01em}
+  .hero h1 span{color:var(--signal)}
+  .hero .sub{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;justify-content:space-between;margin-top:28px}
+  .hero p{max-width:520px;font-size:17px;line-height:1.5;color:#cfc9ba;margin:0}
+  .count{display:flex;gap:18px}
+  .count div{text-align:center}
+  .count b{display:block;font-family:var(--anton);font-size:56px;line-height:1}
+  .count small{font-family:var(--bebas);letter-spacing:.2em;color:var(--concrete);font-size:14px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--signal);color:var(--ink)}
+  .marquee div{display:inline-block;padding:12px 0;font-family:var(--bebas);font-size:22px;letter-spacing:.2em;animation:m 22s linear infinite}
+  .marquee span{margin:0 28px}
+  @keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* look strip */
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:10px 0}
+  .strip img{aspect-ratio:1;object-fit:contain;background:#b8b4ac}
+  /* section heads */
+  .sec{padding:70px 0 30px}
+  .sec h2{font-family:var(--anton);font-size:clamp(44px,7vw,84px);line-height:.95;margin:0 0 8px}
+  .sec .kicker{font-family:var(--bebas);letter-spacing:.25em;color:var(--signal);font-size:18px;margin-bottom:12px}
+  .sec p.lead{color:#cfc9ba;max-width:640px;font-size:17px;line-height:1.55}
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:40px}
+  .card{background:var(--ink2);border:1px solid var(--line);position:relative;overflow:hidden}
+  .card .img{position:relative;aspect-ratio:1;background:#b8b4ac;cursor:pointer}
+  .card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .25s}
+  .card .img img.back{opacity:0}
+  .card .img:hover img.back,.card .img.flip img.back{opacity:1}
+  .card .img .hint{position:absolute;right:10px;bottom:10px;font-family:var(--bebas);letter-spacing:.15em;font-size:13px;background:rgba(0,0,0,.65);padding:5px 9px}
+  .card .meta{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-top:1px solid var(--line)}
+  .card h3{margin:0;font-family:var(--bebas);font-size:24px;letter-spacing:.08em}
+  .card .price{font-family:var(--anton);font-size:22px}
+  .card .desc{padding:0 16px 14px;color:var(--concrete);font-size:13px;line-height:1.45}
+  .card .buy{display:block;text-align:center;padding:14px;font-family:var(--bebas);letter-spacing:.18em;font-size:18px;border-top:1px solid var(--line);color:var(--bone)}
+  .card .buy:hover{background:var(--signal);color:#fff}
+  .card .badge{position:absolute;top:12px;left:12px;background:var(--signal);color:#fff;font-family:var(--bebas);letter-spacing:.15em;font-size:13px;padding:5px 9px;z-index:2}
+  /* story */
+  .story{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:20px 0 70px}
+  .story blockquote{margin:0;font-family:var(--bebas);font-size:clamp(34px,4.6vw,56px);line-height:1.02;letter-spacing:.02em}
+  .story blockquote em{color:var(--signal);font-style:normal}
+  .story p{color:#cfc9ba;line-height:1.6;font-size:16px}
+  .rules{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+  .rules li{border:1px solid var(--line);padding:14px 16px;font-family:var(--bebas);letter-spacing:.12em;font-size:20px;display:flex;justify-content:space-between}
+  .rules li span{color:var(--signal)}
+  /* waitlist */
+  .wait{background:var(--bone);color:var(--ink);padding:70px 0}
+  .wait h2{font-family:var(--anton);font-size:clamp(48px,8vw,110px);line-height:.9;margin:0 0 14px}
+  .wait p{max-width:560px;font-size:17px;line-height:1.5;margin:0 0 26px}
+  form.wl{display:flex;gap:10px;max-width:560px;flex-wrap:wrap}
+  form.wl input{flex:1;min-width:220px;padding:16px 18px;border:2px solid var(--ink);background:#fff;font-family:var(--inter);font-size:16px}
+  form.wl .btn{background:var(--ink);color:var(--bone)}
+  .msg{font-family:var(--bebas);letter-spacing:.14em;margin-top:12px;font-size:18px;min-height:22px}
+  footer{padding:40px 0;border-top:1px solid var(--line);color:var(--concrete);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+  footer .h{font-family:var(--bebas);letter-spacing:.2em;font-size:16px;color:var(--bone)}
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2,1fr)} .story{grid-template-columns:1fr} .nav-r .hide{display:none}
+    .strip{grid-template-columns:repeat(3,1fr)} .count b{font-size:44px}
+  }
+  @media (max-width:520px){ .grid{grid-template-columns:1fr} .hero{padding-top:48px} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><img src="assets/mark_white.svg" alt="">SHIFT</a>
+    <div class="nav-r">
+      <span class="tag hide">DROP 001 — CLOCK IN</span>
+      <a class="hide" href="#drop">THE DROP</a>
+      <a class="hide" href="#story">STORY</a>
+      <a class="btn" href="#list" style="padding:10px 18px;font-size:17px">GET ACCESS</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>CLOCK<br>IN<span>.</span></h1>
+    <div class="sub">
+      <p>SHIFT is for the ones building something after everyone else went home. Drop 001 is six pieces. It opens at 11:59 PM, stays open 48 hours, and never restocks.</p>
+      <div class="count" id="count">
+        <div><b id="d">00</b><small>DAYS</small></div>
+        <div><b id="h">00</b><small>HRS</small></div>
+        <div><b id="m">00</b><small>MIN</small></div>
+        <div><b id="s">00</b><small>SEC</small></div>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="btn signal" href="#list">GET EARLY ACCESS</a>
+      <a class="btn ghost" href="#drop">SEE THE PIECES</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><div>
+  <span>NO REVERSE</span>•<span>CLOCK IN 11:59 PM</span>•<span>CLOCK OUT NEVER</span>•<span>NIGHT SHIFT DIVISION</span>•<span>SHIFT WORLDWIDE</span>•<span>DROP 001</span>•
+  <span>NO REVERSE</span>•<span>CLOCK IN 11:59 PM</span>•<span>CLOCK OUT NEVER</span>•<span>NIGHT SHIFT DIVISION</span>•<span>SHIFT WORLDWIDE</span>•<span>DROP 001</span>•
+</div></div>
+
+<div class="wrap strip">
+  <img src="assets/hazard_hoodie_back.png" alt="Hazard Hoodie back print">
+  <img src="assets/nightshift_tee_back.png" alt="Night Shift Tee back print">
+  <img src="assets/timecard_tee_back.png" alt="Time Card Tee back print">
+</div>
+
+<section class="wrap sec" id="drop">
+  <div class="kicker">DROP 001 — SIX PIECES</div>
+  <h2>THE PIECES.</h2>
+  <p class="lead">Heavyweight 260gsm cotton, boxy cut, dropped shoulders. Printed in small runs. Tap a piece to flip it.</p>
+</section>
+
+<div class="wrap grid" id="grid"></div>
+
+<section class="wrap sec" id="story">
+  <div class="kicker">THE STORY</div>
+  <h2>NIGHT SHIFT DIVISION.</h2>
+</section>
+<div class="wrap story">
+  <div>
+    <blockquote>Nobody claps for the hours between midnight and 5. <em>That's the shift.</em> Wake. Work. Win. Repeat. No reverse.</blockquote>
+  </div>
+  <div>
+    <p>SHIFT started as a joke between friends pulling all-nighters: "you're on the night shift." Then it stopped being a joke. Every drop is a punch card — a small run, a hard close, and then it's gone. If you own it, you were there.</p>
+    <ul class="rules">
+      <li>DROP WINDOW <span>48 HOURS</span></li>
+      <li>RESTOCKS <span>NEVER</span></li>
+      <li>PIECES PER DROP <span>6</span></li>
+      <li>REVERSE <span>NO</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="wait" id="list">
+  <div class="wrap">
+    <h2>GET ON<br>THE LIST.</h2>
+    <p>The list gets the link 1 hour before everyone else. Sizes run out in the first hour. Do the math.</p>
+    <form class="wl" id="wl">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button class="btn" type="submit">CLOCK IN</button>
+    </form>
+    <div class="msg" id="msg"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="h">SHIFT WORLDWIDE — EST. 2026</div>
+    <div><a href="https://instagram.com/shift.worldwide">@shift.worldwide</a> &nbsp;·&nbsp; <a href="mailto:hello@shiftworld.co">hello@shiftworld.co</a></div>
+  </div>
+</footer>
+
+<script>
+  // ---- CONFIG: edit these three things ----
+  const DROP_AT = "2026-10-09T23:59:00";                // local time the drop opens
+  const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // free at formspree.io — replace YOUR_FORM_ID
+  const PRODUCTS = [
+    {key:"hazard_hoodie", name:"HAZARD HOODIE", price:90, badge:"HERO", desc:"Black heavyweight hoodie. Round Night Shift Division badge on the chest, hazard band across the shoulders, DO NOT CROSS down the back.", url:"#list"},
+    {key:"nightshift_tee", name:"NIGHT SHIFT TEE", price:45, badge:"", desc:"Washed black tee. Gothic Night Shift arc over a punch clock stuck at 11:59. Clock in 11:59 PM, clock out never.", url:"#list"},
+    {key:"timecard_tee", name:"TIME CARD TEE", price:45, badge:"", desc:"Black tee. Full-back employee time card: every day in at 11:59 PM, out — never. Stamped LATE twice. Approved anyway.", url:"#list"},
+    {key:"happens_hoodie", name:"SHIFT HAPPENS HOODIE", price:85, badge:"", desc:"Bone heavyweight hoodie. Shift Happens across the chest, giant hazard-striped arrow on the back. Caution: change in progress.", url:"#list"},
+    {key:"gearshift_tee", name:"MANUAL ONLY TEE", price:42, badge:"", desc:"White tee. Six-speed gate diagram: Wake, Work, Win, Repeat, Shift. Reverse is crossed out.", url:"#list"},
+    {key:"core_tee", name:"CORE LOGO TEE", price:42, badge:"", desc:"Black tee. Small chest lockup, oversized SHIFT WORLDWIDE on the back. The one you wear every day.", url:"#list"},
+  ];
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = PRODUCTS.map(p => `
+    <article class="card">
+      ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+      <div class="img" onclick="this.classList.toggle('flip')">
+        <img src="assets/${p.key}_front.png" alt="${p.name} front">
+        <img class="back" src="assets/${p.key}_back.png" alt="${p.name} back">
+        <span class="hint">TAP TO FLIP</span>
+      </div>
+      <div class="meta"><h3>${p.name}</h3><span class="price">$${p.price}</span></div>
+      <div class="desc">${p.desc}</div>
+      <a class="buy" href="${p.url}">NOTIFY ME</a>
+    </article>`).join("");
+
+  // countdown
+  const t = new Date(DROP_AT).getTime();
+  const pad = n => String(Math.max(0, n)).padStart(2, "0");
+  function tick(){
+    const diff = t - Date.now();
+    if (diff <= 0){ document.getElementById("count").innerHTML = '<div><b style="color:var(--signal)">LIVE</b><small>DROP 001</small></div>'; return; }
+    document.getElementById("d").textContent = pad(Math.floor(diff/864e5));
+    document.getElementById("h").textContent = pad(Math.floor(diff/36e5)%24);
+    document.getElementById("m").textContent = pad(Math.floor(diff/6e4)%60);
+    document.getElementById("s").textContent = pad(Math.floor(diff/1e3)%60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // waitlist
+  document.getElementById("wl").addEventListener("submit", async e => {
+    e.preventDefault();
+    const msg = document.getElementById("msg");
+    const fd = new FormData(e.target);
+    msg.textContent = "CLOCKING IN…";
+    try{
+      if (FORM_ENDPOINT.includes("YOUR_FORM_ID")) throw new Error("no endpoint");
+      const r = await fetch(FORM_ENDPOINT, {method:"POST", body:fd, headers:{Accept:"application/json"}});
+      if(!r.ok) throw new Error("bad");
+      msg.textContent = "YOU'RE ON THE LIST. WATCH YOUR INBOX AT 11:59.";
+      e.target.reset();
+    }catch(err){
+      try{ const l = JSON.parse(localStorage.getItem("shift_list")||"[]"); l.push(fd.get("email")); localStorage.setItem("shift_list", JSON.stringify(l)); }catch(_){}
+      msg.textContent = "SAVED LOCALLY — CONNECT FORMSPREE TO COLLECT EMAILS.";
+    }
+  });
+</script>
+</body>
+</html>
