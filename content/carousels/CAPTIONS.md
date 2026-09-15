@@ -35,3 +35,26 @@ Est. 2002. 36 of each. Link in bio.
 
 #shiftworldwide #streetwear #longsleeve #vintagestreetwear #nightshiftdivision #est2002
 ```
+
+## 06_racing_graveyard
+```
+New on the shift.
+
+SHIFT RACING TEE — '70s rally car, crossed flags, gold laurel, sponsor blocks on the hem. Cream, four colors.
+GRAVEYARD SHIFT TEE — death's-head moth over a lit lantern and a cracked moon. Black, three colors.
+
+Both cracked and faded before they ship. Est. 2002. 36 of each. Link in bio.
+
+#shiftworldwide #streetwear #vintagetee #racingtee #graphictee #nightshiftdivision #est2002
+```
+
+## 07_night_owl
+```
+Awake since 2002.
+
+NIGHT OWL HOODIE — the hoodie, rebuilt. Great horned owl on the moon with a pocket watch in its talons across the whole back, small owl on the chest. 450 GSM, black.
+
+24 made. Link in bio.
+
+#shiftworldwide #hoodie #streetwear #nightowl #nightshiftdivision #est2002
+```

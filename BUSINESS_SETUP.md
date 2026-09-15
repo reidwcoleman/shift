@@ -22,6 +22,11 @@ Everything below is in order. Total time to be live: one evening.
 
 ---
 
+## Status (2026-09-15)
+
+- **New this round (not yet on Fourthwall — needs you logged in on the Windows Chrome):** Shift Racing Tee (`31_racing_front`, Comfort Colors 1717 Ivory, 12×14 in, y=1), Graveyard Shift Tee (`32_graveyard_front`, 1717 Black, 12×14 in, y=1), and the **Night Owl Hoodie** replaces the Hazard design on the hoodie product (`33_owl_chest` 3.5 in at x=9.25 y=0.6 on Front, `33_owl_back` 13×16 on Back). Files in `designs/upload_worn/`. Fourthwall slugs the site already links to: `shift-racing-tee`, `graveyard-shift-tee`, `night-owl-hoodie` — set the product URL handles to match when creating them.
+- Instagram carousels 06 (Racing + Graveyard) and 07 (Night Owl) are built in `content/carousels/` with captions; 04 and 05 still queued behind the human-verification wall.
+
 ## Status (2026-09-14, evening)
 
 - Fourthwall store: **https://shift-clothing-shop.fourthwall.com** (admin: admin.fourthwall.com/store/shift-clothing). 9 products, all carrying the **worn / EST. 2002** print files from `designs/print_worn` (or the <10 MB `designs/upload_worn` copies): League Tee, Twin Tigers Tee, Time Is Money Tee, Sundial Tee, Emblem Tee (3.5 in chest + full back), Overtime Long Sleeve, Never Ends Long Sleeve, Athletic Dept Shorts, Hazard Hoodie (new diamond badge + beacon back). The Wordmark Beanie is gone (deleted, not coming back).
@@ -38,13 +43,15 @@ Everything below is in order. Total time to be live: one evening.
 3. Payouts: connect your bank (they use Stripe). Under 18? A parent's bank works — they're the "owner" on paper.
 4. Theme: pick the darkest minimal theme. Upload `brand/avatar.png` as the logo/favicon, `brand/wordmark_white.png` as the header logo.
 
-## Step 2 — Create the 10 products (60 min)
+## Step 2 — Create the 12 products (60 min)
 
 For each product: **Products → Add product → Print on demand → choose blank → Design**. Multi-color prints (`designs/print/2x_*.png`) are full-color rasters — perfect for DTG/print-on-demand; a screen printer will separate the colors themselves.
 
 | Product | Blank on Fourthwall | File | Placement |
 |---|---|---|---|
 | League Ringer Tee | Ringer tee — Red/Gold (Fourthwall: "Ringer T-Shirt") | `20_league_front.png` | 12×14 in, center, 2.5 in below collar |
+| Shift Racing Tee | Comfort Colors 1717 — Ivory | `31_racing_front.png` | 12×14 in center |
+| Graveyard Shift Tee | Comfort Colors 1717 — Black | `32_graveyard_front.png` | 12×14 in center |
 | Twin Tigers Tee | Comfort Colors 1717 — Ivory | `21_tigers_front.png` | 12×14 in center |
 | Time Is Money Tee | Comfort Colors 1717 — Black | `22_cross_front.png` | 12×14 in center |
 | Sundial Tee | Comfort Colors 1717 — Ivory | `23_sundial_front.png` | 12×14 in center |
@@ -53,7 +60,7 @@ For each product: **Products → Add product → Print on demand → choose blan
 | Never Ends Thermal | Waffle/thermal long sleeve — Natural | `25_collage_front.png` | 12×14 in center |
 | Division Mesh Shorts | Mesh shorts — Black | `26_mesh_left.png` (wearer's left leg) + `26_mesh_right.png` (right leg) | 4 in each |
 | Athletic Dept Shorts | Fleece sweat shorts — Heather Grey | `27_sweat_left.png` | 5 in, left leg |
-| Hazard Hoodie | Independent IND4000 / Gildan 18500 — Black | `30_hazard2_front.png` (5 in chest) + `30_hazard2_back.png` (13×16 in) | |
+| Night Owl Hoodie | Independent IND4000 / Gildan 18500 — Black | `33_owl_chest.png` (3.5 in left chest) + `33_owl_back.png` (13×16 in) | |
 
 Rules when placing: front full prints start ~2.5–3 in below the collar; left chest logos center ~4 in from the center line; back prints start ~3 in below the back collar. The mockups in `mockups/` show the intended placement — match them.
 

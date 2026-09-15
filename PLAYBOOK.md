@@ -31,7 +31,9 @@ Modeled on how 404 Culture builds a range (varsity tee, tigers tee, money cross,
 | 7 | Never Ends Thermal (cream) | same | $58 | ~$22 | 62% |
 | 8 | Division Mesh Shorts | mesh shorts | $44 | ~$17 | 61% |
 | 9 | Athletic Dept Shorts (grey fleece) | fleece shorts | $52 | ~$20 | 62% |
-| 10 | Hazard Hoodie (diamond badge + beacon back) | IND4000 / Gildan 18500 | $98 | ~$31 | 68% |
+| 10 | Shift Racing Tee (cream, 4-color rally print) | Comfort Colors 1717 | $48 | ~$16 | 67% |
+| 11 | Graveyard Shift Tee (black, moth + lantern) | same | $48 | ~$15 | 69% |
+| 12 | Night Owl Hoodie (owl back print + chest badge) | IND4000 / Gildan 18500 | $98 | ~$31 | 68% |
 
 \*Landed = blank + print + mailer + tag at print-on-demand or a 36–50 piece run. Files: `designs/print_worn/` (worn/vintage pass, 300 DPI — the ones that ship), `designs/print/` (clean masters) and `designs/src/` (SVG with embedded art + outlined type).
 
