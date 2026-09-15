@@ -34,6 +34,9 @@ Modeled on how 404 Culture builds a range (varsity tee, tigers tee, money cross,
 | 10 | Shift Racing Tee (cream, 4-color rally print) | Comfort Colors 1717 | $48 | ~$16 | 67% |
 | 11 | Graveyard Shift Tee (black, moth + lantern) | same | $48 | ~$15 | 69% |
 | 12 | Night Owl Hoodie (owl back print + chest badge) | IND4000 / Gildan 18500 | $98 | ~$31 | 68% |
+| 13 | Burnout Hoodie (flaming SHIFT + burning clock back) | same | $108 | ~$33 | 69% |
+| 14 | Chrome Hoodie (liquid-metal logo front + back) | same | $108 | ~$33 | 69% |
+| 15 | No Sleep Hoodie (graffiti throwie + NO SLEEP back) | same | $108 | ~$33 | 69% |
 
 \*Landed = blank + print + mailer + tag at print-on-demand or a 36–50 piece run. Files: `designs/print_worn/` (worn/vintage pass, 300 DPI — the ones that ship), `designs/print/` (clean masters) and `designs/src/` (SVG with embedded art + outlined type).
 

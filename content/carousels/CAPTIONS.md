@@ -58,3 +58,26 @@ NIGHT OWL HOODIE — the hoodie, rebuilt. Great horned owl on the moon with a po
 
 #shiftworldwide #hoodie #streetwear #nightowl #nightshiftdivision #est2002
 ```
+
+## 08_burnout_chrome
+```
+Built for nights.
+
+BURNOUT HOODIE — flaming SHIFT on the chest, a pocket watch burning inside a star across the back.
+CHROME HOODIE — liquid metal SHIFT dripping down the front, Night Shift Division in chrome on the back.
+
+450 GSM. Fleece-lined. 24 of each. Link in bio.
+
+#shiftworldwide #hoodie #streetwear #heavyweighthoodie #y2k #nightshiftdivision #est2002
+```
+
+## 09_nosleep
+```
+No sleep. No reverse.
+
+NO SLEEP HOODIE — halo'd SHIFT throwie on the chest, fat crown-topped NO SLEEP graffiti across the back. Washed black, 450 GSM.
+
+24 made. Link in bio.
+
+#shiftworldwide #hoodie #graffiti #streetwear #nosleep #nightshiftdivision #est2002
+```

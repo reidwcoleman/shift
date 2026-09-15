@@ -22,6 +22,12 @@ Everything below is in order. Total time to be live: one evening.
 
 ---
 
+## Status (2026-09-15, later)
+
+- **Three more hoodies, not yet on Fourthwall:** Burnout (`34_burnout_front` 11 in chest at y=2 + `34_burnout_back` 13×16), Chrome (`35_chrome_front` 11 in chest + `35_chrome_back` 13×16), No Sleep (`36_nosleep_front` 3.5 in left chest x=9.25 y=0.6 + `36_nosleep_back` 13×16). Blank: the same black hoodie as Hazard (Independent / Gildan 18500). Price **$108**. Handles the site links to: `burnout-hoodie`, `chrome-hoodie`, `no-sleep-hoodie`.
+- Carousels 08 (Burnout + Chrome) and 09 (No Sleep) built with captions.
+- **Blocked on logins:** the Windows Chrome that had Fourthwall + Instagram signed in is a different profile now (both logged out) and the Mac Chrome is logged into neither. Log into both in whichever Chrome has the Claude extension and everything above gets pushed in one pass.
+
 ## Status (2026-09-15)
 
 - **New this round (not yet on Fourthwall — needs you logged in on the Windows Chrome):** Shift Racing Tee (`31_racing_front`, Comfort Colors 1717 Ivory, 12×14 in, y=1), Graveyard Shift Tee (`32_graveyard_front`, 1717 Black, 12×14 in, y=1), and the **Night Owl Hoodie** replaces the Hazard design on the hoodie product (`33_owl_chest` 3.5 in at x=9.25 y=0.6 on Front, `33_owl_back` 13×16 on Back). Files in `designs/upload_worn/`. Fourthwall slugs the site already links to: `shift-racing-tee`, `graveyard-shift-tee`, `night-owl-hoodie` — set the product URL handles to match when creating them.
@@ -43,7 +49,7 @@ Everything below is in order. Total time to be live: one evening.
 3. Payouts: connect your bank (they use Stripe). Under 18? A parent's bank works — they're the "owner" on paper.
 4. Theme: pick the darkest minimal theme. Upload `brand/avatar.png` as the logo/favicon, `brand/wordmark_white.png` as the header logo.
 
-## Step 2 — Create the 12 products (60 min)
+## Step 2 — Create the 15 products (90 min)
 
 For each product: **Products → Add product → Print on demand → choose blank → Design**. Multi-color prints (`designs/print/2x_*.png`) are full-color rasters — perfect for DTG/print-on-demand; a screen printer will separate the colors themselves.
 
@@ -61,10 +67,13 @@ For each product: **Products → Add product → Print on demand → choose blan
 | Division Mesh Shorts | Mesh shorts — Black | `26_mesh_left.png` (wearer's left leg) + `26_mesh_right.png` (right leg) | 4 in each |
 | Athletic Dept Shorts | Fleece sweat shorts — Heather Grey | `27_sweat_left.png` | 5 in, left leg |
 | Night Owl Hoodie | Independent IND4000 / Gildan 18500 — Black | `33_owl_chest.png` (3.5 in left chest) + `33_owl_back.png` (13×16 in) | |
+| Burnout Hoodie | same — Black | `34_burnout_front.png` (11 in chest) + `34_burnout_back.png` (13×16 in) | |
+| Chrome Hoodie | same — Black | `35_chrome_front.png` (11 in chest) + `35_chrome_back.png` (13×16 in) | |
+| No Sleep Hoodie | same — Black (washed if offered) | `36_nosleep_front.png` (3.5 in left chest) + `36_nosleep_back.png` (13×16 in) | |
 
 Rules when placing: front full prints start ~2.5–3 in below the collar; left chest logos center ~4 in from the center line; back prints start ~3 in below the back collar. The mockups in `mockups/` show the intended placement — match them.
 
-Prices (set these): tees **$48**, thermals **$58**, mesh shorts **$44**, sweat shorts **$52**, hoodie **$98**. 404 Culture sells the same categories at $36–44 with amateur photos; you're a step above on garment, art and photography, so hold the line — don't go under $40 on a tee.
+Prices (set these): tees **$48**, thermals **$58**, mesh shorts **$44**, sweat shorts **$52**, Night Owl / Hazard hoodie **$98**, Burnout / Chrome / No Sleep hoodies **$108**. 404 Culture sells the same categories at $36–44 with amateur photos; you're a step above on garment, art and photography, so hold the line — don't go under $40 on a tee.
 
 Product photos: upload from `photos/first_shift/` — `<product>_flat.jpg` (white background, first image) and `<product>_model.jpg`, plus the `group_*.jpg` lifestyle shots. Product description: copy from `docs/index.html` PRODUCTS array.
 
