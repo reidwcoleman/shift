@@ -3,37 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SHIFT — First Shift</title>
-<meta name="description" content="SHIFT Worldwide · Night Shift Division. First Shift — eleven pieces, 48 hours, never restocked.">
+<title>SHIFT — Night Shift Division · Est. 2002</title>
+<meta name="description" content="SHIFT Worldwide · Night Shift Division. Worn-in heavyweight tees, long sleeves and hoodies. Est. 2002. Small runs, 48-hour drops, never restocked.">
 <meta property="og:title" content="SHIFT — First Shift">
-<meta property="og:description" content="Eleven pieces. 48 hours. No reverse.">
-<meta property="og:image" content="assets/photos/fs/league_lean.jpg">
+<meta property="og:description" content="Worn in since 2002. Twelve pieces, 48 hours, no reverse.">
+<meta property="og:image" content="assets/photos/fs/racing_garage.jpg">
 <link rel="icon" href="assets/mark_white.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;800&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0C0B09; --ink2:#141210; --ink3:#1B1815; --bone:#EAE1CC; --bone2:#CBC1AA; --signal:#E8452A; --concrete:#8E8E88; --line:rgba(237,230,214,.12);
-    --anton:'Anton',Impact,sans-serif; --bebas:'Bebas Neue',Impact,sans-serif; --inter:'Inter',system-ui,sans-serif;
-    --ease:cubic-bezier(.2,.7,.2,1);
+    --ink:#0C0B09; --ink2:#141210; --ink3:#1C1915; --bone:#EAE1CC; --bone2:#C9BFA8; --signal:#E8452A; --gold:#D9A93C; --concrete:#8A877E; --line:rgba(234,225,204,.12);
+    --anton:'Anton',Impact,sans-serif; --bebas:'Bebas Neue',Impact,sans-serif; --inter:'Inter',system-ui,sans-serif; --goth:'UnifrakturCook',serif;
+    --ease:cubic-bezier(.2,.7,.2,1); --gutter:clamp(16px,3vw,44px);
   }
   *{box-sizing:border-box} html{scroll-behavior:smooth}
   body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--inter);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none} img{max-width:100%;display:block} button{font:inherit}
-  .wrap{max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 var(--gutter)}
   ::selection{background:var(--signal);color:#fff}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
   /* preloader */
-  #pre{position:fixed;inset:0;background:var(--ink);z-index:100;display:grid;place-items:center;transition:opacity .5s var(--ease),visibility .5s}
+  #pre{position:fixed;inset:0;background:var(--ink);z-index:100;display:grid;place-items:center;transition:opacity .6s var(--ease),visibility .6s}
   #pre.done{opacity:0;visibility:hidden}
   #pre .m{width:54px;animation:pulse 1s ease-in-out infinite}
   #pre .t{font-family:var(--bebas);letter-spacing:.35em;font-size:14px;color:var(--concrete);margin-top:18px}
   @keyframes pulse{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(-8px);opacity:1}}
 
+  /* ticker bar */
+  .ticker{position:fixed;top:0;left:0;right:0;z-index:31;height:30px;background:var(--signal);color:#fff;font-family:var(--bebas);letter-spacing:.24em;font-size:13px;overflow:hidden;display:flex;align-items:center}
+  .ticker div{white-space:nowrap;animation:m 40s linear infinite;display:inline-block}
+  .ticker span{margin:0 28px}
+  @keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
   /* nav */
-  nav{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-  nav.solid{background:rgba(10,10,10,.82);backdrop-filter:blur(14px);border-color:var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  nav{position:fixed;top:30px;left:0;right:0;z-index:30;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+  nav.solid{background:rgba(12,11,9,.86);backdrop-filter:blur(14px);border-color:var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
   .logo{display:flex;align-items:center;gap:10px;font-family:var(--anton);font-size:26px;letter-spacing:.02em}
   .logo img{height:24px}
   .links{display:flex;align-items:center;gap:28px;font-family:var(--bebas);font-size:17px;letter-spacing:.16em}
@@ -48,88 +55,104 @@
   .burger{display:none;background:none;border:0;color:var(--bone);font-family:var(--bebas);letter-spacing:.2em;font-size:17px;cursor:pointer}
 
   /* hero */
-  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding-top:96px}
   .hero .bg{position:absolute;inset:0;background:#000}
-  .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:0;transform:scale(1.06);transition:opacity 1.2s var(--ease),transform 6s var(--ease)}
-  .hero .bg img.in{opacity:.78;transform:scale(1)}
-  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.35) 45%,rgba(10,10,10,.15) 100%)}
-  .hero .wrap{position:relative;width:100%;padding-bottom:48px;padding-top:120px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+  .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;transform:scale(1.08);transition:opacity 1.4s var(--ease),transform 9s var(--ease)}
+  .hero .bg img.in{opacity:.9;transform:scale(1)}
+  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.97) 0%,rgba(12,11,9,.45) 40%,rgba(12,11,9,.1) 75%)}
+  .hero .wrap{position:relative;width:100%;padding-bottom:40px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
   .kick{font-family:var(--bebas);letter-spacing:.3em;font-size:15px;color:var(--signal);display:flex;align-items:center;gap:12px}
   .kick::before{content:"";width:34px;height:1px;background:var(--signal)}
-  .hero h1{font-family:var(--anton);font-size:clamp(84px,17vw,230px);line-height:.84;margin:10px 0 0;letter-spacing:-.005em}
-  .hero h1 span{color:var(--signal)}
-  .hero p{max-width:460px;color:var(--bone2);font-size:16px;line-height:1.55;margin:22px 0 0}
+  .hero h1{font-family:var(--anton);font-size:clamp(84px,min(15vw,22vh),220px);line-height:.84;margin:8px 0 0;letter-spacing:-.01em}
+  .hero h1 em{font-family:var(--goth);font-style:normal;font-weight:700;color:var(--bone);font-size:.42em;white-space:nowrap;display:block;line-height:.9;margin-top:.04em;letter-spacing:0}
+  .hero p{max-width:480px;color:var(--bone2);font-size:16px;line-height:1.55;margin:22px 0 0}
   .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
   .count{display:flex;gap:22px;border-left:1px solid var(--line);padding-left:22px}
-  .count div{text-align:left} .count b{display:block;font-family:var(--anton);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+  .count b{display:block;font-family:var(--anton);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
   .count small{font-family:var(--bebas);letter-spacing:.22em;color:var(--concrete);font-size:13px}
-  .scrollhint{position:absolute;right:clamp(16px,3vw,40px);top:50%;transform:rotate(90deg) translateX(-50%);transform-origin:right;font-family:var(--bebas);letter-spacing:.35em;font-size:12px;color:var(--concrete)}
+  .hero .tag{position:absolute;right:var(--gutter);top:120px;text-align:right;font-family:var(--bebas);letter-spacing:.24em;font-size:13px;color:var(--bone2);line-height:1.9}
+  .hero .tag b{display:block;font-family:var(--anton);font-size:40px;letter-spacing:0;color:var(--bone);line-height:1}
 
-  /* marquee */
-  .marquee{overflow:hidden;white-space:nowrap;background:var(--signal);color:var(--ink);border-top:1px solid #000;border-bottom:1px solid #000}
-  .marquee div{display:inline-block;padding:11px 0;font-family:var(--bebas);font-size:21px;letter-spacing:.22em;animation:m 28s linear infinite}
-  .marquee span{margin:0 26px} .marquee i{font-style:normal;opacity:.55}
-  @keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-  /* reveal */
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  /* generic section head */
+  .sec{padding-block:clamp(64px,9vw,128px) 30px}
+  .sec .row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+  h2{font-family:var(--anton);font-size:clamp(46px,7.5vw,110px);line-height:.9;margin:8px 0 0;letter-spacing:-.005em}
+  h2 span{color:var(--signal)}
+  .lead{color:var(--bone2);max-width:560px;font-size:16px;line-height:1.6;margin:0}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
   .rv.in{opacity:1;transform:none}
 
-  /* section head */
-  .sec{padding:clamp(60px,9vw,120px) 0 30px}
-  .sec .row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-  h2{font-family:var(--anton);font-size:clamp(44px,7vw,96px);line-height:.92;margin:8px 0 0;letter-spacing:-.005em}
-  .lead{color:var(--bone2);max-width:560px;font-size:16px;line-height:1.6;margin:0}
+  /* new arrivals — editorial rows */
+  .arr{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-bottom:14px}
+  .arr.flip .ph{order:2}
+  .arr .ph{position:relative;overflow:hidden;background:#000;aspect-ratio:4/5;cursor:pointer}
+  .arr .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s var(--ease),transform 1.4s var(--ease)}
+  .arr .ph img.alt{opacity:0} .arr .ph:hover img.alt{opacity:1} .arr .ph:hover img{transform:scale(1.03)}
+  .arr .ph .num{position:absolute;left:18px;top:16px;font-family:var(--anton);font-size:64px;line-height:1;color:var(--bone);mix-blend-mode:difference}
+  .arr .txt{display:grid;grid-template-rows:auto 1fr auto;padding:clamp(22px,3vw,52px);border:1px solid var(--line);background:var(--ink2);position:relative;overflow:hidden}
+  .arr .txt .print{position:absolute;right:-6%;bottom:-8%;width:54%;opacity:.14;pointer-events:none;filter:grayscale(1) contrast(1.2)}
+  .arr .txt h3{font-family:var(--anton);font-size:clamp(44px,5.4vw,84px);line-height:.88;margin:14px 0 18px;position:relative}
+  .arr .txt h3 small{display:block;font-family:var(--goth);font-size:.5em;color:var(--gold);margin-top:.15em}
+  .arr .txt p{color:var(--bone2);line-height:1.65;margin:0 0 22px;max-width:460px;position:relative}
+  .arr .row2{display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:relative}
+  .price{font-family:var(--anton);font-size:26px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative}
+  .chips span{font-family:var(--bebas);letter-spacing:.14em;font-size:13px;border:1px solid var(--line);padding:6px 10px;color:var(--bone2)}
 
-  /* feature */
-  .feature{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:stretch;padding-bottom:20px}
-  .feature .ph{position:relative;overflow:hidden;background:#000;aspect-ratio:4/5}
-  .feature .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-  .feature .ph:hover img{transform:scale(1.04)}
-  .feature .txt{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,3vw,48px);border:1px solid var(--line);background:var(--ink2)}
-  .feature .txt h3{font-family:var(--anton);font-size:clamp(40px,5vw,72px);line-height:.9;margin:0 0 14px}
-  .feature .txt p{color:var(--bone2);line-height:1.6;margin:0 0 22px;max-width:420px}
-  .price{font-family:var(--anton);font-size:24px}
-
-  /* grid */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:10px 0 20px}
-  .card{background:var(--ink2);border:1px solid var(--line);position:relative;overflow:hidden;transition:border-color .3s}
-  .card:hover{border-color:rgba(237,230,214,.35)}
+  /* filters + grid */
+  .filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:24px}
+  .filters button{background:transparent;border:1px solid var(--line);color:var(--bone2);font-family:var(--bebas);letter-spacing:.16em;font-size:15px;padding:9px 14px;cursor:pointer;transition:all .2s}
+  .filters button.on,.filters button:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:18px 20px}
+  .card{background:var(--ink2);border:1px solid var(--line);position:relative;overflow:hidden;transition:border-color .3s,transform .3s var(--ease);display:flex;flex-direction:column}
+  .card:hover{border-color:rgba(234,225,204,.35);transform:translateY(-3px)}
+  .card.hide{display:none}
   .card .img{position:relative;aspect-ratio:4/5;background:#000;cursor:pointer;overflow:hidden}
-  .card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s var(--ease),transform 1.2s var(--ease)}
-  .card .img img{opacity:0} .card .img img.on{opacity:1}
+  .card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s var(--ease),transform 1.2s var(--ease);opacity:0}
+  .card .img img.on{opacity:1}
   .card .img:hover img.on{transform:scale(1.03)}
-  .card .nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bone);font-size:22px;line-height:1;cursor:pointer;opacity:0;transition:opacity .25s;backdrop-filter:blur(6px)}
+  .card .nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bone);font-size:22px;line-height:1;cursor:pointer;opacity:0;transition:opacity .25s;backdrop-filter:blur(6px)}
   .card .nav.prev{left:10px} .card .nav.next{right:10px} .card .img:hover .nav{opacity:1}
   .card .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
-  .card .dots i{width:6px;height:6px;border-radius:50%;background:rgba(237,230,214,.35)} .card .dots i.on{background:var(--signal)}
-  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  .hero .bg img.in{opacity:.85}
+  .card .dots i{width:6px;height:6px;border-radius:50%;background:rgba(234,225,204,.35)} .card .dots i.on{background:var(--signal)}
   .card .badge{position:absolute;top:12px;left:12px;background:var(--signal);color:#fff;font-family:var(--bebas);letter-spacing:.18em;font-size:12px;padding:6px 10px;z-index:2}
-  .card .badge.ghost{background:rgba(0,0,0,.6);backdrop-filter:blur(6px)}
-  .card .meta{display:flex;justify-content:space-between;align-items:baseline;padding:16px 16px 6px}
-  .card h3{margin:0;font-family:var(--bebas);font-size:24px;letter-spacing:.08em}
-  .card .desc{padding:0 16px 16px;color:var(--concrete);font-size:13px;line-height:1.5}
-  .card .desc .spec{display:inline-block;margin-top:8px;font-family:var(--bebas);letter-spacing:.14em;font-size:13px;color:var(--bone2)}
+  .card .badge.ghost{background:rgba(0,0,0,.6);backdrop-filter:blur(6px)} .card .badge.gold{background:var(--gold);color:var(--ink)}
+  .card .meta{display:flex;justify-content:space-between;align-items:baseline;padding:16px 16px 6px;gap:10px}
+  .card h3{margin:0;font-family:var(--bebas);font-size:23px;letter-spacing:.08em;line-height:1}
+  .card .desc{padding:0 16px 14px;color:var(--concrete);font-size:13px;line-height:1.5;flex:1}
+  .card .desc .spec{display:block;margin-top:8px;font-family:var(--bebas);letter-spacing:.14em;font-size:12px;color:var(--bone2)}
   .card .buy{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-family:var(--bebas);letter-spacing:.2em;font-size:17px;border-top:1px solid var(--line);transition:background .2s,color .2s}
   .card .buy:hover{background:var(--bone);color:var(--ink)}
   .card .buy::after{content:"→"}
 
-  /* lookbook rail */
-  .rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px clamp(16px,3vw,40px) 30px;scrollbar-width:none}
-  .rail::-webkit-scrollbar{display:none}
-  .rail figure{margin:0;flex:0 0 auto;scroll-snap-align:start;position:relative;background:#000;overflow:hidden}
-  .rail figure img{height:min(70vh,640px);width:auto;display:block;object-fit:cover;transition:transform 1.2s var(--ease)}
-  .rail figure:hover img{transform:scale(1.03)}
-  .rail figcaption{position:absolute;left:14px;bottom:12px;font-family:var(--bebas);letter-spacing:.2em;font-size:13px;background:rgba(0,0,0,.55);padding:6px 10px;backdrop-filter:blur(6px)}
+  /* lookbook — editorial grid */
+  .look{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(120px,14vw,220px);gap:10px;padding-block:14px 20px}
+  .look figure{margin:0;position:relative;overflow:hidden;background:#000;cursor:zoom-in}
+  .look figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter .5s}
+  .look figure:hover img{transform:scale(1.04)}
+  .look figcaption{position:absolute;left:12px;bottom:10px;font-family:var(--bebas);letter-spacing:.2em;font-size:12px;background:rgba(0,0,0,.55);padding:5px 9px;backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
+  .look figure:hover figcaption{opacity:1}
+  .look .a{grid-column:span 2;grid-row:span 3} .look .b{grid-column:span 2;grid-row:span 2} .look .c{grid-column:span 1;grid-row:span 1} .look .d{grid-column:span 2;grid-row:span 3} .look .e{grid-column:span 1;grid-row:span 2}
+  #lb{position:fixed;inset:0;background:rgba(12,11,9,.96);z-index:60;display:none;place-items:center;padding:24px;cursor:zoom-out}
+  #lb.on{display:grid} #lb img{max-height:92vh;max-width:min(92vw,900px);object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  #lb .cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:var(--bebas);letter-spacing:.3em;font-size:14px;color:var(--bone2)}
+
+  /* process strip */
+  .proc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-bottom:20px}
+  .proc .step{border:1px solid var(--line);background:var(--ink2);padding:clamp(18px,2.4vw,32px);position:relative;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end}
+  .proc .step img{position:absolute;right:-2%;top:-4%;width:52%;opacity:.95;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5));transition:transform .8s var(--ease)}
+  .proc .step:hover img{transform:translateY(-6px) rotate(-2deg)}
+  .proc .step b{font-family:var(--anton);font-size:64px;line-height:1;color:var(--signal);display:block}
+  .proc .step h4{font-family:var(--bebas);font-size:30px;letter-spacing:.1em;margin:6px 0 8px;font-weight:400}
+  .proc .step p{color:var(--bone2);font-size:14px;line-height:1.6;margin:0;max-width:300px;position:relative;z-index:1;text-shadow:0 2px 12px var(--ink2)}
 
   /* story */
-  .story{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch;padding-bottom:20px}
-  .story .ph{aspect-ratio:16/12;overflow:hidden;background:#000} .story .ph img{width:100%;height:100%;object-fit:cover}
-  .story .txt{padding:clamp(20px,3vw,48px);border:1px solid var(--line);background:var(--ink2);display:flex;flex-direction:column;justify-content:center}
-  .story blockquote{margin:0 0 20px;font-family:var(--bebas);font-size:clamp(32px,3.6vw,50px);line-height:1.02;letter-spacing:.02em}
+  .story{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch;padding-bottom:20px}
+  .story .ph{aspect-ratio:4/5;overflow:hidden;background:#000} .story .ph img{width:100%;height:100%;object-fit:cover}
+  .story .txt{padding:clamp(22px,3vw,52px);border:1px solid var(--line);background:var(--ink2);display:flex;flex-direction:column;justify-content:center}
+  .story blockquote{margin:0 0 22px;font-family:var(--anton);font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:0}
   .story blockquote em{color:var(--signal);font-style:normal}
-  .story p{color:var(--bone2);line-height:1.65;margin:0 0 18px;font-size:15px}
+  .story p{color:var(--bone2);line-height:1.7;margin:0 0 18px;font-size:15px}
   .rules{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .rules li{border:1px solid var(--line);padding:12px 14px;font-family:var(--bebas);letter-spacing:.12em;font-size:17px;display:flex;justify-content:space-between}
   .rules li span{color:var(--signal)}
@@ -144,6 +167,11 @@
   th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line)} th{color:var(--concrete);font-weight:400;font-size:14px;letter-spacing:.22em}
   .tbl{overflow-x:auto}
 
+  /* instagram strip */
+  .ig{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding-bottom:10px}
+  .ig a{aspect-ratio:4/5;overflow:hidden;background:#000;position:relative}
+  .ig a img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)} .ig a:hover img{transform:scale(1.05)}
+
   /* faq */
   .faq{max-width:820px;padding-bottom:30px}
   .q{border-top:1px solid var(--line)} .q:last-child{border-bottom:1px solid var(--line)}
@@ -154,9 +182,9 @@
   .q.open .a{max-height:300px} .q .a p{margin:0 0 20px}
 
   /* waitlist */
-  .wait{background:var(--bone);color:var(--ink);padding:clamp(60px,9vw,120px) 0;position:relative;overflow:hidden}
+  .wait{background:var(--bone);color:var(--ink);padding:clamp(64px,9vw,128px) 0;position:relative;overflow:hidden}
   .wait .mark{position:absolute;right:-40px;top:-40px;width:min(46vw,420px);opacity:.08}
-  .wait h2{font-size:clamp(56px,9vw,130px);margin:0 0 14px}
+  .wait h2{font-size:clamp(60px,10vw,150px);margin:0 0 14px}
   .wait p{max-width:520px;font-size:16px;line-height:1.55;margin:0 0 26px;color:#2a2a2a}
   form.wl{display:flex;gap:10px;max-width:560px;flex-wrap:wrap}
   form.wl input{flex:1;min-width:220px;padding:16px 18px;border:2px solid var(--ink);background:#fff;font-family:var(--inter);font-size:16px;outline:none}
@@ -164,21 +192,23 @@
   form.wl .btn{background:var(--ink);color:var(--bone);border-color:var(--ink)}
   .msg{font-family:var(--bebas);letter-spacing:.14em;margin-top:12px;font-size:18px;min-height:22px}
 
-  footer{padding:44px 0;border-top:1px solid var(--line);color:var(--concrete);font-size:13px}
-  footer .wrap{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center}
+  footer{padding:54px 0 40px;border-top:1px solid var(--line);color:var(--concrete);font-size:13px;overflow:hidden}
+  footer .big{font-family:var(--anton);font-size:clamp(90px,19vw,300px);line-height:.8;color:var(--ink3);letter-spacing:-.01em;margin:0 0 30px;user-select:none}
+  footer .wrap>.r{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center}
   footer .h{font-family:var(--bebas);letter-spacing:.22em;font-size:15px;color:var(--bone)}
   footer a:hover{color:var(--bone)}
 
+  @media (max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr)} .proc{grid-template-columns:1fr} .proc .step{min-height:260px} }
   @media (max-width:980px){
-    .grid{grid-template-columns:repeat(2,1fr)} .feature,.story{grid-template-columns:1fr} .specs{grid-template-columns:repeat(2,1fr)}
-    .hero .wrap{grid-template-columns:1fr} .count{border-left:0;padding-left:0}
+    .grid{grid-template-columns:repeat(2,1fr)} .arr,.story{grid-template-columns:1fr} .arr.flip .ph{order:0} .specs{grid-template-columns:repeat(2,1fr)}
+    .hero .wrap{grid-template-columns:1fr} .count{border-left:0;padding-left:0} .hero .tag{display:none}
     .links{display:none} .burger{display:block}
-    nav.open .links{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--ink);border-bottom:1px solid var(--line)}
-    nav.open .links a{padding:18px clamp(16px,3vw,40px);width:100%;border-top:1px solid var(--line)}
-    footer .wrap{grid-template-columns:1fr}
-    .scrollhint{display:none}
+    nav.open .links{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--ink);border-bottom:1px solid var(--line)}
+    nav.open .links a{padding:18px var(--gutter);width:100%;border-top:1px solid var(--line)}
+    footer .wrap>.r{grid-template-columns:1fr}
+    .look{grid-template-columns:repeat(4,1fr)} .ig{grid-template-columns:repeat(3,1fr)}
   }
-  @media (max-width:560px){ .grid{grid-template-columns:1fr} .count b{font-size:40px} .rules{grid-template-columns:1fr} .specs{grid-template-columns:1fr} }
+  @media (max-width:560px){ .grid{grid-template-columns:1fr} .count b{font-size:40px} .rules{grid-template-columns:1fr} .specs{grid-template-columns:1fr} .look{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px} .look .a,.look .b,.look .d{grid-column:span 2} .look .c,.look .e{grid-column:span 1} }
   @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} .rv{opacity:1;transform:none} }
 </style>
 </head>
@@ -186,12 +216,15 @@
 
 <div id="pre"><img class="m" src="assets/mark_white.svg" alt=""><div class="t">CLOCKING IN</div></div>
 
+<div class="ticker"><div id="tick"></div></div>
+
 <nav id="nav">
   <div class="wrap">
     <a class="logo" href="#top"><img src="assets/mark_white.svg" alt="">SHIFT</a>
     <button class="burger" onclick="document.getElementById('nav').classList.toggle('open')">MENU</button>
     <div class="links">
-      <a href="#drop">FIRST SHIFT</a>
+      <a href="#new">NEW</a>
+      <a href="#drop">THE PIECES</a>
       <a href="#lookbook">LOOKBOOK</a>
       <a href="#story">STORY</a>
       <a href="#faq">FAQ</a>
@@ -201,15 +234,16 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="bg"><img id="heroimg" src="assets/photos/fs/cross_squat.jpg" alt="SHIFT First Shift"></div>
+  <div class="bg"><img id="heroimg" src="assets/photos/fs/racing_garage.jpg" alt="SHIFT Racing Tee"></div>
+  <div class="tag">NIGHT SHIFT DIVISION<br>WORN IN, NEVER WORN OUT<b>EST. 2002</b></div>
   <div class="wrap">
     <div>
-      <div class="kick">FIRST SHIFT · EST. 2002 · <span id="dropdate">10.09</span> · 11:59 PM</div>
-      <h1>CLOCK<br>IN<span>.</span></h1>
-      <p>Night Shift Division, since 2002. Ten pieces — worn-in tees, long sleeves, shorts and the hoodie. Open 48 hours. Never restocked.</p>
+      <div class="kick">FIRST SHIFT · DROP 001 · <span id="dropdate">10.09</span> · 11:59 PM</div>
+      <h1>SHIFT<em>Night Shift Division</em></h1>
+      <p>Heavyweight tees, long sleeves and the hoodie — every print cracked, faded and washed-in so it looks like you've owned it since 2002. Twelve pieces. Open 48 hours. Never restocked.</p>
       <div class="cta">
         <a class="btn signal" href="https://shift-clothing-shop.fourthwall.com/">SHOP FIRST SHIFT</a>
-        <a class="btn ghost" href="#drop">SEE THE PIECES</a>
+        <a class="btn ghost" href="#new">SEE WHAT'S NEW</a>
       </div>
     </div>
     <div class="count" id="count">
@@ -219,55 +253,52 @@
       <div><b id="s">00</b><small>SEC</small></div>
     </div>
   </div>
-  <div class="scrollhint">SCROLL — NIGHT SHIFT DIVISION</div>
 </header>
 
-<div class="marquee"><div>
-  <span>EST. 2002</span><i>◆</i><span>NO REVERSE</span><i>◆</i><span>CLOCK IN 11:59 PM</span><i>◆</i><span>CLOCK OUT NEVER</span><i>◆</i><span>NIGHT SHIFT DIVISION</span><i>◆</i><span>SHIFT WORLDWIDE</span><i>◆</i><span>FIRST SHIFT</span><i>◆</i>
-  <span>EST. 2002</span><i>◆</i><span>NO REVERSE</span><i>◆</i><span>CLOCK IN 11:59 PM</span><i>◆</i><span>CLOCK OUT NEVER</span><i>◆</i><span>NIGHT SHIFT DIVISION</span><i>◆</i><span>SHIFT WORLDWIDE</span><i>◆</i><span>FIRST SHIFT</span><i>◆</i>
-</div></div>
+<section class="wrap sec rv" id="new">
+  <div class="row">
+    <div><div class="kick">JUST ADDED</div><h2>NEW <span>ARRIVALS.</span></h2></div>
+    <p class="lead">Three pieces that weren't here yesterday: a rally tee, a graveyard-shift moth, and the hoodie got rebuilt from the ground up. Hover a photo to see the flat.</p>
+  </div>
+</section>
+<div class="wrap" id="arrivals"></div>
 
 <section class="wrap sec rv" id="drop">
   <div class="row">
-    <div><div class="kick">THE HERO</div><h2>LEAGUE TEE.</h2></div>
-    <p class="lead">Cardinal red heavyweight tee. Varsity arch, hand-finished tiger crest in three spot colors, cracked-in like it's been washed since 2002. The one that sells out first.</p>
-  </div>
-</section>
-<div class="wrap feature rv">
-  <div class="ph"><img src="assets/photos/fs/league_lean.jpg" alt="League Tee"></div>
-  <div class="txt">
-    <div class="kick">250 GSM · WORN-IN PRINT · BOXY</div>
-    <h3>NIGHT SHIFT<br>LEAGUE.</h3>
-    <p>Three-color print, pre-cracked and faded so it looks twenty years old on day one. 250 GSM garment-dyed cotton, twin-needle hems. 36 made. When the timer hits zero it's gone.</p>
-    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><span class="price">$48</span><a class="btn" href="https://shift-clothing-shop.fourthwall.com/products/league-tee" data-buy="league_tee">BUY NOW</a></div>
-  </div>
-</div>
-
-<section class="wrap sec rv">
-  <div class="row">
     <div><div class="kick">FIRST SHIFT — CLOCK IN</div><h2>THE PIECES.</h2></div>
-    <p class="lead">Ten pieces. Every print is distressed and sun-faded before it ships — cracked ink, soft edges, 2002 energy. Tap a piece to flip through its photos.</p>
+    <p class="lead">Every print is distressed and sun-faded before it ships — cracked ink, soft edges, 2002 energy. Tap a piece to flip through its photos.</p>
   </div>
+  <div class="filters" id="filters"></div>
 </section>
 <div class="wrap grid" id="grid"></div>
 
 <section class="wrap sec rv" id="lookbook">
-  <div class="row"><div><div class="kick">LOOKBOOK</div><h2>NIGHT SHIFT.</h2></div><p class="lead">Shot on 35mm. Brick, graffiti, stairs, the hood of a Toyota, the laundromat at 2 AM.</p></div>
+  <div class="row"><div><div class="kick">LOOKBOOK</div><h2>NIGHT <span>SHIFT.</span></h2></div><p class="lead">Shot on 35mm. Parking garages, the laundromat at 2 AM, rooftops at blue hour, the hood of a Volvo. Click any frame.</p></div>
 </section>
-<div class="rail rv" id="rail"></div>
+<div class="wrap look rv" id="look"></div>
+<div id="lb" onclick="this.classList.remove('on')"><img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div></div>
+
+<section class="wrap sec rv">
+  <div class="row"><div><div class="kick">HOW IT'S MADE</div><h2>MADE LIKE <span>IT'S 2002.</span></h2></div><p class="lead">Every graphic starts as hand-finished illustration, gets separated into three or four spot colors, then aged before it ever touches cotton.</p></div>
+</section>
+<div class="wrap proc rv">
+  <div class="step"><img src="assets/prints/art_race_car.png" alt=""><b>01</b><h4>DRAWN</h4><p>Illustration first. Tigers, moths, owls, rally cars — drawn in the flat-color style of 90s tattoo flash and college tees.</p></div>
+  <div class="step"><img src="assets/prints/32_graveyard_front.png" alt=""><b>02</b><h4>SEPARATED</h4><p>Type is set in outlined Anton, Bebas and blackletter, locked into a 12×14 in or 13×16 in print, three to four spot colors.</p></div>
+  <div class="step"><img src="assets/prints/33_owl_back.png" alt=""><b>03</b><h4>WORN IN</h4><p>Cracks, fade patches and ink dropout are baked into the file, so day one looks like year twenty. Wash cold, hang dry.</p></div>
+</div>
 
 <section class="wrap sec rv" id="story">
-  <div class="row"><div><div class="kick">THE STORY</div><h2>NIGHT SHIFT DIVISION.</h2></div></div>
+  <div class="row"><div><div class="kick">THE STORY</div><h2>NIGHT SHIFT <span>DIVISION.</span></h2></div></div>
 </section>
 <div class="wrap story rv">
-  <div class="ph"><img src="assets/photos/campaign_04.jpg" alt="Time clock at 11:59"></div>
+  <div class="ph"><img src="assets/photos/fs/graveyard_laundro.jpg" alt="Graveyard Shift Tee, laundromat at 2 AM"></div>
   <div class="txt">
     <blockquote>Nobody claps for the hours between midnight and five. <em>That's the shift.</em></blockquote>
     <p>SHIFT started in 2002 as a joke between friends pulling all-nighters — "you're on the night shift." It stopped being a joke. Every drop is a punch card: a small run, a hard close, and then it's gone. If you own it, you were there.</p>
     <ul class="rules">
       <li>DROP WINDOW <span>48 HOURS</span></li>
       <li>RESTOCKS <span>NEVER</span></li>
-      <li>PIECES PER DROP <span>10</span></li>
+      <li>PIECES PER DROP <span>12</span></li>
       <li>REVERSE <span>NO</span></li>
     </ul>
   </div>
@@ -278,7 +309,7 @@
 </section>
 <div class="wrap specs rv">
   <div class="spec"><b>250<small> GSM</small></b><small>TEES</small><p>Heavyweight ring-spun cotton, boxy body, dropped shoulder, twin-needle hems. Pre-shrunk.</p></div>
-  <div class="spec"><b>340<small> GSM</small></b><small>THERMALS</small><p>Waffle-knit long sleeves, 70/30 cotton-poly, ribbed cuffs. The winter piece.</p></div>
+  <div class="spec"><b>250<small> GSM</small></b><small>LONG SLEEVES</small><p>Garment-dyed heavyweight long sleeves, ribbed cuffs, relaxed body. The autumn piece.</p></div>
   <div class="spec"><b>450<small> GSM</small></b><small>HOODIE</small><p>Fleece-lined, double-layer hood, ribbed cuffs and hem, kangaroo pocket. Heavy in the hand.</p></div>
   <div class="spec"><b>2002</b><small>EST.</small><p>Every print is distressed before it ships: cracked ink, faded color, soft hand. Thirty-six of each. When a size sells out it stays sold out.</p></div>
 </div>
@@ -292,6 +323,11 @@
   </table></div>
   <p style="color:var(--concrete);font-size:13px;margin:12px 0 0">Fits oversized. Size down for a regular fit. Model is 6'0", 170 lb, wearing L.</p>
 </div>
+
+<section class="wrap sec rv">
+  <div class="row"><div><div class="kick">@SHIFT_CLOTHING405</div><h2>ON THE <span>FEED.</span></h2></div><a class="btn ghost" href="https://instagram.com/shift_clothing405">FOLLOW</a></div>
+</section>
+<div class="wrap ig rv" id="ig"></div>
 
 <section class="wrap sec rv" id="faq">
   <div class="row"><div><div class="kick">QUESTIONS</div><h2>FAQ.</h2></div></div>
@@ -314,9 +350,12 @@
 
 <footer>
   <div class="wrap">
-    <div><div class="h">SHIFT WORLDWIDE — NIGHT SHIFT DIVISION</div><div style="margin-top:6px">EST. 2002 · Worn in, never worn out.</div></div>
-    <div><a href="https://instagram.com/shift.worldwide">Instagram</a> &nbsp;·&nbsp; <a href="https://tiktok.com/@shift.worldwide">TikTok</a></div>
-    <div><a href="mailto:hello@shiftworld.co">hello@shiftworld.co</a></div>
+    <div class="big">SHIFT WORLDWIDE</div>
+    <div class="r">
+      <div><div class="h">SHIFT WORLDWIDE — NIGHT SHIFT DIVISION</div><div style="margin-top:6px">EST. 2002 · Worn in, never worn out.</div></div>
+      <div><a href="https://instagram.com/shift_clothing405">Instagram</a> &nbsp;·&nbsp; <a href="https://tiktok.com/@shift.worldwide">TikTok</a></div>
+      <div><a href="mailto:hello@shiftworld.co">hello@shiftworld.co</a></div>
+    </div>
   </div>
 </footer>
 
@@ -324,49 +363,88 @@
   // ---- CONFIG ----
   const DROP_AT = "2026-10-09T23:59:00";
   const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";   // formspree.io → new form → paste
+  const SHOP = "https://shift-clothing-shop.fourthwall.com/products/";
+  const P = f => `assets/photos/fs/${f}.jpg`;
+
+  const NEW = [
+    {key:"racing_tee", num:"01", name:"SHIFT RACING", sub:"Rally Team Tee", price:48, photo:"racing_garage", alt:"racing_tee_flat", print:"31_racing_front",
+     desc:"Cream heavyweight tee. A '70s rally car power-sliding through crossed checkered flags and a gold laurel, four spot colors, sponsor blocks along the hem. The motorsport tee everyone has, done the way nobody does it.", chips:["250 GSM","4-COLOR","CREAM","36 MADE"], url:SHOP+"shift-racing-tee"},
+    {key:"graveyard_tee", num:"02", name:"GRAVEYARD SHIFT", sub:"Moth & Lantern Tee", price:48, photo:"graveyard_laundro", alt:"graveyard_tee_flat", print:"32_graveyard_front",
+     desc:"Black heavyweight tee. A death's-head moth over a lit railway lantern and a cracked crescent moon, woodcut hatching in cream, gold and rust. The lights stay on.", chips:["250 GSM","3-COLOR","BLACK","36 MADE"], url:SHOP+"graveyard-shift-tee"},
+    {key:"owl_hoodie", num:"03", name:"NIGHT OWL", sub:"The Hoodie, Rebuilt", price:98, photo:"owl_roof", alt:"owl_hoodie_back_flat", print:"33_owl_back",
+     desc:"Black 450 GSM hoodie. Great horned owl on the moon with a pocket watch in its talons across the whole back, small owl on the chest. Awake since 2002.", chips:["450 GSM","BACK PRINT","CHEST BADGE","24 MADE"], url:SHOP+"night-owl-hoodie"},
+  ];
   const PRODUCTS = [
-    {key:"league_tee", name:"LEAGUE TEE", price:48, badge:"HERO", imgs:["league_lean","league_tee_model","league_tee_flat"], desc:"Cardinal red, worn-in varsity arch and a three-color tiger crest. Est. 2002.", spec:"250 GSM · 100% cotton · boxy · model is 6'0\" in L", url:"https://shift-clothing-shop.fourthwall.com/products/league-tee"},
-    {key:"hazard_hoodie", name:"HAZARD HOODIE", price:98, badge:"NEW", imgs:["hazard_hoodback","hazard_hoodie_model","hazard_hoodie_back_flat","hazard_hoodie_flat"], desc:"Black heavyweight hoodie. Hazard diamond on the chest, warning-beacon emblem across the back. Caution: change in progress.", spec:"450 GSM · 80/20 fleece · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/hazard-hoodie"},
-    {key:"cross_tee", name:"TIME IS MONEY TEE", price:48, badge:"", imgs:["cross_squat","cross_tee_model","cross_tee_flat"], desc:"Black tee. A cross built from time cards and dollar bills, stamped LATE. Old English Shift.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/time-is-money-tee"},
-    {key:"tigers_tee", name:"TWIN TIGERS TEE", price:48, badge:"", imgs:["tigers_stairs","tigers_tee_model","tigers_tee_flat"], desc:"Natural tee. Two tigers and a pocket watch in sun-faded sepia and rust. Every hour counts.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/twin-tigers-tee"},
-    {key:"sundial_tee", name:"SUNDIAL TEE", price:48, badge:"", imgs:["sundial_walk","sundial_tee_model","sundial_tee_flat"], desc:"Bone tee. Two-color sun face and sundial, circled by Shift Worldwide / Every Hour Counts.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/sundial-tee"},
-    {key:"emblem_tee", name:"EMBLEM TEE", price:52, badge:"", imgs:["emblem_squat","emblem_tee_model","emblem_tee_back_flat"], desc:"Black tee. Small emblem on the chest, iron-cross tiger across the back. The shift never ends.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/emblem-tee"},
-    {key:"overtime_thermal", name:"OVERTIME LONG SLEEVE", price:58, badge:"", imgs:["overtime_car","overtime_thermal_model","overtime_thermal_flat"], desc:"Black heavyweight long sleeve. Chrome-and-pink script with drips, crown over the S.", spec:"250 GSM · 100% cotton · relaxed", url:"https://shift-clothing-shop.fourthwall.com/products/overtime-long-sleeve"},
-    {key:"collage_thermal", name:"NEVER ENDS LONG SLEEVE", price:58, badge:"", imgs:["collage_walk","collage_thermal_model","collage_thermal_flat"], desc:"White heavyweight long sleeve. Old English Shift over a torn-paper collage: clocks, cards, the city.", spec:"250 GSM · 100% cotton · relaxed", url:"https://shift-clothing-shop.fourthwall.com/products/never-ends-long-sleeve"},
-    {key:"sweat_shorts", name:"ATHLETIC DEPT SHORTS", price:52, badge:"", imgs:["sweat_shorts_model","sweat_shorts_flat"], desc:"Heather grey fleece shorts. Tonal Shift Athletic Dept. print on the leg.", spec:"350 GSM · 90/10 fleece", url:"https://shift-clothing-shop.fourthwall.com/products/athletic-dept-shorts"},
-    {key:"mesh_shorts", name:"DIVISION MESH SHORTS", price:44, badge:"SOON", imgs:["mesh_shorts_model","mesh_shorts_flat"], desc:"Black mesh shorts. NSD shield on one leg, wordmark and stars on the other. Drop 002.", spec:"145 GSM · 100% poly mesh", url:"#list"},
+    {key:"racing_tee", cat:"TEES", name:"SHIFT RACING TEE", price:48, badge:"NEW", imgs:["racing_garage","racing_tee_model","racing_tee_flat"], desc:"Cream tee. Rally car, checkered flags, gold laurel, sponsor blocks. Night Shift Division rally team.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"shift-racing-tee"},
+    {key:"graveyard_tee", cat:"TEES", name:"GRAVEYARD SHIFT TEE", price:48, badge:"NEW", imgs:["graveyard_laundro","graveyard_tee_model","graveyard_tee_flat"], desc:"Black tee. Death's-head moth over a lit lantern and a cracked moon. The lights stay on.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"graveyard-shift-tee"},
+    {key:"owl_hoodie", cat:"HOODIES", name:"NIGHT OWL HOODIE", price:98, badge:"NEW", imgs:["owl_roof","owl_hoodie_back_flat","owl_hoodie_flat"], desc:"Black heavyweight hoodie. Owl on the moon, pocket watch in its talons, across the back. Small owl on the chest.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"night-owl-hoodie"},
+    {key:"league_tee", cat:"TEES", name:"LEAGUE TEE", price:48, badge:"HERO", imgs:["league_lean","league_tee_model","league_tee_flat"], desc:"Cardinal red, worn-in varsity arch and a three-color tiger crest. Est. 2002.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"league-tee"},
+    {key:"cross_tee", cat:"TEES", name:"TIME IS MONEY TEE", price:48, badge:"", imgs:["cross_squat","cross_tee_model","cross_tee_flat"], desc:"Black tee. A cross built from time cards and dollar bills, stamped LATE. Old English Shift.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"time-is-money-tee"},
+    {key:"tigers_tee", cat:"TEES", name:"TWIN TIGERS TEE", price:48, badge:"", imgs:["tigers_stairs","tigers_tee_model","tigers_tee_flat"], desc:"Natural tee. Two tigers and a pocket watch in sun-faded sepia and rust. Every hour counts.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"twin-tigers-tee"},
+    {key:"sundial_tee", cat:"TEES", name:"SUNDIAL TEE", price:48, badge:"", imgs:["sundial_walk","sundial_tee_model","sundial_tee_flat"], desc:"Bone tee. Two-color sun face and sundial, circled by Shift Worldwide / Every Hour Counts.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"sundial-tee"},
+    {key:"emblem_tee", cat:"TEES", name:"EMBLEM TEE", price:52, badge:"", imgs:["emblem_squat","emblem_tee_model","emblem_tee_back_flat"], desc:"Black tee. Small emblem on the chest, iron-cross tiger across the back. The shift never ends.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"emblem-tee"},
+    {key:"overtime_thermal", cat:"LONG SLEEVE", name:"OVERTIME LONG SLEEVE", price:58, badge:"", imgs:["overtime_car","overtime_thermal_model","overtime_thermal_flat"], desc:"Black heavyweight long sleeve. Chrome-and-pink script with drips, crown over the S.", spec:"250 GSM · 100% cotton · relaxed", url:SHOP+"overtime-long-sleeve"},
+    {key:"collage_thermal", cat:"LONG SLEEVE", name:"NEVER ENDS LONG SLEEVE", price:58, badge:"", imgs:["collage_walk","collage_thermal_model","collage_thermal_flat"], desc:"White heavyweight long sleeve. Old English Shift over a torn-paper collage: clocks, cards, the city.", spec:"250 GSM · 100% cotton · relaxed", url:SHOP+"never-ends-long-sleeve"},
+    {key:"hazard_hoodie", cat:"HOODIES", name:"HAZARD HOODIE", price:98, badge:"LAST CALL", imgs:["hazard_hoodback","hazard_hoodie_model","hazard_hoodie_back_flat","hazard_hoodie_flat"], desc:"Black heavyweight hoodie. Hazard diamond on the chest, warning-beacon emblem across the back. Final run.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"hazard-hoodie"},
+    {key:"sweat_shorts", cat:"SHORTS", name:"ATHLETIC DEPT SHORTS", price:52, badge:"", imgs:["sweat_shorts_model","sweat_shorts_flat"], desc:"Heather grey fleece shorts. Tonal Shift Athletic Dept. print on the leg.", spec:"350 GSM · 90/10 fleece", url:SHOP+"athletic-dept-shorts"},
+    {key:"mesh_shorts", cat:"SHORTS", name:"DIVISION MESH SHORTS", price:44, badge:"SOON", imgs:["mesh_shorts_model","mesh_shorts_flat"], desc:"Black mesh shorts. NSD shield on one leg, wordmark and stars on the other. Drop 002.", spec:"145 GSM · 100% poly mesh", url:"#list"},
   ];
   const LOOK = [
-    ["fs/league_lean.jpg","LEAGUE TEE"],["fs/hazard_hoodback.jpg","HAZARD HOODIE"],["fs/tigers_stairs.jpg","TWIN TIGERS"],["fs/group_a.jpg","GOLDEN HOUR"],
-    ["fs/overtime_car.jpg","OVERTIME"],["fs/sundial_walk.jpg","SUNDIAL"],["fs/group_c.jpg","ROOFTOP"],["fs/emblem_squat.jpg","EMBLEM"],["fs/collage_walk.jpg","NEVER ENDS"],["campaign_04.jpg","11:59"],
+    ["racing_garage","SHIFT RACING","a"],["graveyard_laundro","GRAVEYARD SHIFT","b"],["league_tee_flat","LEAGUE","c"],["tigers_stairs","TWIN TIGERS","e"],
+    ["owl_roof","NIGHT OWL","d"],["cross_squat","TIME IS MONEY","b"],["sundial_walk","SUNDIAL","e"],["league_lean","LEAGUE","c"],
+    ["overtime_car","OVERTIME","b"],["hazard_hoodback","HAZARD","c"],["emblem_squat","EMBLEM","e"],["collage_walk","NEVER ENDS","b"],["group_a","GOLDEN HOUR","c"],
   ];
+  const IG = ["racing_garage","graveyard_laundro","owl_roof","league_lean","cross_squat","tigers_stairs"];
   const FAQ = [
     ["When does it drop?", "First Shift opens on the date at the top of this page at 11:59 PM ET and closes exactly 48 hours later. The list gets the password one hour early."],
-    ["Will you restock?", "No. Thirty-six of each piece. When a size is gone it's gone. That's the whole point of a drop."],
+    ["Will you restock?", "No. Thirty-six of each tee, twenty-four of each hoodie. When a size is gone it's gone. That's the whole point of a drop."],
     ["Shipping?", "Everything ships from the US within 5–8 business days after the drop closes (we print to order to keep waste at zero). Worldwide shipping available; rates shown at checkout."],
     ["Returns?", "Final sale — limited runs can't be restocked. Misprints or damage in transit are replaced free, no questions. Email hello@shiftworld.co with a photo."],
     ["How do they fit?", "Oversized and boxy. If you like a regular fit, size down. See the size chart above — the model is 6'0\", 170 lb in a Large."],
-    ["What are the prints?", "One-color screen prints from hand-finished engraving artwork. They're meant to soften and crack slightly with washes — wash cold, inside out, hang dry."],
+    ["Why do the prints look old?", "On purpose. Every graphic is cracked, faded and dropped-out in the file before printing so it looks worn-in on day one. They'll keep softening with washes — wash cold, inside out, hang dry."],
   ];
+  const TICK = ["EST. 2002","NEW: SHIFT RACING TEE","NEW: GRAVEYARD SHIFT TEE","NEW: NIGHT OWL HOODIE","48 HOURS","NEVER RESTOCKED","NIGHT SHIFT DIVISION","FREE US SHIPPING OVER $120"];
 
-  // products
+  // ticker
+  document.getElementById("tick").innerHTML = [...TICK, ...TICK].map(t=>`<span>${t}</span>◆`).join("");
+
+  // new arrivals
+  document.getElementById("arrivals").innerHTML = NEW.map((n,i)=>`
+    <div class="arr rv ${i%2?'flip':''}">
+      <div class="ph" onclick="location.href='${n.url}'"><img src="${P(n.photo)}" alt="${n.name}"><img class="alt" src="${P(n.alt)}" alt="" loading="lazy"><div class="num">${n.num}</div></div>
+      <div class="txt">
+        <img class="print" src="assets/prints/${n.print}.png" alt="" loading="lazy">
+        <div class="kick">NEW · EST. 2002</div>
+        <div><h3>${n.name}<small>${n.sub}</small></h3><p>${n.desc}</p><div class="chips">${n.chips.map(c=>`<span>${c}</span>`).join("")}</div></div>
+        <div class="row2" style="margin-top:22px"><span class="price">$${n.price}</span><a class="btn" href="${n.url}">BUY NOW</a></div>
+      </div>
+    </div>`).join("");
+
+  // filters + grid
+  const cats = ["ALL","TEES","LONG SLEEVE","HOODIES","SHORTS"];
+  document.getElementById("filters").innerHTML = cats.map((c,i)=>`<button class="${i?'':'on'}" onclick="filt('${c}',this)">${c}</button>`).join("");
+  window.filt = (c, btn) => { document.querySelectorAll(".filters button").forEach(b=>b.classList.toggle("on", b===btn)); document.querySelectorAll(".card").forEach(el=>el.classList.toggle("hide", c!=="ALL" && el.dataset.cat!==c)); };
   document.getElementById("grid").innerHTML = PRODUCTS.map((p,i) => `
-    <article class="card rv" style="transition-delay:${(i%3)*80}ms" data-key="${p.key}">
-      ${p.badge ? `<span class="badge ${p.badge==='HERO'?'':'ghost'}">${p.badge}</span>` : ""}
+    <article class="card rv" style="transition-delay:${(i%4)*70}ms" data-key="${p.key}" data-cat="${p.cat}">
+      ${p.badge ? `<span class="badge ${p.badge==='HERO'?'':p.badge==='NEW'?'gold':'ghost'}">${p.badge}</span>` : ""}
       <div class="img gal" data-n="${p.imgs.length}" data-i="0">
-        ${p.imgs.map((f,j)=>`<img src="assets/photos/fs/${f}.jpg" alt="${p.name}" loading="lazy" class="${j?'':'on'}">`).join("")}
+        ${p.imgs.map((f,j)=>`<img src="${P(f)}" alt="${p.name}" loading="lazy" class="${j?'':'on'}">`).join("")}
         <button class="nav prev" aria-label="previous" onclick="gal(this,-1,event)">‹</button><button class="nav next" aria-label="next" onclick="gal(this,1,event)">›</button>
         <div class="dots">${p.imgs.map((_,j)=>`<i class="${j?'':'on'}"></i>`).join("")}</div>
       </div>
       <div class="meta"><h3>${p.name}</h3><span class="price">$${p.price}</span></div>
-      <div class="desc">${p.desc}<br><span class="spec">${p.spec}</span></div>
+      <div class="desc">${p.desc}<span class="spec">${p.spec}</span></div>
       <a class="buy" href="${p.url}" data-buy="${p.key}">${p.url.startsWith('#') ? 'NOTIFY ME' : 'BUY'}</a>
     </article>`).join("");
   window.gal = (btn, d, ev) => { ev.preventDefault(); ev.stopPropagation(); const g = btn.parentElement, n = +g.dataset.n; let i = (+g.dataset.i + d + n) % n; g.dataset.i = i;
     g.querySelectorAll("img").forEach((im,j)=>im.classList.toggle("on", j===i)); g.querySelectorAll(".dots i").forEach((x,j)=>x.classList.toggle("on", j===i)); };
   document.querySelectorAll(".gal").forEach(g => g.addEventListener("click", e => { if (!e.target.classList.contains("nav")) gal(g.querySelector(".next"), 1, e); }));
 
-  document.getElementById("rail").innerHTML = LOOK.map(([f,c]) => `<figure><img src="assets/photos/${f}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join("");
+  // lookbook + lightbox
+  document.getElementById("look").innerHTML = LOOK.map(([f,c,k]) => `<figure class="${k}" onclick="lb('${f}','${c}')"><img src="${P(f)}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join("");
+  window.lb = (f,c) => { document.getElementById("lbimg").src = P(f); document.getElementById("lbcap").textContent = c; document.getElementById("lb").classList.add("on"); };
+  addEventListener("keydown", e => { if (e.key === "Escape") document.getElementById("lb").classList.remove("on"); });
+  document.getElementById("ig").innerHTML = IG.map(f=>`<a href="https://instagram.com/shift_clothing405" target="_blank" rel="noopener"><img src="${P(f)}" alt="" loading="lazy"></a>`).join("");
   document.getElementById("faqlist").innerHTML = FAQ.map(([q,a]) => `<div class="q"><button onclick="this.parentElement.classList.toggle('open')">${q}</button><div class="a"><p>${a}</p></div></div>`).join("");
 
   // countdown
@@ -381,14 +459,19 @@
   }
   tick(); setInterval(tick, 1000);
 
+  // hero slideshow
+  const HERO = ["racing_garage","owl_roof","graveyard_laundro","league_lean"]; let hi = 0;
+  const heroimg = document.getElementById("heroimg");
+  setInterval(()=>{ hi = (hi+1) % HERO.length; heroimg.classList.remove("in"); setTimeout(()=>{ heroimg.src = P(HERO[hi]); heroimg.onload = ()=>heroimg.classList.add("in"); }, 700); }, 7000);
+
   // preloader + hero
-  window.addEventListener("load", () => { setTimeout(()=>{ document.getElementById("pre").classList.add("done"); document.getElementById("heroimg").classList.add("in"); }, 700); });
-  setTimeout(()=>{ document.getElementById("pre").classList.add("done"); document.getElementById("heroimg").classList.add("in"); }, 2500);
+  const go = () => { document.getElementById("pre").classList.add("done"); heroimg.classList.add("in"); };
+  window.addEventListener("load", () => setTimeout(go, 600)); setTimeout(go, 2500);
 
   // nav + reveal
   const nav = document.getElementById("nav");
   addEventListener("scroll", () => nav.classList.toggle("solid", scrollY > 40), {passive:true});
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }), {threshold:.12});
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }), {threshold:.1});
   document.querySelectorAll(".rv").forEach(el => io.observe(el));
   document.querySelectorAll(".links a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
 

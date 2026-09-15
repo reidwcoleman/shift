@@ -51,7 +51,7 @@ def worn(src, dst, seed=1, strength=0.38):
 
 
 if __name__ == "__main__":
-    names = sys.argv[1:] or [os.path.basename(p) for p in sorted(glob.glob(os.path.join(SRC, "*.png"))) if os.path.basename(p)[:2] in ("20", "21", "22", "23", "24", "25", "26", "27", "29", "30", "06")]
+    names = sys.argv[1:] or [os.path.basename(p) for p in sorted(glob.glob(os.path.join(SRC, "*.png"))) if os.path.basename(p)[:2] in ("20", "21", "22", "23", "24", "25", "26", "27", "29", "30", "31", "32", "33", "06")]
     for i, n in enumerate(names):
         worn(os.path.join(SRC, n), os.path.join(OUT, n), seed=i + 3)
         im = Image.open(os.path.join(OUT, n)); s = 200 / 300

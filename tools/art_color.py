@@ -26,6 +26,9 @@ ARTS = {
     "sundial": ("A classic sun face (like an old sundial or tarot sun) with wavy and straight alternating rays, a serene face, and a sundial gnomon casting a shadow across it, drawn in two colors: rust red and dark navy line art, distressed and faded.", "1:1"),
     "script_drip": ("The word 'Shift' in a glossy chrome-and-pink tattoo script lettering with sharp flourishes, red blood-drips running down from the letters, gothic and shiny, with a small crown above the S.", "16:9"),
     "collage": ("A dense vintage photo-collage print: torn newspaper clippings, an old alarm clock, a crescent moon, a city skyline at night, a punch clock, a rose, playing cards and a stopwatch, layered like a 1990s band tee collage, muted colors: cream, faded red, gold and black.", "4:5"),
+    "race_car": ("A 1970s rally race car, front three-quarter view, speeding toward the viewer with motion lines, two crossed checkered flags behind it and a laurel wreath framing it, in exactly four flat spot colors: cardinal red, athletic gold, cream and black. 1990s motorsport tee feel.", "16:9"),
+    "moth_lantern": ("A single death's-head hawkmoth with spread wings hovering above an old brass railway lantern with a burning candle inside, sparks and a crescent moon behind, in exactly three flat spot colors: cream, athletic gold and rust red, woodcut-style ink hatching.", "3:4"),
+    "night_owl": ("A fierce great horned owl perched on a crescent moon, wings half-raised, clutching an antique pocket watch on a chain in its talons, a few stars around, in exactly three flat spot colors: cream, athletic gold and rust red, woodcut-style ink hatching.", "3:4"),
     "spider_tiger": ("A tiger's face merged with an iron cross behind it, black and gold with a cream outline, like a 2000s rock band emblem.", "1:1"),
 }
 

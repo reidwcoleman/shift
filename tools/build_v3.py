@@ -190,7 +190,57 @@ def hazard2_back():
     return svg_doc(w, h, "".join(b))
 
 
+# 31 SHIFT RACING TEE — cream tee. cardinal + gold + cream + black motorsport print
+def racing_front():
+    w, h = FRONT
+    b = []
+    b.append(arc_text("Anton", "SHIFT RACING", 560, w / 2, 3300, 2750, CARDINAL, tracking=0.12, extra=f'stroke="{INK}" stroke-width="26" stroke-linejoin="round" paint-order="stroke"'))
+    snip, ah = raster("race_car", w / 2, 1100, 2800); b.append(snip)
+    y = 1100 + ah + 230
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  RALLY TEAM", 140, w / 2, y, INK, tracking=0.4))
+    # sponsor-block row
+    row = y + 230
+    for i, lab in enumerate(["EST. 2002", "NO REVERSE", "OVERTIME", "WORLDWIDE"]):
+        cx = w / 2 + (i - 1.5) * 800
+        b.append(f'<rect x="{cx-330}" y="{row-80}" width="660" height="140" fill="{CARDINAL if i % 2 == 0 else INK}"/>')
+        b.append(text("Bebas Neue", lab, 100, cx, row + 26, CREAM, tracking=0.25))
+    return svg_doc(w, h, "".join(b))
+
+
+# 32 GRAVEYARD SHIFT TEE — black tee. moth + lantern, cream/gold/rust
+def graveyard_front():
+    w, h = FRONT
+    b = []
+    b.append(arc_text("Anton", "GRAVEYARD SHIFT", 380, w / 2, 3150, 2600, GOLD, tracking=0.1, extra=f'stroke="{CREAM}" stroke-width="18" stroke-linejoin="round" paint-order="stroke"'))
+    snip, ah = raster("moth_lantern", w / 2, 880, 2000); b.append(snip)
+    y = 880 + ah + 300
+    b.append(text("UnifrakturCook", "Shift", 400, w / 2, y, CREAM))
+    b.append(text("Bebas Neue", "THE LIGHTS STAY ON  •  EST. 2002", 125, w / 2, y + 180, GOLD, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+# 33 NIGHT OWL HOODIE — black hoodie. chest: small owl. back: owl on the moon
+def owl_back():
+    w, h = BACK
+    b = [text("UnifrakturCook", "Shift", 560, w / 2, 600, CREAM)]
+    snip, ah = raster("night_owl", w / 2, 720, 2500); b.append(snip)
+    y = 720 + ah + 330
+    b.append(text("Bebas Neue", "NIGHT OWL", 280, w / 2, y, GOLD, tracking=0.35))
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  AWAKE SINCE 2002", 120, w / 2, y + 210, CREAM, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+def owl_chest():
+    w, h = CHEST
+    snip, ah = raster("night_owl", w / 2, 60, 860)
+    return svg_doc(w, h, snip)
+
+
 DESIGNS_V3 = {
+    "31_racing_front": (racing_front, FRONT),
+    "32_graveyard_front": (graveyard_front, FRONT),
+    "33_owl_back": (owl_back, BACK),
+    "33_owl_chest": (owl_chest, CHEST),
     "30_hazard2_front": (hazard2_front, BADGE),
     "30_hazard2_back": (hazard2_back, BACK),
     "20_league_front": (league_front, FRONT),

@@ -73,6 +73,10 @@ FLATS = {
     "hazard_hoodie_back": ("flat_c", "bl", [("30_hazard2_back", 505, 1400, 12, 31)]),
     "emblem_tee_back": ("flat_c", "br", [("29_emblem_back", 1515, 1230, 13, 27)]),
     "emblem_tee": ("flat_a", "bl", [("29_emblem_chest", 626, 1330, 4, 29.5)]),
+    "racing_tee": ("flat_a", "br", [("31_racing_front", 1515, 1315, 12, 29)]),
+    "graveyard_tee": ("flat_a", "bl", [("32_graveyard_front", 520, 1325, 12, 29.5)]),
+    "owl_hoodie": ("flat_b", "bl", [("33_owl_chest", 640, 1380, 3.5, 31.7)]),
+    "owl_hoodie_back": ("flat_c", "bl", [("33_owl_back", 505, 1400, 12, 31)]),
 }
 
 MODELS = {
@@ -87,6 +91,8 @@ MODELS = {
     "mesh_shorts": ("model_d", (740, 350, 1540, 1350), [("26_mesh_left", 1031, 935, 4, 13.6, None), ("26_mesh_right", 1240, 935, 4, 13.6, (1226, 940, 46, 40))]),
     "sweat_shorts": ("model_d", (1312, 350, 2112, 1350), [("27_sweat_left", 1712, 905, 5, 14.5, None)]),
     "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("30_hazard2_back", 1750, 830, 13, 17.5, None)]),
+    "racing_tee": ("model_a", (1271, 120, 2071, 1120), [("31_racing_front", 1671, 422, 12, 16.4, None)]),
+    "graveyard_tee": ("model_b", (744, 150, 1544, 1150), [("32_graveyard_front", 1144, 476, 12, 17.9, None)]),
 }
 
 
@@ -119,6 +125,9 @@ POSES = {
     "overtime_car": ("pose_car", (250, 250, 1650, 2000), [("24_thermal_front", 964, 837, 11, 19.2, "dark")], "overtime_thermal"),
     "emblem_squat": ("pose_squat", (250, 150, 1650, 1900), [("29_emblem_chest", 1136, 860, 3.5, 35, "dark")], "emblem_tee"),
     "collage_walk": ("pose_walk", (300, 100, 1556, 1670), [("25_collage_front", 952, 735, 12, 22.7, "light")], "collage_thermal"),
+    "racing_garage": ("pose_garage", (100, 120, 1692, 2110), [("31_racing_front", 936, 885, 12, 22, "light")], "racing_tee"),
+    "graveyard_laundro": ("pose_laundro", (100, 120, 1692, 2110), [("32_graveyard_front", 954, 765, 12, 25.4, "dark")], "graveyard_tee"),
+    "owl_roof": ("pose_roof", (100, 120, 1692, 2110), [("33_owl_back", 945, 940, 13, 18, "dark")], "owl_hoodie"),
 }
 
 
