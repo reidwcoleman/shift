@@ -22,6 +22,14 @@ Everything below is in order. Total time to be live: one evening.
 
 ---
 
+## Status (2026-09-14)
+
+- Fourthwall store is LIVE: **https://shift-clothing-shop.fourthwall.com** (admin: admin.fourthwall.com/store/shift-clothing). 10 products published: League Tee, Twin Tigers Tee, Time Is Money Tee, Sundial Tee, Emblem Tee, Overtime Long Sleeve, Never Ends Long Sleeve, Athletic Dept Shorts, Wordmark Beanie, Hazard Hoodie.
+- Not on Fourthwall (no matching blank): Division Mesh Shorts (only all-over-print sublimation mesh shorts exist), the red/gold ringer (League Tee is on Comfort Colors 1717 Red instead), waffle thermals (long sleeves are Comfort Colors 6014). Get these from a screen printer for Drop 002.
+- Instagram: **@shift_clothing405**, bio + avatar set, 2 posts up (01 day-1 desk, 07 League hero). Rename the handle to `shift.worldwide` (or similar) in the app: Settings → Edit profile → Username. The display name is still "Reid Coleman" — change it to SHIFT in the app too.
+- Landing page buttons now link to the Fourthwall products.
+- Still to do on Fourthwall: replace the default hero banner (Site design → upload `photos/first_shift/group_b.jpg`), connect a domain, order your samples.
+
 ## Step 1 — Fourthwall account (20 min)
 
 1. Go to fourthwall.com → "Start for free" → sign up with the brand email (make `hello@shiftworld.co` or a fresh Gmail `shift.worldwide@gmail.com` — never your personal one).
