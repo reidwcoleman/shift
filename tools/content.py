@@ -96,7 +96,7 @@ CAPTIONS = {
     "timecard_back": "Pray for overtime.\n\nOVERTIME THERMAL — 340 GSM waffle, chrome script, drips.\n\n#shiftworldwide #thermal #streetwear #winterfits",
     "skeleton_front": "Division issue.\n\nMESH SHORTS — NSD shield, wordmark, stars. Size up for boxy.\n\n#shiftworldwide #meshshorts #streetwear",
     "group_a": "First Shift. Eleven pieces. 10.09.\n\n#shiftworldwide #streetwear #lookbook #nightshiftdivision",
-    "group_e": "Last call.\n\nWORDMARK BEANIE + HAZARD HOODIE — 10.09\n\n#shiftworldwide #beanie #hoodie #streetwear",
+    "group_e": "Last call.\n\nHAZARD HOODIE — 10.09\n\n#shiftworldwide #hoodie #streetwear",
     "rules": "The rules.\n\n36 of each piece. The store is open for 48 hours. We never restock. If you own it, you were there.\n\n#shiftworldwide #drop001 #streetwear #limited",
     "date": "Save it. 10.09. 11:59 PM.\n\nThe list gets the password at 10:59. Link in bio.\n\n#shiftworldwide #drop #streetwearbrand",
     "manifesto": "Nobody claps for the hours between midnight and five. That's the shift.\n\n#shiftworldwide #nightshiftdivision #motivation #grind",

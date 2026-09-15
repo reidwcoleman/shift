@@ -18,7 +18,7 @@ Everything below is the order to do it in. Each step has the number attached.
 
 ## 1. What you're actually selling (FIRST SHIFT)
 
-Modeled on how 404 Culture builds a range (varsity tee, tigers tee, money cross, sundial, thermals, mesh + sweat shorts, beanie) — same categories, heavier garments, real illustration, real photos.
+Modeled on how 404 Culture builds a range (varsity tee, tigers tee, money cross, sundial, thermals, mesh + sweat shorts) — same categories, heavier garments, real illustration, real photos.
 
 | # | Piece | Blank | Sell | Landed cost* | Margin |
 |---|-------|-------|------|--------------|--------|
@@ -31,10 +31,9 @@ Modeled on how 404 Culture builds a range (varsity tee, tigers tee, money cross,
 | 7 | Never Ends Thermal (cream) | same | $58 | ~$22 | 62% |
 | 8 | Division Mesh Shorts | mesh shorts | $44 | ~$17 | 61% |
 | 9 | Athletic Dept Shorts (grey fleece) | fleece shorts | $52 | ~$20 | 62% |
-| 10 | Wordmark Beanie | cuffed knit, embroidered | $32 | ~$11 | 66% |
-| 11 | Hazard Hoodie | IND4000 / Gildan 18500 | $98 | ~$31 | 68% |
+| 10 | Hazard Hoodie (diamond badge + beacon back) | IND4000 / Gildan 18500 | $98 | ~$31 | 68% |
 
-\*Landed = blank + print + mailer + tag at print-on-demand or a 36–50 piece run. Files: `designs/print/` (raster, 300 DPI) and `designs/src/` (SVG with embedded art + outlined type).
+\*Landed = blank + print + mailer + tag at print-on-demand or a 36–50 piece run. Files: `designs/print_worn/` (worn/vintage pass, 300 DPI — the ones that ship), `designs/print/` (clean masters) and `designs/src/` (SVG with embedded art + outlined type).
 
 ### Two ways to make them
 

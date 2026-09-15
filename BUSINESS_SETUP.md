@@ -14,7 +14,7 @@ Everything below is in order. Total time to be live: one evening.
 | Domain | shiftworld.co (Namecheap/Porkbun) | ~$12/yr | Point it at the landing page; Fourthwall gets `shop.shiftworld.co`. |
 | Email list | Fourthwall's built-in "email signups" or Formspree → Mailchimp | $0 | Fourthwall lets you email your customers directly for drops. |
 | Instagram / TikTok | Professional (Creator) account | $0 | Native scheduler (75 days ahead), insights, link in bio. See `INSTAGRAM.md`. |
-| Design files | this repo | — | `designs/print/*.png` uploads directly. |
+| Design files | this repo | — | `designs/print_worn/*.png` (worn, EST. 2002) uploads directly; `designs/upload_worn/` are the <10 MB copies for Fourthwall. |
 
 **Why not Shopify + Printful?** It works and it's what most brands use later, but it's two accounts, $5–39/mo, tax setup, and you connect the two. Fourthwall is the same result in one login for a first drop. Switch to Shopify + Printful when you're doing $5k+/month and want more control; the designs move with you.
 
@@ -22,13 +22,14 @@ Everything below is in order. Total time to be live: one evening.
 
 ---
 
-## Status (2026-09-14)
+## Status (2026-09-14, evening)
 
-- Fourthwall store is LIVE: **https://shift-clothing-shop.fourthwall.com** (admin: admin.fourthwall.com/store/shift-clothing). 10 products published: League Tee, Twin Tigers Tee, Time Is Money Tee, Sundial Tee, Emblem Tee, Overtime Long Sleeve, Never Ends Long Sleeve, Athletic Dept Shorts, Wordmark Beanie, Hazard Hoodie.
-- Not on Fourthwall (no matching blank): Division Mesh Shorts (only all-over-print sublimation mesh shorts exist), the red/gold ringer (League Tee is on Comfort Colors 1717 Red instead), waffle thermals (long sleeves are Comfort Colors 6014). Get these from a screen printer for Drop 002.
-- Instagram: **@shift_clothing405**, bio + avatar set, 2 posts up (01 day-1 desk, 07 League hero). Rename the handle to `shift.worldwide` (or similar) in the app: Settings → Edit profile → Username. The display name is still "Reid Coleman" — change it to SHIFT in the app too.
-- Landing page buttons now link to the Fourthwall products.
-- Still to do on Fourthwall: replace the default hero banner (Site design → upload `photos/first_shift/group_b.jpg`), connect a domain, order your samples.
+- Fourthwall store: **https://shift-clothing-shop.fourthwall.com** (admin: admin.fourthwall.com/store/shift-clothing). 9 products, all carrying the **worn / EST. 2002** print files from `designs/print_worn` (or the <10 MB `designs/upload_worn` copies): League Tee, Twin Tigers Tee, Time Is Money Tee, Sundial Tee, Emblem Tee (3.5 in chest + full back), Overtime Long Sleeve, Never Ends Long Sleeve, Athletic Dept Shorts, Hazard Hoodie (new diamond badge + beacon back). The Wordmark Beanie is gone (deleted, not coming back).
+- Storefront theme switched to the dark "Creator" layout; hero says **FIRST SHIFT. EST. 2002.** with `photos/first_shift/league_lean.jpg` + `cross_squat.jpg`.
+- **The store is set to "Coming soon"** (Site design → status pill top-right). Visitors see a holding page, so the BUY buttons on the landing page dead-end until you flip it to **Live** (or "Coming soon + Allow early access with password" for the drop-night mechanic in Step 5). Your call — it takes one click.
+- Not on Fourthwall (no matching blank): Division Mesh Shorts, the red/gold ringer (League Tee is on Comfort Colors 1717 Red), waffle thermals (long sleeves are Comfort Colors 6014). Screen printer, Drop 002.
+- Instagram **@shift_clothing405**: 5 posts up — day-1 desk, League hero, and carousels 01 (League), 02 (Hazard), 03 (Time Is Money + Emblem). After post 03 Instagram showed a **"Confirm you're human"** check on the Windows Chrome — click Continue there yourself, then carousels 04 (Tigers + Sundial) and 05 (long sleeves) are ready in `content/carousels/` with captions in `CAPTIONS.md`. One per day from here.
+- Still yours: rename the handle to `shift.worldwide`, display name → SHIFT (Settings → Edit profile), connect Fourthwall payouts, order samples.
 
 ## Step 1 — Fourthwall account (20 min)
 
@@ -37,7 +38,7 @@ Everything below is in order. Total time to be live: one evening.
 3. Payouts: connect your bank (they use Stripe). Under 18? A parent's bank works — they're the "owner" on paper.
 4. Theme: pick the darkest minimal theme. Upload `brand/avatar.png` as the logo/favicon, `brand/wordmark_white.png` as the header logo.
 
-## Step 2 — Create the 11 products (60 min)
+## Step 2 — Create the 10 products (60 min)
 
 For each product: **Products → Add product → Print on demand → choose blank → Design**. Multi-color prints (`designs/print/2x_*.png`) are full-color rasters — perfect for DTG/print-on-demand; a screen printer will separate the colors themselves.
 
@@ -52,12 +53,11 @@ For each product: **Products → Add product → Print on demand → choose blan
 | Never Ends Thermal | Waffle/thermal long sleeve — Natural | `25_collage_front.png` | 12×14 in center |
 | Division Mesh Shorts | Mesh shorts — Black | `26_mesh_left.png` (wearer's left leg) + `26_mesh_right.png` (right leg) | 4 in each |
 | Athletic Dept Shorts | Fleece sweat shorts — Heather Grey | `27_sweat_left.png` | 5 in, left leg |
-| Wordmark Beanie | Cuffed knit beanie — Black (embroidery) | `28_beanie.png` → they'll digitize it | 3.5 in on the cuff |
-| Hazard Hoodie | Independent IND4000 / Gildan 18500 — Black | `06_hazard_badge_white.png` (5 in chest) + `06_hazard_back_white.png` (13×16 in) | |
+| Hazard Hoodie | Independent IND4000 / Gildan 18500 — Black | `30_hazard2_front.png` (5 in chest) + `30_hazard2_back.png` (13×16 in) | |
 
 Rules when placing: front full prints start ~2.5–3 in below the collar; left chest logos center ~4 in from the center line; back prints start ~3 in below the back collar. The mockups in `mockups/` show the intended placement — match them.
 
-Prices (set these): tees **$48**, thermals **$58**, mesh shorts **$44**, sweat shorts **$52**, beanie **$32**, hoodie **$98**. 404 Culture sells the same categories at $36–44 with amateur photos; you're a step above on garment, art and photography, so hold the line — don't go under $40 on a tee.
+Prices (set these): tees **$48**, thermals **$58**, mesh shorts **$44**, sweat shorts **$52**, hoodie **$98**. 404 Culture sells the same categories at $36–44 with amateur photos; you're a step above on garment, art and photography, so hold the line — don't go under $40 on a tee.
 
 Product photos: upload from `photos/first_shift/` — `<product>_flat.jpg` (white background, first image) and `<product>_model.jpg`, plus the `group_*.jpg` lifestyle shots. Product description: copy from `docs/index.html` PRODUCTS array.
 
