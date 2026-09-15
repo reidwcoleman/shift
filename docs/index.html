@@ -7,13 +7,13 @@
 <meta name="description" content="SHIFT Worldwide · Night Shift Division. First Shift — eleven pieces, 48 hours, never restocked.">
 <meta property="og:title" content="SHIFT — First Shift">
 <meta property="og:description" content="Eleven pieces. 48 hours. No reverse.">
-<meta property="og:image" content="assets/photos/fs/group_b.jpg">
+<meta property="og:image" content="assets/photos/fs/league_lean.jpg">
 <link rel="icon" href="assets/mark_white.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0A0A0A; --ink2:#111; --ink3:#181818; --bone:#EDE6D6; --bone2:#CFC8B8; --signal:#FF3B1F; --concrete:#8E8E88; --line:rgba(237,230,214,.12);
+    --ink:#0C0B09; --ink2:#141210; --ink3:#1B1815; --bone:#EAE1CC; --bone2:#CBC1AA; --signal:#E8452A; --concrete:#8E8E88; --line:rgba(237,230,214,.12);
     --anton:'Anton',Impact,sans-serif; --bebas:'Bebas Neue',Impact,sans-serif; --inter:'Inter',system-ui,sans-serif;
     --ease:cubic-bezier(.2,.7,.2,1);
   }
@@ -50,7 +50,7 @@
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
   .hero .bg{position:absolute;inset:0;background:#000}
-  .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;transform:scale(1.06);transition:opacity 1.2s var(--ease),transform 6s var(--ease)}
+  .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:0;transform:scale(1.06);transition:opacity 1.2s var(--ease),transform 6s var(--ease)}
   .hero .bg img.in{opacity:.78;transform:scale(1)}
   .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.35) 45%,rgba(10,10,10,.15) 100%)}
   .hero .wrap{position:relative;width:100%;padding-bottom:48px;padding-top:120px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
@@ -97,10 +97,14 @@
   .card:hover{border-color:rgba(237,230,214,.35)}
   .card .img{position:relative;aspect-ratio:4/5;background:#000;cursor:pointer;overflow:hidden}
   .card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s var(--ease),transform 1.2s var(--ease)}
-  .card .img img.back{opacity:0}
-  .card .img:hover img.back,.card .img.flip img.back{opacity:1}
-  .card .img:hover img{transform:scale(1.03)}
-  .card .hint{position:absolute;right:12px;bottom:12px;font-family:var(--bebas);letter-spacing:.18em;font-size:12px;background:rgba(0,0,0,.6);padding:6px 10px;backdrop-filter:blur(6px)}
+  .card .img img{opacity:0} .card .img img.on{opacity:1}
+  .card .img:hover img.on{transform:scale(1.03)}
+  .card .nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bone);font-size:22px;line-height:1;cursor:pointer;opacity:0;transition:opacity .25s;backdrop-filter:blur(6px)}
+  .card .nav.prev{left:10px} .card .nav.next{right:10px} .card .img:hover .nav{opacity:1}
+  .card .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
+  .card .dots i{width:6px;height:6px;border-radius:50%;background:rgba(237,230,214,.35)} .card .dots i.on{background:var(--signal)}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero .bg img.in{opacity:.85}
   .card .badge{position:absolute;top:12px;left:12px;background:var(--signal);color:#fff;font-family:var(--bebas);letter-spacing:.18em;font-size:12px;padding:6px 10px;z-index:2}
   .card .badge.ghost{background:rgba(0,0,0,.6);backdrop-filter:blur(6px)}
   .card .meta{display:flex;justify-content:space-between;align-items:baseline;padding:16px 16px 6px}
@@ -197,12 +201,12 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="bg"><img id="heroimg" src="assets/photos/fs/group_b.jpg" alt="SHIFT First Shift campaign"></div>
+  <div class="bg"><img id="heroimg" src="assets/photos/fs/cross_squat.jpg" alt="SHIFT First Shift"></div>
   <div class="wrap">
     <div>
-      <div class="kick">FIRST SHIFT · ELEVEN PIECES · <span id="dropdate">10.09</span> · 11:59 PM</div>
+      <div class="kick">FIRST SHIFT · EST. 2002 · <span id="dropdate">10.09</span> · 11:59 PM</div>
       <h1>CLOCK<br>IN<span>.</span></h1>
-      <p>For the ones still building after everyone else went home. Eleven pieces — tees, thermals, shorts, a beanie and the hoodie. Open 48 hours. Never restocked.</p>
+      <p>Night Shift Division, since 2002. Ten pieces — worn-in tees, long sleeves, shorts and the hoodie. Open 48 hours. Never restocked.</p>
       <div class="cta">
         <a class="btn signal" href="https://shift-clothing-shop.fourthwall.com/">SHOP FIRST SHIFT</a>
         <a class="btn ghost" href="#drop">SEE THE PIECES</a>
@@ -219,22 +223,22 @@
 </header>
 
 <div class="marquee"><div>
-  <span>NO REVERSE</span><i>◆</i><span>CLOCK IN 11:59 PM</span><i>◆</i><span>CLOCK OUT NEVER</span><i>◆</i><span>NIGHT SHIFT DIVISION</span><i>◆</i><span>SHIFT WORLDWIDE</span><i>◆</i><span>FIRST SHIFT</span><i>◆</i>
-  <span>NO REVERSE</span><i>◆</i><span>CLOCK IN 11:59 PM</span><i>◆</i><span>CLOCK OUT NEVER</span><i>◆</i><span>NIGHT SHIFT DIVISION</span><i>◆</i><span>SHIFT WORLDWIDE</span><i>◆</i><span>FIRST SHIFT</span><i>◆</i>
+  <span>EST. 2002</span><i>◆</i><span>NO REVERSE</span><i>◆</i><span>CLOCK IN 11:59 PM</span><i>◆</i><span>CLOCK OUT NEVER</span><i>◆</i><span>NIGHT SHIFT DIVISION</span><i>◆</i><span>SHIFT WORLDWIDE</span><i>◆</i><span>FIRST SHIFT</span><i>◆</i>
+  <span>EST. 2002</span><i>◆</i><span>NO REVERSE</span><i>◆</i><span>CLOCK IN 11:59 PM</span><i>◆</i><span>CLOCK OUT NEVER</span><i>◆</i><span>NIGHT SHIFT DIVISION</span><i>◆</i><span>SHIFT WORLDWIDE</span><i>◆</i><span>FIRST SHIFT</span><i>◆</i>
 </div></div>
 
 <section class="wrap sec rv" id="drop">
   <div class="row">
-    <div><div class="kick">THE HERO</div><h2>LEAGUE RINGER.</h2></div>
-    <p class="lead">Cardinal red heavyweight ringer with athletic-gold rib. Varsity arch, hand-finished tiger crest in three spot colors, EST. 2026. The one that sells out first.</p>
+    <div><div class="kick">THE HERO</div><h2>LEAGUE TEE.</h2></div>
+    <p class="lead">Cardinal red heavyweight tee. Varsity arch, hand-finished tiger crest in three spot colors, cracked-in like it's been washed since 2002. The one that sells out first.</p>
   </div>
 </section>
 <div class="wrap feature rv">
-  <div class="ph"><img src="assets/photos/fs/league_tee_model.jpg" alt="League Ringer Tee"></div>
+  <div class="ph"><img src="assets/photos/fs/league_lean.jpg" alt="League Tee"></div>
   <div class="txt">
-    <div class="kick">250 GSM · RINGER · BOXY</div>
+    <div class="kick">250 GSM · WORN-IN PRINT · BOXY</div>
     <h3>NIGHT SHIFT<br>LEAGUE.</h3>
-    <p>Three-color screen print on a 250 GSM ringer tee, contrast collar and cuffs, twin-needle hems. Made in a run of 36 per size run. When the timer hits zero it's gone.</p>
+    <p>Three-color print, pre-cracked and faded so it looks twenty years old on day one. 250 GSM garment-dyed cotton, twin-needle hems. 36 made. When the timer hits zero it's gone.</p>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><span class="price">$48</span><a class="btn" href="https://shift-clothing-shop.fourthwall.com/products/league-tee" data-buy="league_tee">BUY NOW</a></div>
   </div>
 </div>
@@ -242,13 +246,13 @@
 <section class="wrap sec rv">
   <div class="row">
     <div><div class="kick">FIRST SHIFT — CLOCK IN</div><h2>THE PIECES.</h2></div>
-    <p class="lead">Eleven pieces. 250 GSM tees, 340 GSM waffle thermals, mesh and fleece shorts, a knit beanie and the 450 GSM hoodie. Hover or tap to see it on white.</p>
+    <p class="lead">Ten pieces. Every print is distressed and sun-faded before it ships — cracked ink, soft edges, 2002 energy. Tap a piece to flip through its photos.</p>
   </div>
 </section>
 <div class="wrap grid" id="grid"></div>
 
 <section class="wrap sec rv" id="lookbook">
-  <div class="row"><div><div class="kick">LOOKBOOK</div><h2>NIGHT SHIFT.</h2></div><p class="lead">Golden hour to last call. Brick, concrete, rooftops, the court, the laundromat.</p></div>
+  <div class="row"><div><div class="kick">LOOKBOOK</div><h2>NIGHT SHIFT.</h2></div><p class="lead">Shot on 35mm. Brick, graffiti, stairs, the hood of a Toyota, the laundromat at 2 AM.</p></div>
 </section>
 <div class="rail rv" id="rail"></div>
 
@@ -259,11 +263,11 @@
   <div class="ph"><img src="assets/photos/campaign_04.jpg" alt="Time clock at 11:59"></div>
   <div class="txt">
     <blockquote>Nobody claps for the hours between midnight and five. <em>That's the shift.</em></blockquote>
-    <p>SHIFT started as a joke between friends pulling all-nighters — "you're on the night shift." Then it stopped being a joke. Every drop is a punch card: a small run, a hard close, and then it's gone. If you own it, you were there.</p>
+    <p>SHIFT started in 2002 as a joke between friends pulling all-nighters — "you're on the night shift." It stopped being a joke. Every drop is a punch card: a small run, a hard close, and then it's gone. If you own it, you were there.</p>
     <ul class="rules">
       <li>DROP WINDOW <span>48 HOURS</span></li>
       <li>RESTOCKS <span>NEVER</span></li>
-      <li>PIECES PER DROP <span>11</span></li>
+      <li>PIECES PER DROP <span>10</span></li>
       <li>REVERSE <span>NO</span></li>
     </ul>
   </div>
@@ -276,7 +280,7 @@
   <div class="spec"><b>250<small> GSM</small></b><small>TEES</small><p>Heavyweight ring-spun cotton, boxy body, dropped shoulder, twin-needle hems. Pre-shrunk.</p></div>
   <div class="spec"><b>340<small> GSM</small></b><small>THERMALS</small><p>Waffle-knit long sleeves, 70/30 cotton-poly, ribbed cuffs. The winter piece.</p></div>
   <div class="spec"><b>450<small> GSM</small></b><small>HOODIE</small><p>Fleece-lined, double-layer hood, ribbed cuffs and hem, kangaroo pocket. Heavy in the hand.</p></div>
-  <div class="spec"><b>36</b><small>PER PIECE</small><p>Thirty-six of each. Hand-finished multi-color prints that crack in a little. When a size sells out it stays sold out.</p></div>
+  <div class="spec"><b>2002</b><small>EST.</small><p>Every print is distressed before it ships: cracked ink, faded color, soft hand. Thirty-six of each. When a size sells out it stays sold out.</p></div>
 </div>
 <div class="wrap rv">
   <div class="tbl"><table>
@@ -310,7 +314,7 @@
 
 <footer>
   <div class="wrap">
-    <div><div class="h">SHIFT WORLDWIDE — NIGHT SHIFT DIVISION</div><div style="margin-top:6px">EST. 2026 · No reverse.</div></div>
+    <div><div class="h">SHIFT WORLDWIDE — NIGHT SHIFT DIVISION</div><div style="margin-top:6px">EST. 2002 · Worn in, never worn out.</div></div>
     <div><a href="https://instagram.com/shift.worldwide">Instagram</a> &nbsp;·&nbsp; <a href="https://tiktok.com/@shift.worldwide">TikTok</a></div>
     <div><a href="mailto:hello@shiftworld.co">hello@shiftworld.co</a></div>
   </div>
@@ -321,22 +325,20 @@
   const DROP_AT = "2026-10-09T23:59:00";
   const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";   // formspree.io → new form → paste
   const PRODUCTS = [
-    {key:"league_tee", name:"LEAGUE RINGER TEE", price:48, badge:"HERO", desc:"Cardinal red ringer, gold rib. Varsity arch and a three-color tiger crest. Est. 2026.", spec:"250 GSM · 100% cotton · boxy · model is 6'0\" in L", url:"https://shift-clothing-shop.fourthwall.com/products/league-tee"},
-    {key:"tigers_tee", name:"TWIN TIGERS TEE", price:48, badge:"NEW", desc:"Natural tee. Two tigers and a pocket watch in sepia and rust. Every hour counts.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/twin-tigers-tee"},
-    {key:"cross_tee", name:"TIME IS MONEY TEE", price:48, badge:"NEW", desc:"Black tee. A cross built from time cards and dollar bills, stamped LATE. Old English Shift.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/time-is-money-tee"},
-    {key:"sundial_tee", name:"SUNDIAL TEE", price:48, badge:"", desc:"Bone tee. Two-color sun face and sundial, circled by Shift Worldwide / Every Hour Counts.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/sundial-tee"},
-    {key:"emblem_tee", name:"EMBLEM TEE", price:52, badge:"", desc:"Black tee. Small emblem on the chest, iron-cross tiger across the back. The shift never ends.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/emblem-tee"},
-    {key:"overtime_thermal", name:"OVERTIME THERMAL", price:58, badge:"", desc:"Black waffle thermal. Chrome-and-pink script with drips, crown over the S.", spec:"340 GSM · 70/30 cotton-poly · waffle knit", url:"https://shift-clothing-shop.fourthwall.com/products/overtime-long-sleeve"},
-    {key:"collage_thermal", name:"NEVER ENDS THERMAL", price:58, badge:"", desc:"Cream waffle thermal. Old English Shift over a torn-paper collage: clocks, cards, the city.", spec:"340 GSM · 70/30 cotton-poly · waffle knit", url:"https://shift-clothing-shop.fourthwall.com/products/never-ends-long-sleeve"},
-    {key:"mesh_shorts", name:"DIVISION MESH SHORTS", price:44, badge:"", desc:"Black mesh shorts. NSD shield on one leg, wordmark and stars on the other. Size up for boxy.", spec:"145 GSM · 100% poly mesh · 7\" inseam", url:"#list"},
-    {key:"sweat_shorts", name:"ATHLETIC DEPT SHORTS", price:52, badge:"", desc:"Washed grey fleece shorts. Tonal Shift Athletic Dept. print on the leg.", spec:"350 GSM · 90/10 cotton-poly fleece", url:"https://shift-clothing-shop.fourthwall.com/products/athletic-dept-shorts"},
-    {key:"beanie", name:"WORDMARK BEANIE", price:32, badge:"", desc:"Black ribbed knit, folded cuff, embroidered cream wordmark.", spec:"100% acrylic rib · one size", url:"https://shift-clothing-shop.fourthwall.com/products/wordmark-beanie"},
-    {key:"hazard_hoodie", name:"HAZARD HOODIE", price:98, badge:"", desc:"Black heavyweight hoodie. Night Shift Division badge, hazard band, DO NOT CROSS down the back.", spec:"450 GSM · 80/20 cotton-poly fleece · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/hazard-hoodie"},
+    {key:"league_tee", name:"LEAGUE TEE", price:48, badge:"HERO", imgs:["league_lean","league_tee_model","league_tee_flat"], desc:"Cardinal red, worn-in varsity arch and a three-color tiger crest. Est. 2002.", spec:"250 GSM · 100% cotton · boxy · model is 6'0\" in L", url:"https://shift-clothing-shop.fourthwall.com/products/league-tee"},
+    {key:"hazard_hoodie", name:"HAZARD HOODIE", price:98, badge:"NEW", imgs:["hazard_hoodback","hazard_hoodie_model","hazard_hoodie_back_flat","hazard_hoodie_flat"], desc:"Black heavyweight hoodie. Hazard diamond on the chest, warning-beacon emblem across the back. Caution: change in progress.", spec:"450 GSM · 80/20 fleece · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/hazard-hoodie"},
+    {key:"cross_tee", name:"TIME IS MONEY TEE", price:48, badge:"", imgs:["cross_squat","cross_tee_model","cross_tee_flat"], desc:"Black tee. A cross built from time cards and dollar bills, stamped LATE. Old English Shift.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/time-is-money-tee"},
+    {key:"tigers_tee", name:"TWIN TIGERS TEE", price:48, badge:"", imgs:["tigers_stairs","tigers_tee_model","tigers_tee_flat"], desc:"Natural tee. Two tigers and a pocket watch in sun-faded sepia and rust. Every hour counts.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/twin-tigers-tee"},
+    {key:"sundial_tee", name:"SUNDIAL TEE", price:48, badge:"", imgs:["sundial_walk","sundial_tee_model","sundial_tee_flat"], desc:"Bone tee. Two-color sun face and sundial, circled by Shift Worldwide / Every Hour Counts.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/sundial-tee"},
+    {key:"emblem_tee", name:"EMBLEM TEE", price:52, badge:"", imgs:["emblem_squat","emblem_tee_model","emblem_tee_back_flat"], desc:"Black tee. Small emblem on the chest, iron-cross tiger across the back. The shift never ends.", spec:"250 GSM · 100% cotton · boxy", url:"https://shift-clothing-shop.fourthwall.com/products/emblem-tee"},
+    {key:"overtime_thermal", name:"OVERTIME LONG SLEEVE", price:58, badge:"", imgs:["overtime_car","overtime_thermal_model","overtime_thermal_flat"], desc:"Black heavyweight long sleeve. Chrome-and-pink script with drips, crown over the S.", spec:"250 GSM · 100% cotton · relaxed", url:"https://shift-clothing-shop.fourthwall.com/products/overtime-long-sleeve"},
+    {key:"collage_thermal", name:"NEVER ENDS LONG SLEEVE", price:58, badge:"", imgs:["collage_walk","collage_thermal_model","collage_thermal_flat"], desc:"White heavyweight long sleeve. Old English Shift over a torn-paper collage: clocks, cards, the city.", spec:"250 GSM · 100% cotton · relaxed", url:"https://shift-clothing-shop.fourthwall.com/products/never-ends-long-sleeve"},
+    {key:"sweat_shorts", name:"ATHLETIC DEPT SHORTS", price:52, badge:"", imgs:["sweat_shorts_model","sweat_shorts_flat"], desc:"Heather grey fleece shorts. Tonal Shift Athletic Dept. print on the leg.", spec:"350 GSM · 90/10 fleece", url:"https://shift-clothing-shop.fourthwall.com/products/athletic-dept-shorts"},
+    {key:"mesh_shorts", name:"DIVISION MESH SHORTS", price:44, badge:"SOON", imgs:["mesh_shorts_model","mesh_shorts_flat"], desc:"Black mesh shorts. NSD shield on one leg, wordmark and stars on the other. Drop 002.", spec:"145 GSM · 100% poly mesh", url:"#list"},
   ];
   const LOOK = [
-    ["fs/group_a.jpg","GOLDEN HOUR — LEAGUE + TIGERS"],["fs/group_c.jpg","ROOFTOP — THERMALS"],["fs/cross_tee_model.jpg","TIME IS MONEY"],
-    ["fs/group_d.jpg","THE COURT — SHORTS"],["fs/sundial_tee_model.jpg","SUNDIAL TEE"],["fs/group_e.jpg","LAST CALL — BEANIE + HOODIE"],
-    ["fs/overtime_thermal_model.jpg","OVERTIME THERMAL"],["fs/league_tee_model.jpg","LEAGUE RINGER"],["campaign_04.jpg","11:59"],
+    ["fs/league_lean.jpg","LEAGUE TEE"],["fs/hazard_hoodback.jpg","HAZARD HOODIE"],["fs/tigers_stairs.jpg","TWIN TIGERS"],["fs/group_a.jpg","GOLDEN HOUR"],
+    ["fs/overtime_car.jpg","OVERTIME"],["fs/sundial_walk.jpg","SUNDIAL"],["fs/group_c.jpg","ROOFTOP"],["fs/emblem_squat.jpg","EMBLEM"],["fs/collage_walk.jpg","NEVER ENDS"],["campaign_04.jpg","11:59"],
   ];
   const FAQ = [
     ["When does it drop?", "First Shift opens on the date at the top of this page at 11:59 PM ET and closes exactly 48 hours later. The list gets the password one hour early."],
@@ -349,17 +351,20 @@
 
   // products
   document.getElementById("grid").innerHTML = PRODUCTS.map((p,i) => `
-    <article class="card rv" style="transition-delay:${(i%3)*80}ms">
+    <article class="card rv" style="transition-delay:${(i%3)*80}ms" data-key="${p.key}">
       ${p.badge ? `<span class="badge ${p.badge==='HERO'?'':'ghost'}">${p.badge}</span>` : ""}
-      <div class="img" onclick="this.classList.toggle('flip')">
-        <img src="assets/photos/fs/${p.key}_model.jpg" alt="${p.name}" loading="lazy">
-        <img class="back" src="assets/photos/fs/${p.key==='emblem_tee'?'emblem_tee_back':p.key}_flat.jpg" alt="${p.name} flat" loading="lazy" onerror="this.remove()">
-        <span class="hint">ON WHITE</span>
+      <div class="img gal" data-n="${p.imgs.length}" data-i="0">
+        ${p.imgs.map((f,j)=>`<img src="assets/photos/fs/${f}.jpg" alt="${p.name}" loading="lazy" class="${j?'':'on'}">`).join("")}
+        <button class="nav prev" aria-label="previous" onclick="gal(this,-1,event)">‹</button><button class="nav next" aria-label="next" onclick="gal(this,1,event)">›</button>
+        <div class="dots">${p.imgs.map((_,j)=>`<i class="${j?'':'on'}"></i>`).join("")}</div>
       </div>
       <div class="meta"><h3>${p.name}</h3><span class="price">$${p.price}</span></div>
       <div class="desc">${p.desc}<br><span class="spec">${p.spec}</span></div>
       <a class="buy" href="${p.url}" data-buy="${p.key}">${p.url.startsWith('#') ? 'NOTIFY ME' : 'BUY'}</a>
     </article>`).join("");
+  window.gal = (btn, d, ev) => { ev.preventDefault(); ev.stopPropagation(); const g = btn.parentElement, n = +g.dataset.n; let i = (+g.dataset.i + d + n) % n; g.dataset.i = i;
+    g.querySelectorAll("img").forEach((im,j)=>im.classList.toggle("on", j===i)); g.querySelectorAll(".dots i").forEach((x,j)=>x.classList.toggle("on", j===i)); };
+  document.querySelectorAll(".gal").forEach(g => g.addEventListener("click", e => { if (!e.target.classList.contains("nav")) gal(g.querySelector(".next"), 1, e); }));
 
   document.getElementById("rail").innerHTML = LOOK.map(([f,c]) => `<figure><img src="assets/photos/${f}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join("");
   document.getElementById("faqlist").innerHTML = FAQ.map(([q,a]) => `<div class="q"><button onclick="this.parentElement.classList.toggle('open')">${q}</button><div class="a"><p>${a}</p></div></div>`).join("");

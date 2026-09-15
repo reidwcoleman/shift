@@ -90,7 +90,7 @@ CAPTIONS = {
     "laundromat_fold": "Bone. 7.5 oz. Cherubs carrying the punch clock.\n\nCHERUB TEE — Drop 001\n\n#shiftworldwide #graphictee #heavyweight #streetwearbrand",
     "rooftop": "Drawn to the light.\n\nMOTH TEE — full back print — 10.09\n\n#shiftworldwide #backprint #streetwear #nightshiftdivision",
     "hazard_back": "HAZARD HOODIE. 450 GSM. Badge on the chest, hazard band across the shoulders, DO NOT CROSS down the back.\n\nFirst Shift — 10.09 — 11:59 PM. Link in bio for early access.\n\n#shiftworldwide #hoodie #streetwear #drop #nightshiftdivision",
-    "sun_front": "The hero. LEAGUE RINGER TEE.\n\nCardinal red, gold rib, three-color tiger crest. Est. 2026. 36 made.\n\n#shiftworldwide #ringertee #streetwear #varsity",
+    "sun_front": "The hero. LEAGUE RINGER TEE.\n\nCardinal red, gold rib, three-color tiger crest. Est. 2002. 36 made.\n\n#shiftworldwide #ringertee #streetwear #varsity",
     "web_back": "Every hour counts.\n\nTWIN TIGERS TEE — natural, 250 GSM, sepia and rust.\n\n#shiftworldwide #graphictee #streetwearbrand #tigers",
     "cherub_front": "Time is money.\n\nTIME IS MONEY TEE — a cross built from time cards and dollar bills, stamped LATE.\n\n#shiftworldwide #graphictee #streetwear",
     "timecard_back": "Pray for overtime.\n\nOVERTIME THERMAL — 340 GSM waffle, chrome script, drips.\n\n#shiftworldwide #thermal #streetwear #winterfits",

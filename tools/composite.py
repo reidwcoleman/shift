@@ -12,11 +12,11 @@ from PIL import Image, ImageFilter, ImageOps
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BL = os.path.join(ROOT, "photos", "blanks"); PR = os.path.join(ROOT, "designs", "print")
+BL = os.path.join(ROOT, "photos", "blanks"); PR = os.path.join(ROOT, "designs", "print_worn")
 OUT = os.path.join(ROOT, "photos", "first_shift"); os.makedirs(OUT, exist_ok=True)
 
 
-def place(base, print_name, cx, top, width_in, ppi, opacity=0.96, patch=None):
+def place(base, print_name, cx, top, width_in, ppi, opacity=0.96, patch=None, mask=None):
     """Paste designs/print/<print_name>.png onto base (RGB) with garment shading."""
     art = Image.open(os.path.join(PR, print_name + ".png")).convert("RGBA")
     w = int(width_in * ppi); h = int(art.height * w / art.width)
@@ -39,6 +39,15 @@ def place(base, print_name, cx, top, width_in, ppi, opacity=0.96, patch=None):
     a = np.asarray(art).astype(float)
     rgb = np.clip(a[..., :3] * shade, 0, 255)
     alpha = a[..., 3:4] / 255 * opacity
+    if mask:  # occlusion: only paint where the garment is (hands, chains, hair stay on top)
+        hsv = np.asarray(region.convert("HSV")).astype(float)
+        H, S, V = hsv[..., 0], hsv[..., 1], hsv[..., 2]
+        if mask == "dark": m = (V < 95)
+        elif mask == "light": m = (V > 150) & (S < 70)
+        elif mask == "red": m = ((H < 20) | (H > 235)) & (S > 90) & (V > 60)
+        else: m = np.ones_like(V, bool)
+        m = Image.fromarray((m * 255).astype("uint8")).filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.GaussianBlur(2))
+        alpha = alpha * (np.asarray(m).astype(float) / 255)[..., None]
     out = np.asarray(region).astype(float) * (1 - alpha) + rgb * alpha
     base.paste(Image.fromarray(out.astype("uint8"), "RGB"), (x0, y0))
     return base
@@ -58,11 +67,10 @@ FLATS = {
     "sundial_tee": ("flat_a", "br", [("23_sundial_front", 1515, 1315, 12, 29)]),
     "overtime_thermal": ("flat_b", "tl", [("24_thermal_front", 515, 290, 11, 27)]),
     "collage_thermal": ("flat_b", "tr", [("25_collage_front", 1525, 270, 12, 26)]),
-    "hazard_hoodie": ("flat_b", "bl", [("06_hazard_badge_white", 515, 1380, 5, 31.7)]),
-    "beanie": ("flat_b", "br", [("28_beanie", 1540, 1690, 3.5, 96)]),
+    "hazard_hoodie": ("flat_b", "bl", [("30_hazard2_front", 515, 1360, 5.5, 31.7)]),
     "mesh_shorts": ("flat_c", "tl", [("26_mesh_left", 700, 510, 4, 25), ("26_mesh_right", 330, 510, 4, 25)]),
     "sweat_shorts": ("flat_c", "tr", [("27_sweat_left", 1700, 500, 5, 25)]),
-    "hazard_hoodie_back": ("flat_c", "bl", [("06_hazard_back_white", 505, 1400, 12, 31)]),
+    "hazard_hoodie_back": ("flat_c", "bl", [("30_hazard2_back", 505, 1400, 12, 31)]),
     "emblem_tee_back": ("flat_c", "br", [("29_emblem_back", 1515, 1230, 13, 27)]),
     "emblem_tee": ("flat_a", "bl", [("29_emblem_chest", 626, 1330, 4, 29.5)]),
 }
@@ -78,9 +86,50 @@ MODELS = {
     "collage_thermal": ("model_c", (1202, 130, 2002, 1130), [("25_collage_front", 1602, 436, 12, 14.7, None)]),
     "mesh_shorts": ("model_d", (740, 350, 1540, 1350), [("26_mesh_left", 1031, 935, 4, 13.6, None), ("26_mesh_right", 1240, 935, 4, 13.6, (1226, 940, 46, 40))]),
     "sweat_shorts": ("model_d", (1312, 350, 2112, 1350), [("27_sweat_left", 1712, 905, 5, 14.5, None)]),
-    "beanie": ("model_e", (697, 100, 1497, 1100), [("28_beanie", 1097, 432, 3.5, 30, None)]),
-    "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("06_hazard_back_white", 1750, 830, 13, 17.5, None)]),
+    "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("30_hazard2_back", 1750, 830, 13, 17.5, None)]),
 }
+
+
+def retro(im, seed=1, warmth=1.0):
+    """35mm film look: lifted blacks, warm cast, grain, soft vignette."""
+    im = im.convert("RGB")
+    a = np.asarray(im).astype(np.float32) / 255
+    a = a * 0.86 + 0.07                       # lifted blacks / lower contrast
+    a[..., 0] = np.clip(a[..., 0] * (1 + 0.05 * warmth), 0, 1)
+    a[..., 2] = np.clip(a[..., 2] * (1 - 0.08 * warmth) + 0.02, 0, 1)
+    a[..., 1] = np.clip(a[..., 1] + 0.01, 0, 1)
+    rng = np.random.default_rng(seed)
+    grain = rng.normal(0, 0.035, a.shape[:2]).astype(np.float32)[..., None]
+    a = np.clip(a + grain, 0, 1)
+    h, w = a.shape[:2]
+    yy, xx = np.mgrid[0:h, 0:w]
+    r = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
+    vig = np.clip(1 - 0.28 * np.clip(r - 0.55, 0, 1) ** 1.5, 0, 1)[..., None]
+    a = a * vig
+    return Image.fromarray((a * 255).astype("uint8"), "RGB")
+
+
+POSES = {
+    # name: (blank, crop, [(print, cx, top, width_in, ppi, mask)], product)
+    "league_lean": ("pose_lean", (300, 120, 1556, 1690), [("20_league_front", 916, 640, 12, 19.3, "red")], "league_tee"),
+    "cross_squat": ("pose_squat", (250, 150, 1650, 1900), [("22_cross_front", 964, 855, 12, 35, "dark")], "cross_tee"),
+    "tigers_stairs": ("pose_stairs", (250, 100, 1650, 1850), [("21_tigers_front", 988, 790, 12, 26, "light")], "tigers_tee"),
+    "sundial_walk": ("pose_walk", (300, 100, 1556, 1670), [("23_sundial_front", 952, 735, 12, 22.7, "light")], "sundial_tee"),
+    "hazard_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("30_hazard2_back", 916, 815, 13, 16.9, "dark")], "hazard_hoodie"),
+    "overtime_car": ("pose_car", (250, 250, 1650, 2000), [("24_thermal_front", 964, 837, 11, 19.2, "dark")], "overtime_thermal"),
+    "emblem_squat": ("pose_squat", (250, 150, 1650, 1900), [("29_emblem_chest", 1136, 860, 3.5, 35, "dark")], "emblem_tee"),
+    "collage_walk": ("pose_walk", (300, 100, 1556, 1670), [("25_collage_front", 952, 735, 12, 22.7, "light")], "collage_thermal"),
+}
+
+
+def run_poses():
+    for name, (bn, box, places, prod) in POSES.items():
+        im = Image.open(os.path.join(BL, bn + ".png")).convert("RGB")
+        for pr, cx, top, win, ppi, mask in places:
+            place(im, pr, cx, top, win, ppi, mask=mask)
+        out = retro(im.crop(box), seed=hash(name) % 1000)
+        out.save(os.path.join(OUT, f"{name}.jpg"), quality=92)
+        print("  pose", name)
 
 
 def run():
@@ -96,17 +145,18 @@ def run():
     for prod, (bn, box, places) in MODELS.items():
         im = blank(bn)
         for pr, cx, top, win, ppi, patch in places: place(im, pr, cx, top, win, ppi, patch=patch)
-        im.crop(box).save(os.path.join(OUT, f"{prod}_model.jpg"), quality=92)
+        retro(im.crop(box), seed=len(prod)).save(os.path.join(OUT, f"{prod}_model.jpg"), quality=92)
         print("  model", prod)
     # the shared group shots with prints applied
     for bn, spec in (("model_a", ["league_tee", "tigers_tee"]), ("model_b", ["cross_tee", "sundial_tee"]), ("model_c", ["overtime_thermal", "collage_thermal"]),
-                     ("model_d", ["mesh_shorts", "sweat_shorts"]), ("model_e", ["beanie", "hazard_hoodie"])):
+                     ("model_d", ["mesh_shorts", "sweat_shorts"]), ("model_e", ["hazard_hoodie"])):
         im = blank(bn)
         for prod in spec:
             for pr, cx, top, win, ppi, patch in MODELS[prod][2]: place(im, pr, cx, top, win, ppi, patch=patch)
-        im.save(os.path.join(OUT, f"group_{bn[-1]}.jpg"), quality=90)
+        retro(im, seed=7).save(os.path.join(OUT, f"group_{bn[-1]}.jpg"), quality=90)
     print("done")
 
 
 if __name__ == "__main__":
-    run()
+    if "poses" in sys.argv: run_poses()
+    else: run(); run_poses()

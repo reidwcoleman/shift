@@ -6,7 +6,7 @@ Multi-color raster art (art/color/*.png) embedded at true scale + outlined vecto
 import os, sys, base64
 sys.path.insert(0, os.path.dirname(__file__))
 from shiftlib import *
-from build_designs import fit_size, rule, CHEST, FRONT, BACK, HOOD_FRONT, SRC, PRINT, logotype
+from build_designs import fit_size, rule, CHEST, FRONT, BACK, HOOD_FRONT, BADGE, SRC, PRINT, logotype
 from PIL import Image
 
 GOLD = "#E3B23C"; CREAM = "#EDE6D6"; RUST = "#B5432A"; SEPIA = "#5A3A1E"; NAVY = "#1E2740"; CARDINAL = "#A8231F"; GREY_INK = "#33332F"
@@ -53,7 +53,7 @@ def league_front():
     # banner text sits inside the crest's ribbon (~90% down the art)
     b.append(text("Bebas Neue", "LEAGUE", 215, w / 2, 1000 + ah * 0.905, INK, tracking=0.25))
     b.append(text("Anton", "EST.", 170, w / 2 - 1250, 1000 + ah * 0.45, CREAM))
-    b.append(text("Anton", "2026", 170, w / 2 + 1250, 1000 + ah * 0.45, CREAM))
+    b.append(text("Anton", "2002", 170, w / 2 + 1250, 1000 + ah * 0.45, CREAM))
     y = 1000 + ah + 200
     b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION", 150, w / 2, y, CREAM, tracking=0.45))
     b.append(stars(w / 2, y + 140, 3, 60, GOLD))
@@ -86,7 +86,7 @@ def sundial_front():
     w, h = FRONT
     cx, cy = w / 2, 2050
     b = [arc_text("Bebas Neue", "SHIFT WORLDWIDE  •  NIGHT SHIFT DIVISION  •", 170, cx, cy, 1720, RUST, tracking=0.3),
-         arc_text("Bebas Neue", "EVERY HOUR COUNTS  •  EST. 2026  •", 170, cx, cy, 1720, NAVY, tracking=0.3, bottom=True)]
+         arc_text("Bebas Neue", "EVERY HOUR COUNTS  •  EST. 2002  •", 170, cx, cy, 1720, NAVY, tracking=0.3, bottom=True)]
     snip, ah = raster("sundial", cx, cy - 1450, 2900); b.append(snip)
     b.append(text("Anton", "11:59", 120, cx, cy + 1700 + 300, RUST, tracking=0.1))
     return svg_doc(w, h, "".join(b))
@@ -155,7 +155,7 @@ def emblem_back():
     snip, ah = raster("spider_tiger", w / 2, 850, 3300); b.append(snip)
     y = 850 + ah + 380
     b.append(text("Bebas Neue", "THE SHIFT NEVER ENDS", 230, w / 2, y, GOLD, tracking=0.4))
-    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  EST. 2026", 120, w / 2, y + 220, CREAM, tracking=0.4))
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  EST. 2002", 120, w / 2, y + 220, CREAM, tracking=0.4))
     return svg_doc(w, h, "".join(b))
 
 
@@ -165,7 +165,34 @@ def emblem_chest():
     return svg_doc(w, h, snip)
 
 
+# 30 HAZARD HOODIE v2 — black hoodie. front: diamond badge. back: beacon emblem.
+def hazard2_front():
+    w, h = BADGE
+    cx, cy = w / 2, h / 2 - 60
+    r = 520
+    d = f"M{cx},{cy-r} L{cx+r},{cy} L{cx},{cy+r} L{cx-r},{cy} Z"
+    b = [f'<path d="{d}" fill="none" stroke="{SIGNAL}" stroke-width="44" stroke-linejoin="miter"/>',
+         f'<path d="{d}" transform="translate({cx},{cy}) scale(0.82) translate({-cx},{-cy})" fill="none" stroke="{CREAM}" stroke-width="10"/>',
+         shift_mark(cx - 150, cy - 170, 300, CREAM),
+         text("Anton", "HAZARD", 150, cx, cy + 420 + 160, CREAM, tracking=0.12),
+         text("Bebas Neue", "NIGHT SHIFT DIVISION  •  EST. 2002", 70, cx, cy + 420 + 260, SIGNAL, tracking=0.3)]
+    return svg_doc(w, h, "".join(b))
+
+
+def hazard2_back():
+    w, h = BACK
+    b = [arc_text("Anton", "HAZARD", 760, w / 2, 3350, 2900, SIGNAL, tracking=0.14, extra=f'stroke="{CREAM}" stroke-width="30" stroke-linejoin="round" paint-order="stroke"')]
+    snip, ah = raster("beacon", w / 2, 1150, 3000); b.append(snip)
+    y = 1150 + ah + 330
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION", 230, w / 2, y, CREAM, tracking=0.4))
+    b.append(text("Bebas Neue", "CAUTION  —  CHANGE IN PROGRESS", 150, w / 2, y + 220, SIGNAL, tracking=0.35))
+    b.append(text("Bebas Neue", "SHIFT WORLDWIDE  •  EST. 2002", 110, w / 2, y + 400, CREAM, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
 DESIGNS_V3 = {
+    "30_hazard2_front": (hazard2_front, BADGE),
+    "30_hazard2_back": (hazard2_back, BACK),
     "20_league_front": (league_front, FRONT),
     "21_tigers_front": (tigers_front, FRONT),
     "22_cross_front": (cross_front, FRONT),

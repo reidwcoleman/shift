@@ -67,7 +67,7 @@ def core_back(ink, accent):
     body.append(text("Bebas Neue", "WORLDWIDE", s2, w / 2, base + s2 * 0.95, ink, tracking=0.32))
     y = base + s2 * 1.3
     body.append(rule(200, y, w - 200, y, ink, 14))
-    body.append(text("Inter_wght_400_600_800_6201ab", "EST. 2026   —   CLOCK IN.", 120, w / 2, y + 190, ink, tracking=0.08))
+    body.append(text("Inter_wght_400_600_800_6201ab", "EST. 2002   —   CLOCK IN.", 120, w / 2, y + 190, ink, tracking=0.08))
     return svg_doc(w, h, "".join(body))
 
 
@@ -143,7 +143,7 @@ def night_back(ink, accent):
     x0 = w / 2 - (wa + wb) / 2
     body.append(text("Bebas Neue", a, 300, x0, y + 330, ink, anchor="start", tracking=0.08))
     body.append(text("Bebas Neue", b, 300, x0 + wa, y + 330, accent, anchor="start", tracking=0.08))
-    body.append(arc_text("Bebas Neue", "SHIFT WORLDWIDE  •  NIGHT SHIFT DIVISION  •  EST 2026", 120, w / 2, 1900, 2600, ink, tracking=0.2, bottom=True))
+    body.append(arc_text("Bebas Neue", "SHIFT WORLDWIDE  •  NIGHT SHIFT DIVISION  •  EST 2002", 120, w / 2, 1900, 2600, ink, tracking=0.2, bottom=True))
     inner = f'<g mask="url(#grunge)">{"".join(body)}</g>'
     return svg_doc(w, h, inner, grunge_defs(w, h, seed=5, strength="light", bf="0.02"))
 
@@ -216,7 +216,7 @@ def gear_front(ink, accent):
     body.append(f'<circle cx="{cx}" cy="{cy}" r="60" fill="{ink}"/>')
     s3 = fit_size("Anton", "NO REVERSE.", w - 900, 0.0)
     body.append(text("Anton", "NO REVERSE.", s3, w / 2, 3780, accent))
-    body.append(text("Bebas Neue", "SHIFT WORLDWIDE  —  EST 2026", 130, w / 2, 4010, ink, tracking=0.3))
+    body.append(text("Bebas Neue", "SHIFT WORLDWIDE  —  EST 2002", 130, w / 2, 4010, ink, tracking=0.3))
     return svg_doc(w, h, "".join(body))
 
 
@@ -291,7 +291,7 @@ def hazard_badge(ink, accent):
     for sx in (-1, 1):
         b.append(shift_mark(cx + sx * (R - 205) - 45, cy - 45, 90, accent))
     b.append(shift_mark(cx - 200, cy - 250, 400, accent))
-    b.append(text("Anton", "EST. 2026", 110, cx, cy + 300, ink, tracking=0.1))
+    b.append(text("Anton", "EST. 2002", 110, cx, cy + 300, ink, tracking=0.1))
     return svg_doc(w, h, "".join(b))
 
 
@@ -312,7 +312,7 @@ def hazard_back(ink, accent):
         b.append(text("Rubik Mono One", "DO NOT CROSS", s2, w / 2, y + i * s2 * 1.22, ink if i != 1 else accent))
     y2 = y + 3 * s2 * 1.22 + 200
     b.append(text("Bebas Neue", "CAUTION  —  CHANGE IN PROGRESS", 150, w / 2, y2, ink, tracking=0.3))
-    b.append(text("Bebas Neue", "SHIFT WORLDWIDE  •  EST 2026", 110, w / 2, y2 + 200, accent, tracking=0.3))
+    b.append(text("Bebas Neue", "SHIFT WORLDWIDE  •  EST 2002", 110, w / 2, y2 + 200, accent, tracking=0.3))
     return svg_doc(w, h, "".join(b), defs)
 
 
@@ -387,7 +387,7 @@ def v2_sun_front(ink, accent):
 def v2_neck_back(ink):
     """Small upper-back hit: 3in logotype + line."""
     w, h = (4 * IN, 2 * IN)
-    return svg_doc(w, h, logotype(w / 2, 330, 220, ink) + text("Bebas Neue", "EST. 2026  •  11:59 PM", 80, w / 2, 470, ink, tracking=0.3))
+    return svg_doc(w, h, logotype(w / 2, 330, 220, ink) + text("Bebas Neue", "EST. 2002  •  11:59 PM", 80, w / 2, 470, ink, tracking=0.3))
 
 
 def sleeve_mark(ink):
@@ -439,7 +439,7 @@ def v2_factory_back(ink, accent):
     y = 500 + ah + 480
     s = fit_size("Anton", "NIGHT SHIFT", w - 700, 0.0)
     b.append(text("Anton", "NIGHT SHIFT", s, w / 2, y, ink))
-    b.append(text("Bebas Neue", "DIVISION  •  SHIFT WORLDWIDE  •  EST. 2026", 135, w / 2, y + 240, accent, tracking=0.22))
+    b.append(text("Bebas Neue", "DIVISION  •  SHIFT WORLDWIDE  •  EST. 2002", 135, w / 2, y + 240, accent, tracking=0.22))
     return svg_doc(w, h, "".join(b))
 
 
