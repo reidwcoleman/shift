@@ -8,7 +8,7 @@ Post in this order, one per day (Reels in between — see INSTAGRAM.md).
 ```
 Day 1. No brand yet, just a laptop, a time card and a name.
 
-We make heavyweight tees and hoodies for the people still working after everyone went home. Nine pieces drop 10.09 at 11:59 PM. 36 of each. Never restocked.
+We make heavyweight tees and hoodies for the people still working after everyone went home. Eleven pieces drop 10.09 at 11:59 PM. 36 of each. Never restocked.
 
 Follow along. This is the whole thing, start to finish.
 
@@ -66,61 +66,57 @@ The rules.
 #shiftworldwide #drop001 #streetwear #limited
 ```
 
-## 07 — hazard_back
-`content/posts/07_hazard_back.jpg`
+## 07 — sun_front
+`content/posts/07_sun_front.jpg`
 
 ```
-The hero. HAZARD HOODIE.
+The hero. LEAGUE RINGER TEE.
 
-Badge on the chest, hazard band across the shoulders, DO NOT CROSS down the back. 36 made. This one goes first.
+Cardinal red, gold rib, three-color tiger crest. Est. 2026. 36 made.
 
-Drop 001 — 10.09 — 11:59 PM. Link in bio for early access.
+#shiftworldwide #ringertee #streetwear #varsity
+```
+
+## 08 — group_a
+`content/posts/08_group_a.jpg`
+
+```
+First Shift. Eleven pieces. 10.09.
+
+#shiftworldwide #streetwear #lookbook #nightshiftdivision
+```
+
+## 09 — hazard_back
+`content/posts/09_hazard_back.jpg`
+
+```
+HAZARD HOODIE. 450 GSM. Badge on the chest, hazard band across the shoulders, DO NOT CROSS down the back.
+
+First Shift — 10.09 — 11:59 PM. Link in bio for early access.
 
 #shiftworldwide #hoodie #streetwear #drop #nightshiftdivision
 ```
 
-## 08 — sun_front
-`content/posts/08_sun_front.jpg`
+## 10 — web_back
+`content/posts/10_web_back.jpg`
 
 ```
-Reach your next shift.
+Every hour counts.
 
-INNER PEACE TEE — hand-finished engraving, the clock stuck at 11:59.
+TWIN TIGERS TEE — natural, 250 GSM, sepia and rust.
 
-#shiftworldwide #graphictees #streetwear #engraving
+#shiftworldwide #graphictee #streetwearbrand #tigers
 ```
 
-## 09 — stairwell
-`content/posts/09_stairwell.jpg`
+## 11 — cherub_front
+`content/posts/11_cherub_front.jpg`
 
 ```
-2:41 AM. Pray for overtime.
+Time is money.
 
-OVERTIME HOODIE — Drop 001 — 10.09
-
-#shiftworldwide #nightshiftdivision #hoodie #streetwearfits
-```
-
-## 10 — cherub_front
-`content/posts/10_cherub_front.jpg`
-
-```
-Heaven can wait. Clock in.
-
-CHERUB TEE — Drop 001
+TIME IS MONEY TEE — a cross built from time cards and dollar bills, stamped LATE.
 
 #shiftworldwide #graphictee #streetwear
-```
-
-## 11 — gas_station
-`content/posts/11_gas_station.jpg`
-
-```
-Nobody's home. Nobody's asleep either.
-
-CAUGHT UP HOODIE + GUARDIAN TEE — 10.09
-
-#shiftworldwide #streetwear #fitcheck #nightshift
 ```
 
 ## 12 — noreverse
@@ -132,37 +128,37 @@ Wake. Work. Win. Repeat. No reverse.
 #shiftworldwide #noreverse #streetwear #manualonly
 ```
 
-## 13 — web_back
-`content/posts/13_web_back.jpg`
+## 13 — timecard_back
+`content/posts/13_timecard_back.jpg`
 
 ```
-Caught up in the night shift.
+Pray for overtime.
 
-CAUGHT UP HOODIE — forest green, puff print, splatter, star on the hood.
+OVERTIME THERMAL — 340 GSM waffle, chrome script, drips.
 
-#shiftworldwide #hoodie #streetwearbrand #puffprint
+#shiftworldwide #thermal #streetwear #winterfits
 ```
 
-## 14 — laundromat_fold
-`content/posts/14_laundromat_fold.jpg`
+## 14 — skeleton_front
+`content/posts/14_skeleton_front.jpg`
 
 ```
-Bone. 7.5 oz. Cherubs carrying the punch clock.
+Division issue.
 
-CHERUB TEE — Drop 001
+MESH SHORTS — NSD shield, wordmark, stars. Size up for boxy.
 
-#shiftworldwide #graphictee #heavyweight #streetwearbrand
+#shiftworldwide #meshshorts #streetwear
 ```
 
-## 15 — timecard_back
-`content/posts/15_timecard_back.jpg`
+## 15 — group_e
+`content/posts/15_group_e.jpg`
 
 ```
-In: 11:59 PM. Out: —. Stamped LATE twice. Approved anyway.
+Last call.
 
-TIME CARD TEE — Drop 001
+WORDMARK BEANIE + HAZARD HOODIE — 10.09
 
-#shiftworldwide #backprint #streetwear #timecard
+#shiftworldwide #beanie #hoodie #streetwear
 ```
 
 ## 16 — rooftop
@@ -176,15 +172,15 @@ MOTH TEE — full back print — 10.09
 #shiftworldwide #backprint #streetwear #nightshiftdivision
 ```
 
-## 17 — skeleton_front
-`content/posts/17_skeleton_front.jpg`
+## 17 — stairwell
+`content/posts/17_stairwell.jpg`
 
 ```
-Manual only. No reverse.
+2:41 AM. Pray for overtime.
 
-MANUAL ONLY TEE — white, black ink, one signal hit.
+OVERTIME HOODIE — Drop 001 — 10.09
 
-#shiftworldwide #graphictees #streetwear #noreverse
+#shiftworldwide #nightshiftdivision #hoodie #streetwearfits
 ```
 
 ## 18 — date

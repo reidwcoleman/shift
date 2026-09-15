@@ -197,7 +197,7 @@ def svg_doc(w, h, body, defs="", bg=None):
 
 
 def render(svg_path, png_path, width=None, bg=None):
-    cmd = ["rsvg-convert", svg_path, "-o", png_path]
+    cmd = ["rsvg-convert", "--unlimited", svg_path, "-o", png_path]
     if width:
         cmd += ["-w", str(width)]
     if bg:

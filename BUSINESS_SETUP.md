@@ -29,27 +29,29 @@ Everything below is in order. Total time to be live: one evening.
 3. Payouts: connect your bank (they use Stripe). Under 18? A parent's bank works — they're the "owner" on paper.
 4. Theme: pick the darkest minimal theme. Upload `brand/avatar.png` as the logo/favicon, `brand/wordmark_white.png` as the header logo.
 
-## Step 2 — Create the 9 products (60 min)
+## Step 2 — Create the 11 products (60 min)
 
-For each product: **Products → Add product → Print on demand → choose blank → Design**.
+For each product: **Products → Add product → Print on demand → choose blank → Design**. Multi-color prints (`designs/print/2x_*.png`) are full-color rasters — perfect for DTG/print-on-demand; a screen printer will separate the colors themselves.
 
-| Product | Blank on Fourthwall | Front file | Back file | Extra |
-|---|---|---|---|---|
-| Inner Peace Tee | Comfort Colors 1717 — Black | `10_sun_front_white.png` (12×14 in, center) | `10_neck_back_white.png` (4×2 in, below collar) | sleeve: `sleeve_mark_white.png` 2 in |
-| Cherub Tee | Comfort Colors 1717 — Ivory | `11_cherub_front_ink.png` | `11_neck_back_ink.png` | sleeve: `sleeve_mark_ink.png` |
-| Guardian Tee | Comfort Colors 1717 — Black | `12_core_chest_white.png` (left chest, 4 in) | `12_wings_back_white.png` (13×16 in) | |
-| Overtime Hoodie | Independent IND4000 or Gildan 18500 — Black | `13_hands_front_white.png` (11×12 in, above pocket) | `13_factory_back_white.png` | |
-| Caught Up Hoodie | Gildan 18500 — Forest Green | `14_web_front_white.png` | `14_web_back_white.png` | hood: `14_hood_star_white.png` if the blank allows |
-| Manual Only Tee | Comfort Colors 1717 — White | `15_skeleton_front_ink.png` | — | |
-| Hazard Hoodie | IND4000 — Black | `06_hazard_badge_white.png` (5 in, center chest) | `06_hazard_back_white.png` | |
-| Time Card Tee | Comfort Colors 1717 — Black | `05_timecard_chest_white.png` (left chest) | `05_timecard_back_white.png` | |
-| Drawn To The Light Tee | Comfort Colors 1717 — Black | `16_core_chest_white.png` (left chest) | `16_moth_back_white.png` | |
+| Product | Blank on Fourthwall | File | Placement |
+|---|---|---|---|
+| League Ringer Tee | Ringer tee — Red/Gold (Fourthwall: "Ringer T-Shirt") | `20_league_front.png` | 12×14 in, center, 2.5 in below collar |
+| Twin Tigers Tee | Comfort Colors 1717 — Ivory | `21_tigers_front.png` | 12×14 in center |
+| Time Is Money Tee | Comfort Colors 1717 — Black | `22_cross_front.png` | 12×14 in center |
+| Sundial Tee | Comfort Colors 1717 — Ivory | `23_sundial_front.png` | 12×14 in center |
+| Emblem Tee | Comfort Colors 1717 — Black | `29_emblem_chest.png` (4 in left chest) + `29_emblem_back.png` (13×16 in back) | |
+| Overtime Thermal | Waffle/thermal long sleeve — Black | `24_thermal_front.png` | 11×8 in, center chest |
+| Never Ends Thermal | Waffle/thermal long sleeve — Natural | `25_collage_front.png` | 12×14 in center |
+| Division Mesh Shorts | Mesh shorts — Black | `26_mesh_left.png` (wearer's left leg) + `26_mesh_right.png` (right leg) | 4 in each |
+| Athletic Dept Shorts | Fleece sweat shorts — Heather Grey | `27_sweat_left.png` | 5 in, left leg |
+| Wordmark Beanie | Cuffed knit beanie — Black (embroidery) | `28_beanie.png` → they'll digitize it | 3.5 in on the cuff |
+| Hazard Hoodie | Independent IND4000 / Gildan 18500 — Black | `06_hazard_badge_white.png` (5 in chest) + `06_hazard_back_white.png` (13×16 in) | |
 
 Rules when placing: front full prints start ~2.5–3 in below the collar; left chest logos center ~4 in from the center line; back prints start ~3 in below the back collar. The mockups in `mockups/` show the intended placement — match them.
 
-Prices (set these): tees **$45–48**, hoodies **$98**. The blanks cost Fourthwall ~$16 (tee) / ~$32 (hoodie) so you keep ~$28 / ~$62 per sale. Hellstar charges $120 for a tee; you're not there yet, but don't go under $40 — cheap reads as cheap.
+Prices (set these): tees **$48**, thermals **$58**, mesh shorts **$44**, sweat shorts **$52**, beanie **$32**, hoodie **$98**. 404 Culture sells the same categories at $36–44 with amateur photos; you're a step above on garment, art and photography, so hold the line — don't go under $40 on a tee.
 
-Product photos: upload the Gemini shots from `photos/` (model front, model back, flat, detail) — 4 per product. Product description: copy from `docs/index.html` PRODUCTS array.
+Product photos: upload from `photos/first_shift/` — `<product>_flat.jpg` (white background, first image) and `<product>_model.jpg`, plus the `group_*.jpg` lifestyle shots. Product description: copy from `docs/index.html` PRODUCTS array.
 
 ## Step 3 — Order your own samples (do this the same night)
 

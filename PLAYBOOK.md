@@ -16,18 +16,25 @@ Everything below is the order to do it in. Each step has the number attached.
 3. **Trademark sanity check** — "SHIFT" is a dictionary word, so there will be existing marks. Search [USPTO TESS](https://tmsearch.uspto.gov) for "SHIFT" in Class 025 (clothing). You can *use* the name at launch; you'd only file (~$350) once it's selling. If a clothing brand already owns "SHIFT" outright, the fallback is filing as **SHIFT WORLDWIDE** — the logo and lockups already use it.
 4. **LLC** — not needed for drop 1. Do it after the first $5k (LegalZoom/your state site, ~$100–300).
 
-## 1. What you're actually selling (Drop 001 — "Clock In")
+## 1. What you're actually selling (FIRST SHIFT)
+
+Modeled on how 404 Culture builds a range (varsity tee, tigers tee, money cross, sundial, thermals, mesh + sweat shorts, beanie) — same categories, heavier garments, real illustration, real photos.
 
 | # | Piece | Blank | Sell | Landed cost* | Margin |
 |---|-------|-------|------|--------------|--------|
-| 1 | Hazard Hoodie (black) | Shaka Wear 13.5oz / AS Colour Relax hood | $90 | ~$31 | 65% |
-| 2 | Night Shift Tee (washed black) | Shaka Wear 7.5oz Max Heavy / Comfort Colors 1717 | $45 | ~$14 | 69% |
-| 3 | Time Card Tee (black) | same | $45 | ~$14 | 69% |
-| 4 | Shift Happens Hoodie (bone) | same hoodie in bone/sand | $85 | ~$31 | 64% |
-| 5 | Manual Only Tee (white) | same tee | $42 | ~$13 | 69% |
-| 6 | Core Logo Tee (black) | same tee | $42 | ~$12 | 71% |
+| 1 | League Ringer Tee (red/gold) | ringer tee, 3-color print | $48 | ~$16 | 67% |
+| 2 | Twin Tigers Tee (natural) | Comfort Colors 1717 | $48 | ~$15 | 69% |
+| 3 | Time Is Money Tee (black) | same | $48 | ~$15 | 69% |
+| 4 | Sundial Tee (bone) | same | $48 | ~$14 | 71% |
+| 5 | Emblem Tee (black, back print) | same | $48 | ~$16 | 67% |
+| 6 | Overtime Thermal (black waffle) | thermal long sleeve | $58 | ~$22 | 62% |
+| 7 | Never Ends Thermal (cream) | same | $58 | ~$22 | 62% |
+| 8 | Division Mesh Shorts | mesh shorts | $44 | ~$17 | 61% |
+| 9 | Athletic Dept Shorts (grey fleece) | fleece shorts | $52 | ~$20 | 62% |
+| 10 | Wordmark Beanie | cuffed knit, embroidered | $32 | ~$11 | 66% |
+| 11 | Hazard Hoodie | IND4000 / Gildan 18500 | $98 | ~$31 | 68% |
 
-\*Landed = blank + screen print (2 locations, 2 colors) + poly mailer + tag, at a 36–50 piece run. Print files are in `designs/print/` (300 DPI, transparent) and `designs/src/` (vector, text outlined — this is what the printer wants).
+\*Landed = blank + print + mailer + tag at print-on-demand or a 36–50 piece run. Files: `designs/print/` (raster, 300 DPI) and `designs/src/` (SVG with embedded art + outlined type).
 
 ### Two ways to make them
 

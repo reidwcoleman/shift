@@ -22,6 +22,10 @@ FID = "Reproduce any printed graphic from the reference exactly; add no extra te
 
 def gen(name, prompt, refs=(), aspect="4:5"):
     out = os.path.join(POSTS, name + ".png")
+    import glob
+    prev = glob.glob(os.path.join(POSTS, f"*_{name}.jpg"))
+    if prev and not os.path.exists(out):
+        Image.open(prev[0]).convert("RGB").save(out)
     if not os.path.exists(out):
         for model in (MODEL, "gemini-3.1-flash-image"):
             try:
@@ -42,10 +46,11 @@ GEMINI_POSTS = [
     ("rooftop", "A young man on a rooftop at blue hour, city skyline behind him, back to camera, wearing this exact black tee with the moth back print, wind in the fabric. Cinematic vertical.", [os.path.join(MOCK, "moth_tee_back.png")]),
 ]
 
-REUSE = [  # already-shot 4:5 product photos that go straight into the feed
-    ("hazard_back", "hazard_hoodie_model_back.png"), ("sun_front", "sun_tee_model_front.png"),
-    ("web_back", "web_hoodie_model_back.png"), ("cherub_front", "cherub_tee_model_front.png"),
-    ("timecard_back", "timecard_tee_model_back.png"), ("skeleton_front", "skeleton_tee_model_front.png"),
+REUSE = [  # product photos that go straight into the feed (photos/first_shift)
+    ("hazard_back", "first_shift/hazard_hoodie_model.jpg"), ("sun_front", "first_shift/league_tee_model.jpg"),
+    ("web_back", "first_shift/tigers_tee_model.jpg"), ("cherub_front", "first_shift/cross_tee_model.jpg"),
+    ("timecard_back", "first_shift/overtime_thermal_model.jpg"), ("skeleton_front", "first_shift/mesh_shorts_model.jpg"),
+    ("group_a", "first_shift/group_a.jpg"), ("group_e", "first_shift/group_e.jpg"),
 ]
 
 
@@ -69,8 +74,8 @@ def text_post(name, lines, sub=None, bg=INK, fg=WHITE, accent=SIGNAL, story=Fals
 
 
 TEXT_POSTS = [
-    ("rules", ["36 PIECES.", "48 HOURS.", "*NEVER", "*RESTOCKED."], "DROP 001 — CLOCK IN"),
-    ("date", ["DROP 001", "*10.09", "11:59 PM"], "THE LIST GETS IN AT 10:59"),
+    ("rules", ["36 PIECES.", "48 HOURS.", "*NEVER", "*RESTOCKED."], "FIRST SHIFT — CLOCK IN"),
+    ("date", ["FIRST SHIFT", "*10.09", "11:59 PM"], "THE LIST GETS IN AT 10:59"),
     ("manifesto", ["NOBODY CLAPS", "FOR THE HOURS", "BETWEEN", "*MIDNIGHT", "*AND FIVE."], "THAT'S THE SHIFT"),
     ("noreverse", ["WAKE.", "WORK.", "WIN.", "REPEAT.", "*NO REVERSE."], "MANUAL ONLY"),
 ]
@@ -78,26 +83,28 @@ TEXT_POSTS = [
 CAPTIONS = {
     "teaser_clock": "11:59.\n\nSomething's clocking in. 10.09.\n\n#shiftworldwide #nightshiftdivision #streetwear #drop001",
     "teaser_arrow": "⇧\n\nYou'll know it when you see it.\n\n#shiftworldwide #streetwear #graphictees #nightshift",
-    "day1_desk": "Day 1. No brand yet, just a laptop, a time card and a name.\n\nWe make heavyweight tees and hoodies for the people still working after everyone went home. Nine pieces drop 10.09 at 11:59 PM. 36 of each. Never restocked.\n\nFollow along. This is the whole thing, start to finish.\n\n#startingaclothingbrand #streetwearbrand #shiftworldwide #smallbrand #graphictees",
+    "day1_desk": "Day 1. No brand yet, just a laptop, a time card and a name.\n\nWe make heavyweight tees and hoodies for the people still working after everyone went home. Eleven pieces drop 10.09 at 11:59 PM. 36 of each. Never restocked.\n\nFollow along. This is the whole thing, start to finish.\n\n#startingaclothingbrand #streetwearbrand #shiftworldwide #smallbrand #graphictees",
     "unboxing": "First sample came in. Heavy. The ⇧ sticker goes in every order.\n\n#shiftworldwide #unboxing #streetwear #heavyweighttee",
     "stairwell": "2:41 AM. Pray for overtime.\n\nOVERTIME HOODIE — Drop 001 — 10.09\n\n#shiftworldwide #nightshiftdivision #hoodie #streetwearfits",
     "gas_station": "Nobody's home. Nobody's asleep either.\n\nCAUGHT UP HOODIE + GUARDIAN TEE — 10.09\n\n#shiftworldwide #streetwear #fitcheck #nightshift",
     "laundromat_fold": "Bone. 7.5 oz. Cherubs carrying the punch clock.\n\nCHERUB TEE — Drop 001\n\n#shiftworldwide #graphictee #heavyweight #streetwearbrand",
     "rooftop": "Drawn to the light.\n\nMOTH TEE — full back print — 10.09\n\n#shiftworldwide #backprint #streetwear #nightshiftdivision",
-    "hazard_back": "The hero. HAZARD HOODIE.\n\nBadge on the chest, hazard band across the shoulders, DO NOT CROSS down the back. 36 made. This one goes first.\n\nDrop 001 — 10.09 — 11:59 PM. Link in bio for early access.\n\n#shiftworldwide #hoodie #streetwear #drop #nightshiftdivision",
-    "sun_front": "Reach your next shift.\n\nINNER PEACE TEE — hand-finished engraving, the clock stuck at 11:59.\n\n#shiftworldwide #graphictees #streetwear #engraving",
-    "web_back": "Caught up in the night shift.\n\nCAUGHT UP HOODIE — forest green, puff print, splatter, star on the hood.\n\n#shiftworldwide #hoodie #streetwearbrand #puffprint",
-    "cherub_front": "Heaven can wait. Clock in.\n\nCHERUB TEE — Drop 001\n\n#shiftworldwide #graphictee #streetwear",
-    "timecard_back": "In: 11:59 PM. Out: —. Stamped LATE twice. Approved anyway.\n\nTIME CARD TEE — Drop 001\n\n#shiftworldwide #backprint #streetwear #timecard",
-    "skeleton_front": "Manual only. No reverse.\n\nMANUAL ONLY TEE — white, black ink, one signal hit.\n\n#shiftworldwide #graphictees #streetwear #noreverse",
+    "hazard_back": "HAZARD HOODIE. 450 GSM. Badge on the chest, hazard band across the shoulders, DO NOT CROSS down the back.\n\nFirst Shift — 10.09 — 11:59 PM. Link in bio for early access.\n\n#shiftworldwide #hoodie #streetwear #drop #nightshiftdivision",
+    "sun_front": "The hero. LEAGUE RINGER TEE.\n\nCardinal red, gold rib, three-color tiger crest. Est. 2026. 36 made.\n\n#shiftworldwide #ringertee #streetwear #varsity",
+    "web_back": "Every hour counts.\n\nTWIN TIGERS TEE — natural, 250 GSM, sepia and rust.\n\n#shiftworldwide #graphictee #streetwearbrand #tigers",
+    "cherub_front": "Time is money.\n\nTIME IS MONEY TEE — a cross built from time cards and dollar bills, stamped LATE.\n\n#shiftworldwide #graphictee #streetwear",
+    "timecard_back": "Pray for overtime.\n\nOVERTIME THERMAL — 340 GSM waffle, chrome script, drips.\n\n#shiftworldwide #thermal #streetwear #winterfits",
+    "skeleton_front": "Division issue.\n\nMESH SHORTS — NSD shield, wordmark, stars. Size up for boxy.\n\n#shiftworldwide #meshshorts #streetwear",
+    "group_a": "First Shift. Eleven pieces. 10.09.\n\n#shiftworldwide #streetwear #lookbook #nightshiftdivision",
+    "group_e": "Last call.\n\nWORDMARK BEANIE + HAZARD HOODIE — 10.09\n\n#shiftworldwide #beanie #hoodie #streetwear",
     "rules": "The rules.\n\n36 of each piece. The store is open for 48 hours. We never restock. If you own it, you were there.\n\n#shiftworldwide #drop001 #streetwear #limited",
     "date": "Save it. 10.09. 11:59 PM.\n\nThe list gets the password at 10:59. Link in bio.\n\n#shiftworldwide #drop #streetwearbrand",
     "manifesto": "Nobody claps for the hours between midnight and five. That's the shift.\n\n#shiftworldwide #nightshiftdivision #motivation #grind",
     "noreverse": "Wake. Work. Win. Repeat. No reverse.\n\n#shiftworldwide #noreverse #streetwear #manualonly",
 }
 
-ORDER = ["day1_desk", "teaser_arrow", "manifesto", "teaser_clock", "unboxing", "rules", "hazard_back", "sun_front", "stairwell",
-         "cherub_front", "gas_station", "noreverse", "web_back", "laundromat_fold", "timecard_back", "rooftop", "skeleton_front", "date"]
+ORDER = ["day1_desk", "teaser_arrow", "manifesto", "teaser_clock", "unboxing", "rules", "sun_front", "group_a", "hazard_back",
+         "web_back", "cherub_front", "noreverse", "timecard_back", "skeleton_front", "group_e", "rooftop", "stairwell", "date"]
 
 
 def to_jpg(src, dst, size=(1080, 1350)):
@@ -116,9 +123,9 @@ if __name__ == "__main__":
         text_post(name, lines, sub)
     for name, src in REUSE:
         p = os.path.join(PH, src)
-        if os.path.exists(p): shutil.copy(p, os.path.join(POSTS, name + ".png"))
+        if os.path.exists(p): Image.open(p).convert("RGB").save(os.path.join(POSTS, name + ".png"))
     # stories
-    text_post("story_countdown", ["DROP 001", "*10.09", "11:59 PM", "", "THE LIST", "GETS IN", "AT 10:59"], "LINK IN BIO", story=True)
+    text_post("story_countdown", ["FIRST SHIFT", "*10.09", "11:59 PM", "", "THE LIST", "GETS IN", "AT 10:59"], "LINK IN BIO", story=True)
     text_post("story_comment", ["COMMENT", "*SHIFT", "FOR THE", "LINK"], "EARLY ACCESS", story=True)
     text_post("story_soldout", ["*SOLD OUT", "IN 40", "MINUTES."], "THANK YOU — NEVER RESTOCKED", story=True)
     # final numbered jpgs + captions
