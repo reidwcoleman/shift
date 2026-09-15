@@ -236,7 +236,70 @@ def owl_chest():
     return svg_doc(w, h, snip)
 
 
+# 34 BURNOUT HOODIE — black. chest: flaming SHIFT. back: burning pocket watch + star.
+def burnout_front():
+    w, h = HOOD_FRONT
+    b = []
+    snip, ah = raster("flame_shift", w / 2, 300, 3000); b.append(snip)
+    y = 300 + ah + 260
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  BURN THE CLOCK", 100, w / 2, y, CREAM, tracking=0.28))
+    return svg_doc(w, h, "".join(b))
+
+
+def burnout_back():
+    w, h = BACK
+    b = [arc_text("Anton", "BURNOUT", 700, w / 2, 3300, 2900, CREAM, tracking=0.14, extra=f'stroke="{INK}" stroke-width="34" stroke-linejoin="round" paint-order="stroke"')]
+    snip, ah = raster("flame_clock", w / 2, 1000, 2450); b.append(snip)
+    y = 1000 + ah + 260
+    b.append(text("Bebas Neue", "TIME BURNS  •  EST. 2002", 200, w / 2, y, "#F2A93B", tracking=0.4))
+    b.append(text("Bebas Neue", "SHIFT WORLDWIDE  •  NIGHT SHIFT DIVISION", 115, w / 2, y + 200, CREAM, tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+# 35 CHROME HOODIE — black. chest: liquid chrome SHIFT. back: chrome mark + arch.
+def chrome_front():
+    w, h = HOOD_FRONT
+    b = []
+    snip, ah = raster("chrome_shift", w / 2, 350, 3000); b.append(snip)
+    y = 350 + ah + 240
+    b.append(text("Bebas Neue", "WORLDWIDE  •  EST. 2002", 120, w / 2, y, "#C9CBD0", tracking=0.45))
+    return svg_doc(w, h, "".join(b))
+
+
+def chrome_back():
+    w, h = BACK
+    b = [arc_text("Anton", "NIGHT SHIFT", 620, w / 2, 3200, 2800, "#DDDFE3", tracking=0.14, extra=f'stroke="{INK}" stroke-width="30" stroke-linejoin="round" paint-order="stroke"')]
+    snip, ah = raster("chrome_shift", w / 2, 1500, 3300); b.append(snip)
+    y = 1500 + ah + 330
+    b.append(text("Bebas Neue", "DIVISION", 420, w / 2, y, "#DDDFE3", tracking=0.5))
+    b.append(text("Bebas Neue", "NO SLEEP  •  NO REVERSE  •  EST. 2002", 120, w / 2, y + 220, "#9A9DA5", tracking=0.4))
+    return svg_doc(w, h, "".join(b))
+
+
+# 36 NO SLEEP HOODIE — washed black. chest: graffiti throw-up tag. back: big NO SLEEP graffiti.
+def nosleep_front():
+    w, h = CHEST
+    snip, ah = raster("graffiti_shift", w / 2, 150, 1150)
+    return svg_doc(w, h, snip)
+
+
+def nosleep_back():
+    w, h = BACK
+    b = []
+    snip, ah = raster("graffiti_nosleep", w / 2, 700, 3600); b.append(snip)
+    y = 700 + ah + 320
+    b.append(text("Bebas Neue", "NIGHT SHIFT DIVISION  •  EST. 2002", 150, w / 2, y, CREAM, tracking=0.4))
+    b.append(text("UnifrakturCook", "Shift", 420, w / 2, y + 470, CREAM))
+    return svg_doc(w, h, "".join(b))
+
+
 DESIGNS_V3 = {
+    "34_burnout_front": (burnout_front, HOOD_FRONT),
+    "34_burnout_back": (burnout_back, BACK),
+    "35_chrome_front": (chrome_front, HOOD_FRONT),
+    "35_chrome_back": (chrome_back, BACK),
+    "36_nosleep_front": (nosleep_front, CHEST),
+    "36_nosleep_back": (nosleep_back, BACK),
     "31_racing_front": (racing_front, FRONT),
     "32_graveyard_front": (graveyard_front, FRONT),
     "33_owl_back": (owl_back, BACK),

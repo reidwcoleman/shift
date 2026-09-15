@@ -77,6 +77,12 @@ FLATS = {
     "graveyard_tee": ("flat_a", "bl", [("32_graveyard_front", 520, 1325, 12, 29.5)]),
     "owl_hoodie": ("flat_b", "bl", [("33_owl_chest", 640, 1380, 3.5, 31.7)]),
     "owl_hoodie_back": ("flat_c", "bl", [("33_owl_back", 505, 1400, 12, 31)]),
+    "burnout_hoodie": ("flat_b", "bl", [("34_burnout_front", 515, 1300, 11, 31.7)]),
+    "burnout_hoodie_back": ("flat_c", "bl", [("34_burnout_back", 505, 1400, 12, 31)]),
+    "chrome_hoodie": ("flat_b", "bl", [("35_chrome_front", 515, 1310, 11, 31.7)]),
+    "chrome_hoodie_back": ("flat_c", "bl", [("35_chrome_back", 505, 1400, 12, 31)]),
+    "nosleep_hoodie": ("flat_b", "bl", [("36_nosleep_front", 640, 1380, 3.5, 31.7)]),
+    "nosleep_hoodie_back": ("flat_c", "bl", [("36_nosleep_back", 505, 1400, 12, 31)]),
 }
 
 MODELS = {
@@ -93,6 +99,9 @@ MODELS = {
     "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("30_hazard2_back", 1750, 830, 13, 17.5, None)]),
     "racing_tee": ("model_a", (1271, 120, 2071, 1120), [("31_racing_front", 1671, 422, 12, 16.4, None)]),
     "graveyard_tee": ("model_b", (744, 150, 1544, 1150), [("32_graveyard_front", 1144, 476, 12, 17.9, None)]),
+    "burnout_hoodie": ("model_e", (1350, 250, 2150, 1250), [("34_burnout_back", 1750, 830, 13, 17.5, None)]),
+    "chrome_hoodie": ("model_e", (1350, 250, 2150, 1250), [("35_chrome_back", 1750, 830, 13, 17.5, None)]),
+    "nosleep_hoodie": ("model_e", (1350, 250, 2150, 1250), [("36_nosleep_back", 1750, 830, 13, 17.5, None)]),
 }
 
 
@@ -128,6 +137,9 @@ POSES = {
     "racing_garage": ("pose_garage", (100, 120, 1692, 2110), [("31_racing_front", 936, 885, 12, 22, "light")], "racing_tee"),
     "graveyard_laundro": ("pose_laundro", (100, 120, 1692, 2110), [("32_graveyard_front", 954, 765, 12, 25.4, "dark")], "graveyard_tee"),
     "owl_roof": ("pose_roof", (100, 120, 1692, 2110), [("33_owl_back", 945, 940, 13, 18, "dark")], "owl_hoodie"),
+    "burnout_bodega": ("pose_bodega", (100, 120, 1692, 2110), [("34_burnout_front", 908, 700, 11, 26, "dark")], "burnout_hoodie"),
+    "chrome_alley": ("pose_alley", (0, 500, 1536, 2420), [("35_chrome_back", 786, 1275, 12, 21, "dark")], "chrome_hoodie"),
+    "nosleep_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("36_nosleep_back", 916, 815, 13, 16.9, "dark")], "nosleep_hoodie"),
 }
 
 
