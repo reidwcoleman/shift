@@ -442,11 +442,11 @@
     {key:"graveyard_tee", cat:"TEES", name:"GRAVEYARD SHIFT TEE", price:48, badge:"NEW", imgs:["graveyard_laundro","graveyard_tee_model","graveyard_tee_flat"], desc:"Black tee. Death's-head moth over a lit lantern and a cracked moon. The lights stay on.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"graveyard-shift-tee"},
     {key:"burnout_hoodie", cat:"HOODIES", name:"BURNOUT HOODIE", price:108, badge:"NEW", imgs:["burnout_bodega","burnout_hoodie_model","burnout_hoodie_flat","burnout_hoodie_back_flat"], desc:"Black heavyweight hoodie. Flaming gothic SHIFT across the chest, a pocket watch burning inside a star across the back. Time burns.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"burnout-hoodie"},
     {key:"chrome_hoodie", cat:"HOODIES", name:"CHROME HOODIE", price:108, badge:"NEW", imgs:["chrome_alley","chrome_hoodie_model","chrome_hoodie_flat","chrome_hoodie_back_flat"], desc:"Black heavyweight hoodie. Liquid-chrome dripping SHIFT on the chest, Night Shift Division arch on the back. No sleep, no reverse.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"chrome-hoodie"},
-    {key:"nosleep_hoodie", cat:"HOODIES", name:"NO SLEEP HOODIE", price:108, badge:"NEW", imgs:["nosleep_hoodback","nosleep_hoodie_model","nosleep_hoodie_back_flat","nosleep_hoodie_flat"], desc:"Washed black hoodie. Halo'd SHIFT throwie on the chest, fat NO SLEEP graffiti with a crown across the back.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"no-sleep-hoodie"},
+    {key:"nosleep_hoodie", cat:"HOODIES", name:"NO SLEEP HOODIE", price:108, badge:"NEW", imgs:["nosleep_shutter","nosleep_hoodback","nosleep_hoodie_model","nosleep_hoodie_back_flat","nosleep_hoodie_flat"], desc:"Washed black hoodie. Halo'd SHIFT throwie on the chest, fat NO SLEEP graffiti with a crown across the back.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"no-sleep-hoodie"},
     {key:"owl_hoodie", cat:"HOODIES", name:"NIGHT OWL HOODIE", price:98, badge:"NEW", imgs:["owl_roof","owl_hoodie_back_flat","owl_hoodie_flat"], desc:"Black heavyweight hoodie. Owl on the moon, pocket watch in its talons, across the back. Small owl on the chest.", spec:"450 GSM · 80/20 fleece · boxy", url:SHOP+"night-owl-hoodie"},
     {key:"league_tee", cat:"TEES", name:"LEAGUE TEE", price:48, badge:"HERO", imgs:["league_lean","league_tee_model","league_tee_flat"], desc:"Cardinal red, worn-in varsity arch and a three-color tiger crest. Est. 2002.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"league-tee"},
     {key:"cross_tee", cat:"TEES", name:"TIME IS MONEY TEE", price:48, badge:"", imgs:["cross_squat","cross_tee_model","cross_tee_flat"], desc:"Black tee. A cross built from time cards and dollar bills, stamped LATE. Old English Shift.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"time-is-money-tee"},
-    {key:"tigers_tee", cat:"TEES", name:"TWIN TIGERS TEE", price:48, badge:"", imgs:["tigers_stairs","tigers_tee_model","tigers_tee_flat"], desc:"Natural tee. Two tigers and a pocket watch in sun-faded sepia and rust. Every hour counts.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"twin-tigers-tee"},
+    {key:"tigers_tee", cat:"TEES", name:"TWIN TIGERS TEE", price:48, badge:"", imgs:["tigers_stoop","tigers_stairs","tigers_tee_model","tigers_tee_flat"], desc:"Natural tee. Two tigers and a pocket watch in sun-faded sepia and rust. Every hour counts.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"twin-tigers-tee"},
     {key:"sundial_tee", cat:"TEES", name:"SUNDIAL TEE", price:48, badge:"", imgs:["sundial_walk","sundial_tee_model","sundial_tee_flat"], desc:"Bone tee. Two-color sun face and sundial, circled by Shift Worldwide / Every Hour Counts.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"sundial-tee"},
     {key:"emblem_tee", cat:"TEES", name:"EMBLEM TEE", price:52, badge:"", imgs:["emblem_squat","emblem_tee_model","emblem_tee_back_flat"], desc:"Black tee. Small emblem on the chest, iron-cross tiger across the back. The shift never ends.", spec:"250 GSM · 100% cotton · boxy", url:SHOP+"emblem-tee"},
     {key:"overtime_thermal", cat:"LONG SLEEVE", name:"OVERTIME LONG SLEEVE", price:58, badge:"", imgs:["overtime_car","overtime_thermal_model","overtime_thermal_flat"], desc:"Black heavyweight long sleeve. Chrome-and-pink script with drips, crown over the S.", spec:"250 GSM · 100% cotton · relaxed", url:SHOP+"overtime-long-sleeve"},
@@ -456,7 +456,7 @@
     {key:"mesh_shorts", cat:"SHORTS", name:"DIVISION MESH SHORTS", price:44, badge:"SOON", imgs:["mesh_shorts_model","mesh_shorts_flat"], desc:"Black mesh shorts. NSD shield on one leg, wordmark and stars on the other. Drop 002.", spec:"145 GSM · 100% poly mesh", url:"#list"},
   ];
   const LOOK = [
-    ["burnout_bodega","BURNOUT","a"],["racing_garage","SHIFT RACING","b"],["chrome_alley","CHROME","e"],["graveyard_laundro","GRAVEYARD SHIFT","b"],["league_tee_flat","LEAGUE","c"],["tigers_stairs","TWIN TIGERS","e"],
+    ["burnout_bodega","BURNOUT","a"],["tigers_stoop","TWIN TIGERS","b"],["racing_garage","SHIFT RACING","b"],["nosleep_shutter","NO SLEEP","e"],["chrome_alley","CHROME","e"],["graveyard_laundro","GRAVEYARD SHIFT","b"],["league_tee_flat","LEAGUE","c"],["tigers_stairs","TWIN TIGERS","e"],
     ["owl_roof","NIGHT OWL","d"],["cross_squat","TIME IS MONEY","b"],["sundial_walk","SUNDIAL","e"],["league_lean","LEAGUE","c"],
     ["overtime_car","OVERTIME","b"],["hazard_hoodback","HAZARD","c"],["emblem_squat","EMBLEM","e"],["collage_walk","NEVER ENDS","b"],["group_a","GOLDEN HOUR","c"],
   ];
@@ -467,7 +467,7 @@
     {key:"owl_hoodie", name:"NIGHT OWL", sub:"OWL · POCKET WATCH · BACK PRINT", price:98, a:"owl_roof", b:"owl_hoodie_back_flat", tag:"NEW", url:SHOP+"night-owl-hoodie"},
     {key:"hazard_hoodie", name:"HAZARD", sub:"DIAMOND BADGE · BEACON BACK", price:98, a:"hazard_hoodback", b:"hazard_hoodie_flat", tag:"LAST CALL", url:SHOP+"hazard-hoodie"},
   ];
-  const IG = ["burnout_bodega","chrome_alley","racing_garage","graveyard_laundro","owl_roof","nosleep_hoodback"];
+  const IG = ["tigers_stoop","burnout_bodega","chrome_alley","nosleep_shutter","racing_garage","graveyard_laundro"];
   const FAQ = [
     ["When does it drop?", "First Shift opens on the date at the top of this page at 11:59 PM ET and closes exactly 48 hours later. The list gets the password one hour early."],
     ["Will you restock?", "No. Thirty-six of each tee, twenty-four of each hoodie. When a size is gone it's gone. That's the whole point of a drop."],
@@ -537,7 +537,7 @@
   tick(); setInterval(tick, 1000);
 
   // hero slideshow
-  const HERO = ["burnout_bodega","racing_garage","chrome_alley","graveyard_laundro","owl_roof"]; let hi = 0;
+  const HERO = ["burnout_bodega","tigers_stoop","racing_garage","nosleep_shutter","chrome_alley","graveyard_laundro","owl_roof"]; let hi = 0;
   const heroimg = document.getElementById("heroimg");
   setInterval(()=>{ hi = (hi+1) % HERO.length; heroimg.classList.remove("in"); setTimeout(()=>{ heroimg.src = P(HERO[hi]); heroimg.onload = ()=>heroimg.classList.add("in"); }, 700); }, 7000);
 

@@ -149,6 +149,8 @@ POSES = {
     "burnout_bodega": ("pose_bodega", (100, 120, 1692, 2110), [("34_burnout_front", (908, 900), "dark", 11, "center", 3.0, 622, 26)], "burnout_hoodie"),
     "chrome_alley": ("pose_alley", (0, 500, 1536, 2420), [("35_chrome_back", (786, 1500), "dark", 12, "center", 3.0, 1212, 21)], "chrome_hoodie"),
     "nosleep_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("36_nosleep_back", (916, 1000), "dark", 13, "center", 3.0, 764, 17)], "nosleep_hoodie"),
+    "tigers_stoop": ("pose_stoop", (100, 120, 1692, 2110), [("21_tigers_front", (796, 1194), "light", 12, "center", 3.0, None, None)], "tigers_tee"),
+    "nosleep_shutter": ("pose_shutter", (100, 120, 1692, 2110), [("36_nosleep_front", (915, 796), "dark", 3.5, "left", 2.5, 600, 21)], "nosleep_hoodie"),
 }
 
 # model group shots: (blank, crop, [(print, seed, kind, width_in, side, drop_in, collar_override, ppi_override)])

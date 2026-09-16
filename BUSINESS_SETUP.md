@@ -22,6 +22,13 @@ Everything below is in order. Total time to be live: one evening.
 
 ---
 
+## Status (2026-09-15, night) — everything is live
+
+- **Fourthwall: 15 products Public.** New today: Night Owl Hoodie ($98), Burnout / Chrome / No Sleep Hoodies ($108), Shift Racing Tee and Graveyard Shift Tee ($48) — all at the handles the site links to. Hazard Hoodie stays up as "last call". Store status is still **Coming soon** — flip it to Live in Site design when you want the buttons to work.
+- **Instagram: 10 posts** (carousels 01–09 + the desk shot). Bio now says 15 pieces + the site link. Next posts should be one a day, not a dump.
+- **Photos are printer-accurate now.** `tools/fit.py` finds the garment in each photo, measures the torso, and places every print centred on the body, 3 in below the collar, scaled from the real chest width (left-chest badges 4 in off centre). Hoodie backs use a measured hood-seam line. Prints are perspective-warped to the torso, displaced by the folds and given the cloth's weave, so they no longer look pasted on.
+- Slogan: **"For the hours nobody sees."** (hero, campaign band, ticker, footer, IG bio).
+
 ## Status (2026-09-15, later)
 
 - **Three more hoodies, not yet on Fourthwall:** Burnout (`34_burnout_front` 11 in chest at y=2 + `34_burnout_back` 13×16), Chrome (`35_chrome_front` 11 in chest + `35_chrome_back` 13×16), No Sleep (`36_nosleep_front` 3.5 in left chest x=9.25 y=0.6 + `36_nosleep_back` 13×16). Blank: the same black hoodie as Hazard (Independent / Gildan 18500). Price **$108**. Handles the site links to: `burnout-hoodie`, `chrome-hoodie`, `no-sleep-hoodie`.
