@@ -73,6 +73,20 @@
   .hero .tag{position:absolute;right:var(--gutter);top:120px;text-align:right;font-family:var(--bebas);letter-spacing:.24em;font-size:13px;color:var(--bone2);line-height:1.9}
   .hero .tag b{display:block;font-family:var(--anton);font-size:40px;letter-spacing:0;color:var(--bone);line-height:1}
 
+
+  /* campaign band */
+  .camp{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#000;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .camp figure{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden}
+  .camp figure img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:saturate(.92);transition:transform 1.6s var(--ease)}
+  .camp figure:hover img{transform:scale(1.04)}
+  .camp figure::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent 45%)}
+  .camp .cap{position:absolute;left:18px;bottom:16px;z-index:2;font-family:var(--bebas);letter-spacing:.24em;font-size:13px;color:var(--bone2)}
+  .camp .cap b{display:block;font-family:var(--anton);font-size:26px;letter-spacing:0;color:var(--bone);margin-bottom:4px}
+  .camp .slog{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:3;text-align:center;padding:0 var(--gutter)}
+  .camp .slog span{font-family:var(--goth);font-weight:700;font-size:clamp(40px,7vw,120px);line-height:.95;color:var(--bone);text-shadow:0 10px 50px rgba(0,0,0,.8)}
+  .camp .slog small{display:block;font-family:var(--bebas);letter-spacing:.35em;font-size:14px;color:var(--gold);margin-top:16px}
+  @media (max-width:760px){ .camp{grid-template-columns:1fr 1fr} .camp figure:nth-child(3){display:none} }
+
   /* generic section head */
   .sec{padding-block:clamp(64px,9vw,128px) 30px}
   .sec .row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
@@ -119,6 +133,8 @@
   .card .badge.ghost{background:rgba(0,0,0,.6);backdrop-filter:blur(6px)} .card .badge.gold{background:var(--gold);color:var(--ink)}
   .card .meta{display:flex;justify-content:space-between;align-items:baseline;padding:16px 16px 6px;gap:10px}
   .card h3{margin:0;font-family:var(--bebas);font-size:23px;letter-spacing:.08em;line-height:1}
+  .card .num{position:absolute;top:12px;right:12px;font-family:var(--bebas);letter-spacing:.2em;font-size:12px;color:var(--bone2);background:rgba(0,0,0,.5);padding:5px 8px;backdrop-filter:blur(6px);z-index:2}
+  .card .run{font-family:var(--bebas);letter-spacing:.18em;font-size:12px;color:var(--gold);margin-top:6px;display:block}
   .card .desc{padding:0 16px 14px;color:var(--concrete);font-size:13px;line-height:1.5;flex:1}
   .card .desc .spec{display:block;margin-top:8px;font-family:var(--bebas);letter-spacing:.14em;font-size:12px;color:var(--bone2)}
   .card .buy{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-family:var(--bebas);letter-spacing:.2em;font-size:17px;border-top:1px solid var(--line);transition:background .2s,color .2s}
@@ -279,6 +295,13 @@
     </div>
   </div>
 </header>
+
+<div class="camp rv">
+  <figure><img src="assets/photos/fs/burnout_bodega.jpg" alt="Burnout Hoodie" loading="lazy"><div class="cap"><b>BURNOUT</b>THE BODEGA · 2:14 AM</div></figure>
+  <figure><img src="assets/photos/fs/graveyard_laundro.jpg" alt="Graveyard Shift Tee" loading="lazy"><div class="cap"><b>GRAVEYARD SHIFT</b>24HR LAUNDROMAT · 1:40 AM</div></figure>
+  <figure><img src="assets/photos/fs/chrome_alley.jpg" alt="Chrome Hoodie" loading="lazy"><div class="cap"><b>CHROME</b>THE ALLEY · 11:58 PM</div></figure>
+  <div class="slog"><div><span>For the hours<br>nobody sees.</span><small>NIGHT SHIFT DIVISION · EST. 2002</small></div></div>
+</div>
 
 <section class="wrap sec rv" id="new">
   <div class="row">
@@ -480,13 +503,14 @@
   document.getElementById("grid").innerHTML = PRODUCTS.map((p,i) => `
     <article class="card rv" style="transition-delay:${(i%4)*70}ms" data-key="${p.key}" data-cat="${p.cat}">
       ${p.badge ? `<span class="badge ${p.badge==='HERO'?'':p.badge==='NEW'?'gold':'ghost'}">${p.badge}</span>` : ""}
+      <span class="num">${String(i+1).padStart(2,"0")} / ${PRODUCTS.length}</span>
       <div class="img gal" data-n="${p.imgs.length}" data-i="0">
         ${p.imgs.map((f,j)=>`<img src="${P(f)}" alt="${p.name}" loading="lazy" class="${j?(j===1?'peek':''):'on'}">`).join("")}
         <button class="nav prev" aria-label="previous" onclick="gal(this,-1,event)">‹</button><button class="nav next" aria-label="next" onclick="gal(this,1,event)">›</button>
         <div class="dots">${p.imgs.map((_,j)=>`<i class="${j?'':'on'}"></i>`).join("")}</div>
       </div>
       <div class="meta"><h3>${p.name}</h3><span class="price">$${p.price}</span></div>
-      <div class="desc">${p.desc}<span class="spec">${p.spec}</span></div>
+      <div class="desc">${p.desc}<span class="spec">${p.spec}</span><span class="run">${p.cat==="HOODIES"?"24 MADE":"36 MADE"} · NEVER RESTOCKED</span></div>
       <a class="buy" href="${p.url}" data-buy="${p.key}">${p.url.startsWith('#') ? 'NOTIFY ME' : 'BUY'}</a>
     </article>`).join("");
   window.gal = (btn, d, ev) => { ev.preventDefault(); ev.stopPropagation(); const g = btn.parentElement, n = +g.dataset.n; let i = (+g.dataset.i + d + n) % n; g.dataset.i = i;
