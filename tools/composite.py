@@ -33,11 +33,20 @@ def place(base, print_name, cx, top, width_in, ppi, opacity=0.96, patch=None, ma
         mask = mask.filter(ImageFilter.GaussianBlur(6))
         base.paste(Image.new("RGB", mask.size, col), (px - 20, py - 20), mask)
         region = base.crop((x0, y0, x0 + w, y0 + h)).convert("RGB")
-    lum = np.asarray(ImageOps.grayscale(region).filter(ImageFilter.GaussianBlur(3))).astype(float) / 255
+    g = ImageOps.grayscale(region)
+    raw = np.asarray(g).astype(float) / 255
+    lum = np.asarray(g.filter(ImageFilter.GaussianBlur(3))).astype(float) / 255
     med = max(np.median(lum), 0.05)
     shade = np.clip(lum / med, 0.5, 1.4)[..., None]
     a = np.asarray(art).astype(float)
-    rgb = np.clip(a[..., :3] * shade, 0, 255)
+    # fold displacement + weave: push the ink around by the cloth's gradient and add its texture back
+    blur = np.asarray(g.filter(ImageFilter.GaussianBlur(6))).astype(float) / 255
+    gy, gx = np.gradient(blur)
+    yy, xx = np.mgrid[0:h, 0:w]
+    ix = np.clip(xx - gx * 80, 0, w - 1).astype(int); iy = np.clip(yy - gy * 80, 0, h - 1).astype(int)
+    a = a[iy, ix]
+    weave = (raw - lum)[..., None] * 255 * 0.8
+    rgb = np.clip(a[..., :3] * shade + weave, 0, 255)
     alpha = a[..., 3:4] / 255 * opacity
     if mask:  # occlusion: only paint where the garment is (hands, chains, hair stay on top)
         hsv = np.asarray(region.convert("HSV")).astype(float)
@@ -124,33 +133,66 @@ def retro(im, seed=1, warmth=1.0):
     return Image.fromarray((a * 255).astype("uint8"), "RGB")
 
 
+# name: (blank, crop, [(print, seed, kind, width_in, side, drop_in, collar_override, ppi_override)], product)
 POSES = {
-    # name: (blank, crop, [(print, cx, top, width_in, ppi, mask)], product)
-    "league_lean": ("pose_lean", (300, 120, 1556, 1690), [("20_league_front", 916, 640, 12, 19.3, "red")], "league_tee"),
-    "cross_squat": ("pose_squat", (250, 150, 1650, 1900), [("22_cross_front", 964, 855, 12, 35, "dark")], "cross_tee"),
-    "tigers_stairs": ("pose_stairs", (250, 100, 1650, 1850), [("21_tigers_front", 988, 790, 12, 26, "light")], "tigers_tee"),
-    "sundial_walk": ("pose_walk", (300, 100, 1556, 1670), [("23_sundial_front", 952, 735, 12, 22.7, "light")], "sundial_tee"),
-    "hazard_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("30_hazard2_back", 916, 815, 13, 16.9, "dark")], "hazard_hoodie"),
-    "overtime_car": ("pose_car", (250, 250, 1650, 2000), [("24_thermal_front", 964, 837, 11, 19.2, "dark")], "overtime_thermal"),
-    "emblem_squat": ("pose_squat", (250, 150, 1650, 1900), [("29_emblem_chest", 1136, 860, 3.5, 35, "dark")], "emblem_tee"),
-    "collage_walk": ("pose_walk", (300, 100, 1556, 1670), [("25_collage_front", 952, 735, 12, 22.7, "light")], "collage_thermal"),
-    "racing_garage": ("pose_garage", (100, 120, 1692, 2110), [("31_racing_front", 936, 885, 12, 22, "light")], "racing_tee"),
-    "graveyard_laundro": ("pose_laundro", (100, 120, 1692, 2110), [("32_graveyard_front", 954, 765, 12, 25.4, "dark")], "graveyard_tee"),
-    "owl_roof": ("pose_roof", (100, 120, 1692, 2110), [("33_owl_back", 945, 940, 13, 18, "dark")], "owl_hoodie"),
-    "burnout_bodega": ("pose_bodega", (100, 120, 1692, 2110), [("34_burnout_front", 908, 700, 11, 26, "dark")], "burnout_hoodie"),
-    "chrome_alley": ("pose_alley", (0, 500, 1536, 2420), [("35_chrome_back", 786, 1275, 12, 21, "dark")], "chrome_hoodie"),
-    "nosleep_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("36_nosleep_back", 916, 815, 13, 16.9, "dark")], "nosleep_hoodie"),
+    "league_lean": ("pose_lean", (300, 120, 1556, 1690), [("20_league_front", (916, 780), "red", 12, "center", 3.0, 582, 19.3)], "league_tee"),
+    "cross_squat": ("pose_squat", (250, 150, 1650, 1900), [("22_cross_front", (964, 1000), "dark", 12, "center", 3.0, None, None)], "cross_tee"),
+    "tigers_stairs": ("pose_stairs", (250, 100, 1650, 1850), [("21_tigers_front", (988, 950), "light", 12, "center", 3.0, None, None)], "tigers_tee"),
+    "sundial_walk": ("pose_walk", (300, 100, 1556, 1670), [("23_sundial_front", (952, 900), "light", 12, "center", 3.0, 667, 22.7, 952)], "sundial_tee"),
+    "hazard_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("30_hazard2_back", (916, 1000), "dark", 13, "center", 3.0, 764, 17)], "hazard_hoodie"),
+    "overtime_car": ("pose_car", (250, 250, 1650, 2000), [("24_thermal_front", (964, 1000), "dark", 11, "center", 3.0, None, None)], "overtime_thermal"),
+    "emblem_squat": ("pose_squat", (250, 150, 1650, 1900), [("29_emblem_chest", (964, 1000), "dark", 3.5, "left", 2.5, None, None)], "emblem_tee"),
+    "collage_walk": ("pose_walk", (300, 100, 1556, 1670), [("25_collage_front", (952, 900), "light", 12, "center", 3.0, 667, 22.7, 952)], "collage_thermal"),
+    "racing_garage": ("pose_garage", (100, 120, 1692, 2110), [("31_racing_front", (936, 1000), "light", 12, "center", 3.0, None, None)], "racing_tee"),
+    "graveyard_laundro": ("pose_laundro", (100, 120, 1692, 2110), [("32_graveyard_front", (954, 900), "dark", 12, "center", 3.0, None, None)], "graveyard_tee"),
+    "owl_roof": ("pose_roof", (100, 120, 1692, 2110), [("33_owl_back", (945, 1150), "dark", 13, "center", 3.0, 886, 18)], "owl_hoodie"),
+    "burnout_bodega": ("pose_bodega", (100, 120, 1692, 2110), [("34_burnout_front", (908, 900), "dark", 11, "center", 3.0, 622, 26)], "burnout_hoodie"),
+    "chrome_alley": ("pose_alley", (0, 500, 1536, 2420), [("35_chrome_back", (786, 1500), "dark", 12, "center", 3.0, 1212, 21)], "chrome_hoodie"),
+    "nosleep_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("36_nosleep_back", (916, 1000), "dark", 13, "center", 3.0, 764, 17)], "nosleep_hoodie"),
 }
+
+# model group shots: (blank, crop, [(print, seed, kind, width_in, side, drop_in, collar_override, ppi_override)])
+MODELS2 = {
+    "league_tee": ("model_a", (725, 120, 1525, 1120), [("20_league_front", (1125, 560), "red", 12, "center", 3.0, None, None)]),
+    "tigers_tee": ("model_a", (1271, 120, 2071, 1120), [("21_tigers_front", (1671, 550), "light", 12, "center", 3.0, None, None)]),
+    "racing_tee": ("model_a", (1271, 120, 2071, 1120), [("31_racing_front", (1671, 550), "light", 12, "center", 3.0, None, None)]),
+    "cross_tee": ("model_b", (744, 150, 1544, 1150), [("22_cross_front", (1144, 600), "dark", 12, "center", 3.0, None, None)]),
+    "graveyard_tee": ("model_b", (744, 150, 1544, 1150), [("32_graveyard_front", (1144, 600), "dark", 12, "center", 3.0, None, None)]),
+    "emblem_tee": ("model_b", (744, 150, 1544, 1150), [("29_emblem_chest", (1144, 600), "dark", 3.5, "left", 2.5, None, None)]),
+    "sundial_tee": ("model_b", (1271, 150, 2071, 1150), [("23_sundial_front", (1671, 600), "light", 12, "center", 3.0, None, None)]),
+    "overtime_thermal": ("model_c", (787, 130, 1587, 1130), [("24_thermal_front", (1187, 560), "dark", 11, "center", 3.0, None, None)]),
+    "collage_thermal": ("model_c", (1202, 130, 2002, 1130), [("25_collage_front", (1602, 560), "light", 12, "center", 3.0, None, None)]),
+    "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("30_hazard2_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
+    "owl_hoodie": ("model_e", (1350, 250, 2150, 1250), [("33_owl_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
+    "burnout_hoodie": ("model_e", (1350, 250, 2150, 1250), [("34_burnout_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
+    "chrome_hoodie": ("model_e", (1350, 250, 2150, 1250), [("35_chrome_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
+    "nosleep_hoodie": ("model_e", (1350, 250, 2150, 1250), [("36_nosleep_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
+}
+
+
+def fit_all(im, places):
+    from fit import fit_print
+    for pl in places:
+        pr, seed, kind, win, side, drop, collar, ppi = pl[:8]; cx = pl[8] if len(pl) > 8 else None
+        try: fit_print(im, pr, seed, kind, width_in=win, drop_in=drop, side=side, collar=collar, ppi=ppi, cx=cx)
+        except Exception as e: print("   !", pr, e)
 
 
 def run_poses():
     for name, (bn, box, places, prod) in POSES.items():
         im = Image.open(os.path.join(BL, bn + ".png")).convert("RGB")
-        for pr, cx, top, win, ppi, mask in places:
-            place(im, pr, cx, top, win, ppi, mask=mask)
-        out = retro(im.crop(box), seed=hash(name) % 1000)
+        fit_all(im, places)
+        out = retro(im.crop(box), seed=abs(hash(name)) % 1000)
         out.save(os.path.join(OUT, f"{name}.jpg"), quality=92)
         print("  pose", name)
+
+
+def run_models():
+    for prod, (bn, box, places) in MODELS2.items():
+        im = Image.open(os.path.join(BL, bn + ".png")).convert("RGB")
+        fit_all(im, places)
+        retro(im.crop(box), seed=len(prod)).save(os.path.join(OUT, f"{prod}_model.jpg"), quality=92)
+        print("  model", prod)
 
 
 def run():
@@ -163,17 +205,16 @@ def run():
         for pr, cx, top, win, ppi in places: place(im, pr, cx, top, win, ppi)
         quadrant(im, q).save(os.path.join(OUT, f"{prod}_flat.jpg"), quality=92)
         print("  flat", prod)
-    for prod, (bn, box, places) in MODELS.items():
+    for prod in ("mesh_shorts", "sweat_shorts"):
+        bn, box, places = MODELS[prod]
         im = blank(bn)
         for pr, cx, top, win, ppi, patch in places: place(im, pr, cx, top, win, ppi, patch=patch)
         retro(im.crop(box), seed=len(prod)).save(os.path.join(OUT, f"{prod}_model.jpg"), quality=92)
-        print("  model", prod)
+    run_models()
     # the shared group shots with prints applied
-    for bn, spec in (("model_a", ["league_tee", "tigers_tee"]), ("model_b", ["cross_tee", "sundial_tee"]), ("model_c", ["overtime_thermal", "collage_thermal"]),
-                     ("model_d", ["mesh_shorts", "sweat_shorts"]), ("model_e", ["hazard_hoodie"])):
+    for bn, spec in (("model_a", ["league_tee", "tigers_tee"]), ("model_b", ["cross_tee", "sundial_tee"]), ("model_c", ["overtime_thermal", "collage_thermal"]), ("model_e", ["burnout_hoodie"])):
         im = blank(bn)
-        for prod in spec:
-            for pr, cx, top, win, ppi, patch in MODELS[prod][2]: place(im, pr, cx, top, win, ppi, patch=patch)
+        for prod in spec: fit_all(im, MODELS2[prod][2])
         retro(im, seed=7).save(os.path.join(OUT, f"group_{bn[-1]}.jpg"), quality=90)
     print("done")
 
