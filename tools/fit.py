@@ -78,7 +78,7 @@ def find_coeffs(src, dst):
     return np.linalg.solve(A, B)
 
 
-def fit_print(base, print_name, seed, kind, width_in=12.0, drop_in=3.0, chest_in=24.0,
+def fit_print(base, print_name, seed, kind, width_in=12.0, drop_in=2.6, chest_in=20.0,
               opacity=0.94, curve=0.06, displace=2.5, side="center", chest_offset_in=4.0, collar=None, ppi=None, cx=None):
     """Place designs/print_worn/<print_name>.png on the garment under `seed` in `base` (RGB, modified in place).
     side: center | left (wearer's left chest badge)"""

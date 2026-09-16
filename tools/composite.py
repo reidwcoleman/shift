@@ -135,21 +135,21 @@ def retro(im, seed=1, warmth=1.0):
 
 # name: (blank, crop, [(print, seed, kind, width_in, side, drop_in, collar_override, ppi_override)], product)
 POSES = {
-    "league_lean": ("pose_lean", (300, 120, 1556, 1690), [("20_league_front", (916, 780), "red", 12, "center", 3.0, 582, 19.3)], "league_tee"),
+    "league_lean": ("pose_lean", (300, 120, 1556, 1690), [("20_league_front", (916, 780), "red", 12, "center", 2.6, 585, 23, 905)], "league_tee"),
     "cross_squat": ("pose_squat", (250, 150, 1650, 1900), [("22_cross_front", (964, 1000), "dark", 12, "center", 3.0, None, None)], "cross_tee"),
-    "tigers_stairs": ("pose_stairs", (250, 100, 1650, 1850), [("21_tigers_front", (988, 950), "light", 12, "center", 3.0, None, None)], "tigers_tee"),
-    "sundial_walk": ("pose_walk", (300, 100, 1556, 1670), [("23_sundial_front", (952, 900), "light", 12, "center", 3.0, 667, 22.7, 952)], "sundial_tee"),
-    "hazard_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("30_hazard2_back", (916, 1000), "dark", 13, "center", 3.0, 764, 17)], "hazard_hoodie"),
+    "tigers_stairs": ("pose_stairs", (250, 100, 1650, 1850), [("21_tigers_front", (988, 950), "light", 12, "center", 2.6, None, 22, None)], "tigers_tee"),
+    "sundial_walk": ("pose_walk", (300, 100, 1556, 1670), [("23_sundial_front", (952, 900), "light", 12, "center", 2.6, 667, 24, 950)], "sundial_tee"),
+    "hazard_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("30_hazard2_back", (916, 1000), "dark", 13, "center", 2.6, 764, 19.5, None)], "hazard_hoodie"),
     "overtime_car": ("pose_car", (250, 250, 1650, 2000), [("24_thermal_front", (964, 1000), "dark", 11, "center", 3.0, None, None)], "overtime_thermal"),
     "emblem_squat": ("pose_squat", (250, 150, 1650, 1900), [("29_emblem_chest", (964, 1000), "dark", 3.5, "left", 2.5, None, None)], "emblem_tee"),
-    "collage_walk": ("pose_walk", (300, 100, 1556, 1670), [("25_collage_front", (952, 900), "light", 12, "center", 3.0, 667, 22.7, 952)], "collage_thermal"),
+    "collage_walk": ("pose_walk", (300, 100, 1556, 1670), [("25_collage_front", (952, 900), "light", 12, "center", 2.6, 667, 24, 940)], "collage_thermal"),
     "racing_garage": ("pose_garage", (100, 120, 1692, 2110), [("31_racing_front", (936, 1000), "light", 12, "center", 3.0, None, None)], "racing_tee"),
-    "graveyard_laundro": ("pose_laundro", (100, 120, 1692, 2110), [("32_graveyard_front", (954, 900), "dark", 12, "center", 3.0, None, None)], "graveyard_tee"),
-    "owl_roof": ("pose_roof", (100, 120, 1692, 2110), [("33_owl_back", (945, 1150), "dark", 13, "center", 3.0, 886, 18)], "owl_hoodie"),
-    "burnout_bodega": ("pose_bodega", (100, 120, 1692, 2110), [("34_burnout_front", (908, 900), "dark", 11, "center", 3.0, 622, 26)], "burnout_hoodie"),
-    "chrome_alley": ("pose_alley", (0, 500, 1536, 2420), [("35_chrome_back", (786, 1500), "dark", 12, "center", 3.0, 1212, 21)], "chrome_hoodie"),
-    "nosleep_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("36_nosleep_back", (916, 1000), "dark", 13, "center", 3.0, 764, 17)], "nosleep_hoodie"),
-    "tigers_stoop": ("pose_stoop", (100, 120, 1692, 2110), [("21_tigers_front", (796, 1194), "light", 12, "center", 3.0, None, None)], "tigers_tee"),
+    "graveyard_laundro": ("pose_laundro", (100, 120, 1692, 2110), [("32_graveyard_front", (954, 900), "dark", 12, "center", 2.6, None, 26, None)], "graveyard_tee"),
+    "owl_roof": ("pose_roof", (100, 120, 1692, 2110), [("33_owl_back", (945, 1150), "dark", 13, "center", 2.6, 886, 20, None)], "owl_hoodie"),
+    "burnout_bodega": ("pose_bodega", (100, 120, 1692, 2110), [("34_burnout_front", (908, 900), "dark", 11, "center", 2.8, 622, 27, None)], "burnout_hoodie"),
+    "chrome_alley": ("pose_alley", (0, 500, 1536, 2420), [("35_chrome_back", (786, 1500), "dark", 13, "center", 2.6, 1212, 22, None)], "chrome_hoodie"),
+    "nosleep_hoodback": ("pose_hoodback", (300, 250, 1556, 1820), [("36_nosleep_back", (916, 1000), "dark", 13, "center", 2.6, 764, 19.5, None)], "nosleep_hoodie"),
+    "tigers_stoop": ("pose_stoop", (100, 120, 1692, 2110), [("21_tigers_front", (796, 1194), "light", 12, "center", 2.6, 955, 27, 816)], "tigers_tee"),
     "nosleep_shutter": ("pose_shutter", (100, 120, 1692, 2110), [("36_nosleep_front", (915, 796), "dark", 3.5, "left", 2.5, 600, 21)], "nosleep_hoodie"),
 }
 
@@ -164,11 +164,11 @@ MODELS2 = {
     "sundial_tee": ("model_b", (1271, 150, 2071, 1150), [("23_sundial_front", (1671, 600), "light", 12, "center", 3.0, None, None)]),
     "overtime_thermal": ("model_c", (787, 130, 1587, 1130), [("24_thermal_front", (1187, 560), "dark", 11, "center", 3.0, None, None)]),
     "collage_thermal": ("model_c", (1202, 130, 2002, 1130), [("25_collage_front", (1602, 560), "light", 12, "center", 3.0, None, None)]),
-    "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("30_hazard2_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
-    "owl_hoodie": ("model_e", (1350, 250, 2150, 1250), [("33_owl_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
-    "burnout_hoodie": ("model_e", (1350, 250, 2150, 1250), [("34_burnout_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
-    "chrome_hoodie": ("model_e", (1350, 250, 2150, 1250), [("35_chrome_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
-    "nosleep_hoodie": ("model_e", (1350, 250, 2150, 1250), [("36_nosleep_back", (1750, 950), "dark", 13, "center", 3.0, 777, 17.5)]),
+    "hazard_hoodie": ("model_e", (1350, 250, 2150, 1250), [("30_hazard2_back", (1750, 950), "dark", 13, "center", 2.6, 745, 19)]),
+    "owl_hoodie": ("model_e", (1350, 250, 2150, 1250), [("33_owl_back", (1750, 950), "dark", 13, "center", 2.6, 745, 19)]),
+    "burnout_hoodie": ("model_e", (1350, 250, 2150, 1250), [("34_burnout_back", (1750, 950), "dark", 13, "center", 2.6, 745, 19)]),
+    "chrome_hoodie": ("model_e", (1350, 250, 2150, 1250), [("35_chrome_back", (1750, 950), "dark", 13, "center", 2.6, 745, 19)]),
+    "nosleep_hoodie": ("model_e", (1350, 250, 2150, 1250), [("36_nosleep_back", (1750, 950), "dark", 13, "center", 2.6, 745, 19)]),
 }
 
 
