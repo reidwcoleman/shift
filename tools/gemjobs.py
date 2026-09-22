@@ -139,6 +139,10 @@ def prep():
 if __name__ == "__main__":
     a = sys.argv[1]
     if a == "prep": prep()
+    elif a == "js":
+        # ready-to-paste JS for the Chrome MCP: insert prompt (verified) + send (verified)
+        t = json.dumps(prompt(sys.argv[2]))
+        print("const t=%s; const ed=document.querySelector('[contenteditable=\"true\"]'); let n=0; for(let k=0;k<4&&ed.innerText.trim().length<500;k++){ ed.focus(); document.execCommand('insertText', false, t); await new Promise(r=>setTimeout(r,800)); n++ } let res='attach:'+document.querySelectorAll('gem-media-attachment').length+' ins:'+n+' len:'+ed.innerText.length; if(ed.innerText.length>500){ for(let k=0;k<6;k++){ const b=[...document.querySelectorAll('button')].find(b=>/send message/i.test(b.getAttribute('aria-label')||'')); if(!b){res+=' nosend'; break;} for(const ev of ['pointerdown','mousedown','pointerup','mouseup','click']) b.dispatchEvent(new MouseEvent(ev,{bubbles:true,cancelable:true,view:window,button:0})); await new Promise(r=>setTimeout(r,4000)); if(ed.innerText.trim().length<50){res+=' sent@'+k; break;} } } res" % t)
     elif a == "list":
         for j in JOBS:
             if not os.path.exists(os.path.join(OUT, j + ".png")): print(j)

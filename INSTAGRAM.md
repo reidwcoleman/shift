@@ -71,3 +71,9 @@ Best posting times for 16–25 guys in the US: 7–9 PM and 11 PM–12 AM local.
 ## 6. Automation later
 
 Once the account is a Creator/Business account and linked to a Facebook Page, the Instagram Graph API can publish photos from a script (`tools/`) — worth it at Drop 002 when you have 100+ posts to schedule. Not worth it for the first 30 days; the in-app scheduler does the job.
+
+## Status 2026-09-21
+
+- Account: **@shift_clothing405** (Creator account). Name "Reid Coleman" (Reid keeps it; name changes are limited to 2 per 14 days and both are used up until ~10-05). Bio (Reid approved 2026-09-21): "For the hours nobody sees. ⇧ / FIRST SHIFT · 10.09 · 11:59 PM ET / 15 pieces. 36 of each. Never restocked. / reidwcoleman.github.io/shift". 12 posts, latest = carousel 10 (League + Twin Tigers, Gemini-placed prints).
+- Web limitations: no post scheduling, no stories, no pinning, no bio-link editing (all mobile-app only). Reid: open the app once to (1) set the website link to the site, (2) pin post 10 + the Burnout carousel, (3) rename the handle to `shift.worldwide`/`shiftworldwide` if free.
+- Old posts 02 (Hazard), 07 (Night Owl), 08 (Burnout/Chrome), 09 (No Sleep) still show the low/small back prints — repost them from the regenerated carousels once the Gemini pass is done (delete old → post new; needs Reid's OK since it deletes posts).
