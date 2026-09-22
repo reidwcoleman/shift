@@ -81,3 +81,15 @@ NO SLEEP HOODIE — halo'd SHIFT throwie on the chest, fat crown-topped NO SLEEP
 
 #shiftworldwide #hoodie #graffiti #streetwear #nosleep #nightshiftdivision #est2002
 ```
+
+## 10_league_tigers
+```
+Every hour counts.
+
+LEAGUE TEE — cardinal red ringer, varsity arch, three-color tiger crest. Est. 2002.
+TWIN TIGERS TEE — two tigers and a pocket watch on natural cream, sun-faded sepia and rust.
+
+250 GSM, boxy. 36 of each. Link in bio.
+
+#shiftworldwide #graphictee #streetwear #vintagetee #ringertee #nightshiftdivision #est2002
+```
